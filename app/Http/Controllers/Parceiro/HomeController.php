@@ -16,6 +16,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // Aqui depois a gente puxa os dados do maluc   / HAHAHA
         return view('parceiro.home');
     }
 
