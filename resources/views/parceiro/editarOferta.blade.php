@@ -4,12 +4,12 @@
  <!-- MAIN HOME -->
       <main class="main flex-grid col">
         <!-- ASIDE -->
-         @include("admin.includes.aside")
+         @include("parceiro.includes.aside")
         <section class="main__content content home flex-grid--wrap col calign-top">
           <!-- TOP -->
           <div class="flex-grid--row-rev--wrap col-12 calign-top mg-30--bottom">
             <!-- BREADCRUMB -->
-            @include('admin.includes.breadcrumb')
+            @include('parceiro.includes.breadcrumb')
             
             <!-- TITLE PAGE -->
             <h1 class="col light font-30 main-title is-sm">Parceiro - Oferta</h1>

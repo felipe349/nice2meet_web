@@ -19,6 +19,10 @@ class HomeController extends Controller
         // Aqui depois a gente puxa os dados do maluc   / HAHAHA
         return view('parceiro.home');
     }
+    
+    public function getLogin(){
+        return view('parceiro.login'); // NAO SEI SE O LOGIN SE ENCAIXA AQUI   
+    }
 
     /**
      * Show the form for creating a new resource.

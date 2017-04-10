@@ -16,4 +16,8 @@ class OfertaController extends Controller
     public function getEditarOferta(){
         return view('parceiro.editarOferta');
     }
+    
+    public function getListarOferta(){
+        return view('parceiro.listagemOferta');
+    }
 }
