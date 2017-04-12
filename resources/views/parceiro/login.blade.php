@@ -1,4 +1,4 @@
-@extends('admin.partials.master')
+@extends('parceiro.partials.master')
 
 @section('content')
   <!-- LOGIN -->
@@ -11,6 +11,7 @@
           </p>
           
           <form class="flex-grid--wrap login__form form shadow pd-20" action="" method="post">
+            {{ csrf_field() }}
             <!-- LOGO SITE -->
             <figure class="flex-grid form__box login__figure">
               <img class="login__img" src="assets/dist/images/logo.png"></img>
@@ -50,7 +51,7 @@
       </section>
       <footer class="footer flex-grid halign-center pd-20">
         <p class="text-center font-small color-white">
-          <a class="link--white" href="http://www.kbrtec.com.br" target="_blank">© Kbrtec</a> - Todos os direitos reservados
+          <a class="link--white" href="#" target="_blank">© Nice2Meet</a> - Todos os direitos reservados
         </p>
       </footer>
     </main>

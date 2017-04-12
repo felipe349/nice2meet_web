@@ -27,12 +27,12 @@
                         </span>
                     </p>
                     <li class="options-item">
-                        <a href="/assets/src/html/parceiro/listagem_ofertas.php" class="link--white">
+                        <a href="/Parceiro/Oferta/" class="link--white">
                             <i class="fa fa-list"></i>Listar
                         </a>
                     </li>
                     <li class="options-item">
-                        <a href="/assets/src/html/parceiro/cadastrar_oferta.php" class="link--white">
+                        <a href="/Parceiro/Oferta/Cadastrar" class="link--white">
                             <i class="fa fa-plus"></i>Cadastrar
                         </a>
                     </li>
@@ -56,12 +56,12 @@
                         </span>
                     </p>
                     <li class="options-item">
-                        <a class='link--white' href="/assets/src/html/parceiro/listagem_cupom.php">
+                        <a class='link--white' href="/Parceiro/Cupom/">
                             <i class="fa fa-list"></i>Listar
                         </a>
                     </li>
                     <li class="options-item">
-                        <a href="/assets/src/html/parceiro/validar_cupom.php" class="link--white">
+                        <a href="/Parceiro/Cupom/Validar" class="link--white">
                             <i class="fa fa-check"></i>Validar
                         </a>
                     </li>
@@ -69,7 +69,7 @@
             </div>
         </li>
         <li class="flex-grid">
-            <a class="flex-grid dashboard-item" href="/assets/src/html/parceiro/home.php">
+            <a class="flex-grid dashboard-item" href="/Parceiro/">
                 <div class="flex-grid dashboard-box">
                     <i class="fa fa-user"></i>
                     <p class="dashboard-hidden item-name">Meus Dados</p>

@@ -3,16 +3,14 @@
 namespace App\Http\Middleware;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 
-class Authenticate
+class RedirectIfNotParceiro
 {
     /**
      * Handle an incoming request.
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
-     * @param  string|null  $guard
      * @return mixed
      */
     public function handle($request, Closure $next, $guard = null)
@@ -21,16 +19,7 @@ class Authenticate
             if ($request->ajax() || $request->wantsJson()) {
                 return response('Unauthorized.', 401);
             } else {
-                switch($guard) {
-                    case 'parceiro' :
-                        return redirect()->guest('Parceiro/login');
-                        break;
-                    case 'admin' :
-                        return redirect()->guest('Admin/login');
-                        break;
-                    default :
-                        redirect()->guest('/');
-                }
+                return redirect()->guest('login');
             }
         }
 

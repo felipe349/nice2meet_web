@@ -14,10 +14,12 @@ class CupomController extends Controller
     }
     
     public function getEditarOferta(){
+        
         return view('parceiro.editarOferta');
     }
     
     public function getValidarCupom(){
+        
         return view('parceiro.validarCupom');
     }
 }
