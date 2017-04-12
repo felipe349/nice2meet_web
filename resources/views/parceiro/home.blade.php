@@ -21,17 +21,17 @@
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Nome Fantasia</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Nome Fantasia"></p>
-                <input class="input col-12" type="text" name="" data-validate="empty" data-name="Nome Fantasia"/>
+                <input class="input col-12" type="text" name="nm_parceiro" data-validate="empty" data-name="Nome Fantasia" value="{{ old('nm_parceiro', $parceiro->nm_parceiro) }}"  />
               </div>
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Email</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Email"></p>
-                <input class="input col-12" type="text" name="" data-validate="empty" data-name="Email" disabled/>
+                <input class="input col-12" type="text" name="email" data-validate="empty" data-name="Email" value="{{ old('email', $parceiro->email) }}" disabled/>
               </div>
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Telefone</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Telefone"></p>
-                <input class="input col-12" type="text" name="" data-validate="empty" data-name="Telefone"/>
+                <input class="input col-12" type="text" name="cd_telefone" data-validate="empty" data-name="Telefone" value="{{ old('cd_telefone', $parceiro->cd_telefone) }}" />
               </div>
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Localização</span>
@@ -53,6 +53,6 @@
 @endsection
 
 @section('js-section')
-  <script src="/assets/dist/js/maps.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr9xSF0eirrxmlGimDWAR9JB-BjLVC5js&libraries=places&callback=initAutocomplete" async defer></script>
+  <script src="/assets/dist/js/maps.js"></script>
 @endsection

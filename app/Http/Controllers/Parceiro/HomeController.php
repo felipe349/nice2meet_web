@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+// Dependency injections
+use Auth;
+
 class HomeController extends Controller
 {
     /**
@@ -16,8 +19,11 @@ class HomeController extends Controller
      */
     public function index()
     {
-        // Aqui depois a gente puxa os dados do maluc   / HAHAHA
-        return view('parceiro.home');
+        $parceiro = Auth::guard('parceiro')->user();
+        
+        return view('parceiro.home')->with([
+            'parceiro'  =>  $parceiro
+        ]);
     }
     
     public function getLogin(){

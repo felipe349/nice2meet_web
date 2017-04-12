@@ -23,7 +23,7 @@ class LoginController extends Controller
             return redirect()->intended('Parceiro/');
             dd('usuário autenticado');
         }
-        return redirect()->back();
+        return redirect()->back()->withErrors(['Nome de usuário ou senha preenchidos incorretamente.']);
     }
     
     public function logout()

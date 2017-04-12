@@ -9,6 +9,13 @@
           <p class="alert--info">
             Bem-vindo, preencha os campos abaixo para efetuar o login.
           </p>
+          @if (!$errors->isEmpty())
+            <div class="alert--danger">
+              @foreach($errors->all() as $erro)
+                <p>{{ $erro }}</p>
+              @endforeach
+            </div>
+          @endif
           
           <form class="flex-grid--wrap login__form form shadow pd-20" action="" method="post">
             {{ csrf_field() }}

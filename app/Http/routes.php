@@ -10,6 +10,7 @@ Route::group(['prefix' => 'Parceiro', 'middleware' => 'auth:parceiro'], function
 {
     // Url: /Parceiro
     Route::get('/', 'Parceiro\HomeController@index');
+    Route::put('/atualizarDados', 'Parceiro\HomeController@atualizarDados');
     
     Route::group(['prefix'  => 'Oferta'], function(){
         // Url: /Parceiro/Ofertas/
@@ -30,5 +31,13 @@ Route::group(['prefix' => 'Parceiro', 'middleware' => 'auth:parceiro'], function
 Route::group(['prefix' => 'Admin'], function(){
    
     Route::get('/', 'Admin\HomeController@index');
+    
+    Route::group(['prefix' => 'Parceiro'], function(){
+        Route::get('/Cadastro', 'Admin\ParceiroController@getCadastrarParceiro'); 
+    });
+    
+    Route::group(['prefix' => 'PontoTuristico'], function(){
+        Route::get('/Cadastro', 'Admin\PontoTuristicoController@getCadastrarPonto'); 
+    });
     
 });

@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class ParceiroController extends Controller
+class PontoTuristicoController extends Controller
 {
-    public function getCadastrarParceiro(){
-        return view('admin.cadastrarParceiro');
+    public function getCadastrarPonto(){
+        return view('admin.cadastrarPonto');
     }
 }
