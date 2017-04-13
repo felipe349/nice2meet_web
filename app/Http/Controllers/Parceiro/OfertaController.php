@@ -10,14 +10,25 @@ use App\Http\Controllers\Controller;
 class OfertaController extends Controller
 {
     public function getCadastrarOferta(){
-        return view('parceiro.cadastrarOferta');        
+        
+        
+        return view('parceiro.cadastrarOferta');
     }
     
-    public function getEditarOferta(){
+    public function getEditarOferta(\App\Models\Oferta $oferta) {
         return view('parceiro.editarOferta');
     }
     
     public function getListarOferta(){
-        return view('parceiro.listagemOferta');
+        $ofertas = \App\Models\Oferta::all();
+        
+        return view('parceiro.listagemOferta')->with([
+            'ofertas'   =>  $ofertas
+        ]);
+    }
+    
+    public function getUpdateOferta(\App\Models\Oferta $oferta)
+    {
+        dd($oferta);
     }
 }

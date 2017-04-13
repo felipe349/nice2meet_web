@@ -16,8 +16,9 @@ Route::group(['prefix' => 'Parceiro', 'middleware' => 'auth:parceiro'], function
         // Url: /Parceiro/Ofertas/
         // Aqui vai o controller de oferta
         Route::get('/', 'Parceiro\OfertaController@getListarOferta');
+        
         Route::get('/novo', 'Parceiro\OfertaController@getCadastrarOferta'); // Arrumar depois o endereço da url
-        Route::get('/id', 'Parceiro\OfertaController@getEditarOferta'); // Arrumar depois o endereço da url
+        Route::get('/editar/{oferta}', 'Parceiro\OfertaController@getEditarOferta'); // Arrumar depois o endereço da url
     });
     
     Route::group(['prefix' => 'Cupom'], function(){
@@ -34,10 +35,18 @@ Route::group(['prefix' => 'Admin'], function(){
     
     Route::group(['prefix' => 'Parceiro'], function(){
         Route::get('/Cadastro', 'Admin\ParceiroController@getCadastrarParceiro'); 
+        Route::get('/ID','Admin\ParceiroController@getEditarParceiro'); // ARRUMAR URL DPS
+        Route::get('/', 'Admin\ParceiroController@getListarParceiro');
     });
     
     Route::group(['prefix' => 'PontoTuristico'], function(){
-        Route::get('/Cadastro', 'Admin\PontoTuristicoController@getCadastrarPonto'); 
+        Route::get('/Cadastro', 'Admin\PontoTuristicoController@getCadastrarPonto');
+        Route::get('/ID', 'Admin\PontoTuristicoController@getEditarPonto');
+        Route::get('/', 'Admin\PontoTuristicoController@getListarPonto');
     });
+    
+     Route::group(['prefix' => 'Turista'], function(){
+        Route::get('') 
+     });
     
 });

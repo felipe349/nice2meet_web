@@ -55,4 +55,10 @@
 @section('js-section')
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr9xSF0eirrxmlGimDWAR9JB-BjLVC5js&libraries=places&callback=initAutocomplete" async defer></script>
   <script src="/assets/dist/js/maps.js"></script>
+  <script>
+    $(document).ready(function(){
+      
+    });
+  </script>
+  <!--<script src="/assets/dist/js/maps.js"></script>-->
 @endsection

@@ -51,22 +51,23 @@
                 </tr>
               </thead>
               <tbody class="tbody">
-                <tr class="tr">
+                @foreach($ofertas as $oferta)
+                  <tr class="tr">
                   <td class="td pd-10" data-th="Título">
                     <p class="col">
-                       Laranjada da felicidade
+                       Título da Oferta
                     </p>
                   </td>
                   <td class="td pd-10" data-th="Descrição">
                     <p class="col">
-                      10% de desconto na laranjada com cerveja.
+                      {{ $oferta->ds_oferta }}
                     </p>
                   </td>
                   <td class="td pd-10" data-th="Status">
                     <p class="col">
                       <div class="flex-grid checkbox-switch--success mg-10--bottom mg-10--top">
                         <div class="flex-grid valign-middle checkbox-switch__box col-0">
-                          <input id="active-candidatos" class="checkbox-switch__input" name="" type="checkbox" checked />
+                          <input id="active-candidatos" class="checkbox-switch__input" name="ic_status_oferta" type="checkbox" @if ($oferta->ic_status_oferta) checked @endif />
                           <label for="active-candidatos" class="checkbox-switch__label"></label>
                         </div>
                       </div>
@@ -74,7 +75,7 @@
                   </td>
                   <td class="td pd-10" data-th="Ações">
                     <div class="flex-grid col-0 valign-middle">
-                      <a href="#" class="btn--success btn-small btn-noborder btn-nomargin font-small col-0 relative">
+                      <a href="/Parceiro/Oferta/editar/{{ $oferta->id_oferta }}" class="btn--success btn-small btn-noborder btn-nomargin font-small col-0 relative">
                         <i class="fa fa-pencil-square-o"></i>
                       </a>
                       <a href="#" class="btn--danger btn-small btn-noborder btn-nomargin font-small col-0 mg-10--left relative">
@@ -83,134 +84,7 @@
                     </div>
                   </td>
                 </tr>
-                <tr class="tr">
-                  <td class="td pd-10" data-th="Título">
-                    <p class="col">
-                       Limãograb Maluco
-                    </p>
-                  </td>
-                  <td class="td pd-10" data-th="Descrição">
-                    <p class="col">
-                      20% na tortinha de limão.
-                    </p>
-                  </td>
-                  <td class="td pd-10" data-th="Status">
-                    <p class="col">
-                      <div class="flex-grid checkbox-switch--success mg-10--bottom mg-10--top">
-                        <div class="flex-grid valign-middle checkbox-switch__box col-0">
-                          <input id="active-candidatos" class="checkbox-switch__input" name="" type="checkbox" />
-                          <label for="active-candidatos" class="checkbox-switch__label"></label>
-                        </div>
-                      </div>
-                    </p>
-                  </td>
-                  <td class="td pd-10" data-th="Ações">
-                    <div class="flex-grid col-0 valign-middle">
-                      <a href="#" class="btn--success btn-small btn-noborder btn-nomargin font-small col-0 relative">
-                        <i class="fa fa-pencil-square-o"></i>
-                      </a>
-                      <a href="#" class="btn--danger btn-small btn-noborder btn-nomargin font-small col-0 mg-10--left relative">
-                        <i class="fa fa-trash-o"></i>
-                      </a>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="tr">
-                  <td class="td pd-10" data-th="Título">
-                    <p class="col">
-                       Cupuaçúúú
-                    </p>
-                  </td>
-                  <td class="td pd-10" data-th="Descrição">
-                    <p class="col">
-                      10% de desconto no bolo de cupuaçú.
-                    </p>
-                  </td>
-                  <td class="td pd-10" data-th="Status">
-                    <p class="col">
-                      <div class="flex-grid checkbox-switch--success mg-10--bottom mg-10--top">
-                        <div class="flex-grid valign-middle checkbox-switch__box col-0">
-                          <input id="active-candidatos" class="checkbox-switch__input" name="" type="checkbox" />
-                          <label for="active-candidatos" class="checkbox-switch__label"></label>
-                        </div>
-                      </div>
-                    </p>
-                  </td>
-                  <td class="td pd-10" data-th="Ações">
-                    <div class="flex-grid col-0 valign-middle">
-                      <a href="#" class="btn--success btn-small btn-noborder btn-nomargin font-small col-0 relative">
-                        <i class="fa fa-pencil-square-o"></i>
-                      </a>
-                      <a href="#" class="btn--danger btn-small btn-noborder btn-nomargin font-small col-0 mg-10--left relative">
-                        <i class="fa fa-trash-o"></i>
-                      </a>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="tr">
-                  <td class="td pd-10" data-th="Título">
-                    <p class="col">
-                       Empadinha da Maria maluca
-                    </p>
-                  </td>
-                  <td class="td pd-10" data-th="Descrição">
-                    <p class="col">
-                      15% de desconto na empadinha.
-                    </p>
-                  </td>
-                  <td class="td pd-10" data-th="Status">
-                    <p class="col">
-                      <div class="flex-grid checkbox-switch--success mg-10--bottom mg-10--top">
-                        <div class="flex-grid valign-middle checkbox-switch__box col-0">
-                          <input id="active-candidatos" class="checkbox-switch__input" name="" type="checkbox" />
-                          <label for="active-candidatos" class="checkbox-switch__label"></label>
-                        </div>
-                      </div>
-                    </p>
-                  </td>
-                  <td class="td pd-10" data-th="Ações">
-                    <div class="flex-grid col-0 valign-middle">
-                      <a href="#" class="btn--success btn-small btn-noborder btn-nomargin font-small col-0 relative">
-                        <i class="fa fa-pencil-square-o"></i>
-                      </a>
-                      <a href="#" class="btn--danger btn-small btn-noborder btn-nomargin font-small col-0 mg-10--left relative">
-                        <i class="fa fa-trash-o"></i>
-                      </a>
-                    </div>
-                  </td>
-                </tr>
-                <tr class="tr">
-                  <td class="td pd-10" data-th="Título">
-                    <p class="col">
-                       Aniversário mágico
-                    </p>
-                  </td>
-                  <td class="td pd-10" data-th="Descrição">
-                    <p class="col">
-                      50% de desconto no bolo tema do Harry Potter.
-                    </p>
-                  </td>
-                  <td class="td pd-10" data-th="Status">
-                    <p class="col">
-                      <div class="flex-grid checkbox-switch--success mg-10--bottom mg-10--top">
-                        <div class="flex-grid valign-middle checkbox-switch__box col-0">
-                          <input id="active-candidatos" class="checkbox-switch__input" name="" type="checkbox" />
-                          <label for="active-candidatos" class="checkbox-switch__label"></label>
-                        </div>
-                      </div>
-                    </p>
-                  </td>
-                  <td class="td pd-10" data-th="Ações">
-                    <div class="flex-grid col-0 valign-middle">
-                      <a href="#" class="btn--success btn-small btn-noborder btn-nomargin font-small col-0 relative">
-                        <i class="fa fa-pencil-square-o"></i>
-                      </a>
-                      <a href="#" class="btn--danger btn-small btn-noborder btn-nomargin font-small col-0 mg-10--left relative">
-                        <i class="fa fa-trash-o"></i>
-                      </a>
-                    </div>
-                  </td>
-                </tr>
+                @endforeach
                 
               </tbody>
             </table>
