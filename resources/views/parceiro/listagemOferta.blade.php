@@ -51,8 +51,9 @@
                 </tr>
               </thead>
               <tbody class="tbody">
+                {{ csrf_field() }}
                 @foreach($ofertas as $oferta)
-                  <tr class="tr">
+                  <tr class="tr" data-id="{{ $oferta->id_oferta }}">
                   <td class="td pd-10" data-th="Título">
                     <p class="col">
                        Título da Oferta
@@ -96,4 +97,8 @@
         </section>
       </main>
     <!-- /MAIN HOME -->
+@endsection
+
+@section('js-section')
+  <script type="text/javascript" src="/assets/dist/js/Parceiro/Oferta/ofertas-listagem.js"></script>
 @endsection

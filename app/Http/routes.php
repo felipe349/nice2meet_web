@@ -14,10 +14,9 @@ Route::group(['prefix' => 'Parceiro', 'middleware' => 'auth:parceiro'], function
     
     Route::group(['prefix'  => 'Oferta'], function(){
         // Url: /Parceiro/Ofertas/
-        // Aqui vai o controller de oferta
         Route::get('/', 'Parceiro\OfertaController@getListarOferta');
         
-        Route::get('/novo', 'Parceiro\OfertaController@getCadastrarOferta'); // Arrumar depois o endereço da url
+        Route::get('/Cadastrar', 'Parceiro\OfertaController@getCadastrarOferta'); // Arrumar depois o endereço da url
         Route::get('/editar/{oferta}', 'Parceiro\OfertaController@getEditarOferta'); // Arrumar depois o endereço da url
     });
     
@@ -32,6 +31,8 @@ Route::group(['prefix' => 'Parceiro', 'middleware' => 'auth:parceiro'], function
 Route::group(['prefix' => 'Admin'], function(){
    
     Route::get('/', 'Admin\HomeController@index');
+    Route::get('/Login','Admin\LoginController@getLogin');
+    Route::get('/Dados', 'Admin\HomeController@getDados');
     
     Route::group(['prefix' => 'Parceiro'], function(){
         Route::get('/Cadastro', 'Admin\ParceiroController@getCadastrarParceiro'); 
@@ -46,7 +47,13 @@ Route::group(['prefix' => 'Admin'], function(){
     });
     
      Route::group(['prefix' => 'Turista'], function(){
-        Route::get('') 
+        Route::get('/','Admin\TuristaController@getListarTurista'); 
      });
     
+});
+
+// ------- API INTERNA -----------
+
+Route::group(['prefix'  =>  'apiInterna'], function(){
+    Route::put('/mudarStatusOferta', 'OfertaController@mudarStatusOferta');
 });

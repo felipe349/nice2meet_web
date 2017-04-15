@@ -7,9 +7,9 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
-class TuristaController extends Controller
+class LoginController extends Controller
 {
-    public function getListarTurista(){
-        return view('admin.listarTurista');
+    public function getLogin(){
+        return view('admin.login');
     }
 }

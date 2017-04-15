@@ -16,6 +16,8 @@ class OfertaController extends Controller
     }
     
     public function getEditarOferta(\App\Models\Oferta $oferta) {
+        
+        
         return view('parceiro.editarOferta');
     }
     
@@ -25,10 +27,5 @@ class OfertaController extends Controller
         return view('parceiro.listagemOferta')->with([
             'ofertas'   =>  $ofertas
         ]);
-    }
-    
-    public function getUpdateOferta(\App\Models\Oferta $oferta)
-    {
-        dd($oferta);
     }
 }
