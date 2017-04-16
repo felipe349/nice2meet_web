@@ -17,7 +17,9 @@ Route::group(['prefix' => 'Parceiro', 'middleware' => 'auth:parceiro'], function
         Route::get('/', 'Parceiro\OfertaController@getListarOferta');
         
         Route::get('/Cadastrar', 'Parceiro\OfertaController@getCadastrarOferta'); // Arrumar depois o endereço da url
+        Route::post('/Cadastrar', 'Parceiro\OfertaController@cadastrarOferta');
         Route::get('/editar/{oferta}', 'Parceiro\OfertaController@getEditarOferta'); // Arrumar depois o endereço da url
+        Route::put('/editar', 'Parceiro\OfertaController@updateOferta');
     });
     
     Route::group(['prefix' => 'Cupom'], function(){
@@ -56,4 +58,5 @@ Route::group(['prefix' => 'Admin'], function(){
 
 Route::group(['prefix'  =>  'apiInterna'], function(){
     Route::put('/mudarStatusOferta', 'OfertaController@mudarStatusOferta');
+    Route::delete('/deletarOferta', 'OfertaController@deletarOferta');
 });

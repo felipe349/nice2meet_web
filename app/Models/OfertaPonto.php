@@ -10,7 +10,7 @@ class OfertaPonto extends Model
     protected $table = 'tb_oferta_ponto';
     protected $primaryKey = 'id_oferta_ponto';
     protected $fillable = [
-        'id_oferta', 'ds_oferta', 'ic_status_oferta', 'id_parceiro'
+        'id_oferta_ponto', 'cd_latitude_oferta', 'cd_longitude_oferta', 'id_oferta', 'id_ponto_turistico'
     ];
     
     public function pontoTuristico()

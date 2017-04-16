@@ -19,6 +19,25 @@ var ofertas = {
                     response(retorno);
                 }
             });
+        },
+        deleteOferta : function(param, response){
+            if (param.length == 0) {
+                response(false);
+            }
+            $.ajax({
+                method: 'DELETE',
+                url: '/apiInterna/deletarOferta',
+                data: {
+                    '_token'                : param._token,
+                    'id_oferta'             : param.id_oferta
+                }, 
+                success : function(retorno){
+                    response(true);
+                },
+                error   : function(retorno){
+                    response(false);
+                }
+            });
         }
     },
     events : {
@@ -33,7 +52,22 @@ var ofertas = {
                 };
                 
                 ofertas.functions.mudarOfertaStatus(oferta, function(response){
-                    alert(response);
+                    alert("Erro");
+                });
+            });
+            
+            $('[data-name="deletar-oferta"]').click(function(button){
+                button.preventDefault();
+                var $this = $(this);
+                var oferta = {
+                    _token              :   $("input[name='_token']").val(),
+                    id_oferta           :   $this.parent().parent().parent().attr('data-id')
+                };
+                
+                ofertas.functions.deleteOferta(oferta, function(response){
+                    if (response) {
+                        $this.parent().parent().parent().remove();
+                    }
                 });
             });
         }

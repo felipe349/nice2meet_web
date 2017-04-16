@@ -56,7 +56,7 @@
                   <tr class="tr" data-id="{{ $oferta->id_oferta }}">
                   <td class="td pd-10" data-th="Título">
                     <p class="col">
-                       Título da Oferta
+                       {{ $oferta->nm_oferta }}
                     </p>
                   </td>
                   <td class="td pd-10" data-th="Descrição">
@@ -68,8 +68,8 @@
                     <p class="col">
                       <div class="flex-grid checkbox-switch--success mg-10--bottom mg-10--top">
                         <div class="flex-grid valign-middle checkbox-switch__box col-0">
-                          <input id="active-candidatos" class="checkbox-switch__input" name="ic_status_oferta" type="checkbox" @if ($oferta->ic_status_oferta) checked @endif />
-                          <label for="active-candidatos" class="checkbox-switch__label"></label>
+                          <input id="oferta_{{ $oferta->id_oferta }}" class="checkbox-switch__input" name="ic_status_oferta"  type="checkbox" @if ($oferta->ic_status_oferta) checked @endif />
+                          <label for="oferta_{{ $oferta->id_oferta }}" class="checkbox-switch__label"></label>
                         </div>
                       </div>
                     </p>
@@ -79,9 +79,9 @@
                       <a href="/Parceiro/Oferta/editar/{{ $oferta->id_oferta }}" class="btn--success btn-small btn-noborder btn-nomargin font-small col-0 relative">
                         <i class="fa fa-pencil-square-o"></i>
                       </a>
-                      <a href="#" class="btn--danger btn-small btn-noborder btn-nomargin font-small col-0 mg-10--left relative">
+                      <button data-name="deletar-oferta" class="btn--danger btn-small btn-noborder btn-nomargin font-small col-0 mg-10--left relative">
                         <i class="fa fa-trash-o"></i>
-                      </a>
+                      </button>
                     </div>
                   </td>
                 </tr>
