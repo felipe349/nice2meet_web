@@ -52,7 +52,7 @@ var ofertas = {
                 };
                 
                 ofertas.functions.mudarOfertaStatus(oferta, function(response){
-                    alert("Erro");
+                    var elemento = $(".checkbox-switch__label").attr("for");
                 });
             });
             

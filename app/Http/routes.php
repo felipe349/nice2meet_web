@@ -1,5 +1,8 @@
 <?php
 
+// Provisório
+// Route::get('/', 'Parceiro\LoginController@getLogin');
+
 //-------- PARCEIRO -------
 
 Route::get('/Parceiro/login', 'Parceiro\LoginController@getLogin');

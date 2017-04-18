@@ -10,7 +10,7 @@ class Pontuacao extends Model
     protected $table = 'tb_pontuacao';
     protected $primaryKey = 'id_pontuacao';
     protected $fillable = [
-        'dt_pontuacao', 'qt_pontuacao', 'id_turista', 'id_ponto_turistico', 'id_cupom'
+        'dt_pontuacao', 'qt_pontuacao', 'id_turista', 'id_quiz', 'id_cupom'
     ];
     
     public function turista()

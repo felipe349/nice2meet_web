@@ -10,7 +10,7 @@ class Cupom extends Model
     protected $table = 'tb_cupom';
     protected $primaryKey = 'id_cupom';
     protected $fillable = [
-        'dt_maximo_cupom', 'cd_cupom'
+        'dt_maximo_cupom', 'cd_cupom', 'id_parceiro'
     ];
     
     
