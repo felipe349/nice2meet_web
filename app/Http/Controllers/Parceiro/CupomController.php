@@ -7,10 +7,18 @@ use Illuminate\Http\Request;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
+// Dependency Injections
+use \Carbon\Carbon;
+
 class CupomController extends Controller
 {
     public function getListarCupom(){
-        return view('parceiro.listagemCupom');        
+        Carbon::setLocale('pt-BR');
+        $cupons = \App\Models\Cupom::getCupomPorParceiro(\Auth::guard('parceiro')->user()->id_parceiro);
+        
+        return view('parceiro.listagemCupom')->with([
+            'cupons'    =>  $cupons
+        ]);
     }
     
     public function getEditarOferta(){

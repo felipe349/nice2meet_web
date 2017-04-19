@@ -18,4 +18,10 @@ class Parceiro extends Authenticatable
     {
         return $this->hasMany('App\Models\Oferta', 'id_parceiro', 'id_parceiro');
     }
+    
+    public function cupom()
+    {
+        return $this->hasMany('App\Models\Cupom', 'id_parceiro', 'id_parceiro');
+    }
+    
 }
