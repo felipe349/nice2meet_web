@@ -32,7 +32,12 @@
     </head>
     
     <body class="body">
-        @include('admin.includes.header')
+        @if(\Auth::guard('admin')->check())
+            @include('admin.includes.header')
+        @else
+            @include('parceiro.includes.header-logout')
+        @endif
+        
         @yield('content')
         
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.1.1.min.js"></script>

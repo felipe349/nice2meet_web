@@ -23,8 +23,8 @@
                   <i class="fa fa-user-secret"></i>
                 </div>
                 <div class="box-infos__content col">
-                  <h3 class="box-infos__title color-default light">Administradores</h3>
-                  <span class="box-infos__number strong font-20 bold">5</span>
+                  <h3 class="box-infos__title color-default light">Parceiros</h3>
+                  <span class="box-infos__number strong font-20 bold">{{ $parceiros }}</span>
                   
                 </div>
               </div>
@@ -35,8 +35,8 @@
                   <i class="fa fa-black-tie"></i>
                 </div>
                 <div class="box-infos__content col">
-                  <h3 class="box-infos__title color-default light">Empresas</h3>
-                  <span class="box-infos__number strong font-20 bold">200</span>
+                  <h3 class="box-infos__title color-default light">Turistas</h3>
+                  <span class="box-infos__number strong font-20 bold">{{ $turistas }}</span>
                   
                 </div>
               </div>
@@ -51,8 +51,8 @@
                   <i class="fa fa-briefcase"></i>
                 </div>
                 <div class="box-infos__content col">
-                  <h3 class="box-infos__title color-default light">Vagas</h3>
-                  <span class="box-infos__number strong font-20 bold">5000000000000</span>
+                  <h3 class="box-infos__title color-default light">Cupons cadastrados</h3>
+                  <span class="box-infos__number strong font-20 bold">{{ $cupons }}</span>
                   
                 </div>
               </div>
@@ -63,8 +63,8 @@
                   <i class="fa fa-users"></i>
                 </div>
                 <div class="box-infos__content col">
-                  <h3 class="box-infos__title color-default light">Candidatos</h3>
-                  <span class="box-infos__number strong font-20 bold">500</span>
+                  <h3 class="box-infos__title color-default light">Pontos Turísticos</h3>
+                  <span class="box-infos__number strong font-20 bold">{{ $pontos_turisticos }}</span>
                   
                 </div>
               </div>

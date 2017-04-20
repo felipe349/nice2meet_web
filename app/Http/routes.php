@@ -1,13 +1,19 @@
 <?php
 
 // Provisório
-// Route::get('/', 'Parceiro\LoginController@getLogin');
+Route::get('/', function(){
+    return view('index');
+});
 
 //-------- PARCEIRO -------
 
 Route::get('/Parceiro/login', 'Parceiro\LoginController@getLogin');
 Route::post('/Parceiro/login', 'Parceiro\LoginController@makeLogin');
 Route::get('/Parceiro/logout', 'Parceiro\LoginController@logout');
+
+Route::get('/Admin/login', 'Admin\LoginController@getLogin');
+Route::post('/Admin/login', 'Admin\LoginController@makeLogin');
+Route::get('/Admin/logout', 'Admin\LoginController@logout');
 
 Route::group(['prefix' => 'Parceiro', 'middleware' => 'auth:parceiro'], function()
 {

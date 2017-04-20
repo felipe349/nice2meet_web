@@ -21,7 +21,7 @@ class LoginController extends Controller
         if (Auth::guard('parceiro')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')])) {
             // Authentication passed...
             return redirect()->intended('Parceiro/');
-            dd('usuário autenticado');
+            
         }
         return redirect()->back()->withErrors(['Nome de usuário ou senha preenchidos incorretamente.']);
     }

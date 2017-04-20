@@ -12,7 +12,7 @@ class Administrador extends Authenticatable
     protected $primaryKey = 'id_administrador';
     
     protected $fillable = [
-        'email'
+        'email', 'password'
     ];
     
     
