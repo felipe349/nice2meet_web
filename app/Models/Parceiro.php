@@ -24,4 +24,8 @@ class Parceiro extends Authenticatable
         return $this->hasMany('App\Models\Cupom', 'id_parceiro', 'id_parceiro');
     }
     
+    public static function getParceiro(){
+        
+    }
+    
 }
