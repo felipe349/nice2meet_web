@@ -17,4 +17,10 @@ class Turista extends Model
     {
         return $this->hasMany('App\Models\Pontuacao', 'id_turista', 'id_turista');
     }
+    
+    // Método que retorna os turistas
+    public function getTuristas()
+    {
+        
+    }
 }

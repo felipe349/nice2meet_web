@@ -22,24 +22,25 @@
               <h2 class="font-20 light mg-10--bottom color-default col mg-20--right">Gerenciar Parceiros</h2>
             </div>
             <p class="bg-info col-12 color-white pd-10 font-smaller">
-              <strong>1</strong> registro(s) encontrado(s)
+              <strong>{{ $pontos_turisticos->total() }}</strong> registro(s) encontrado(s)
             </p>
             <!-- TABLE LISTAGEM -->
             <table class="table table-striped col-12 responsive-table--lg">
               <thead class="thead">
                 <tr class="tr bg-white">
-                  <th class="th light pd-10">Nome Fantasia</th>
-                  <th class="th light pd-10">Email</th>
+                  <th class="th light pd-10">Nome do ponto turístico</th>
+                  <th class="th light pd-10">Descrição</th>
                   <th class="th light pd-10">Localização</th>
                   <th class="th light pd-10">Status</th>
                   <th class="th light pd-10">Ações</th>
                 </tr>
               </thead>
               <tbody class="tbody">
-                <tr class="tr">
+                @foreach($pontos_turisticos as $ponto)
+                  <tr class="tr">
                   <td class="td pd-10" data-th="Nome Fantasia">
                     <p class="col">
-                      Dona Maria
+                      {{ $ponto->nm_ponto_turistico }}
                     </p>
                   </td>
                   <td class="td pd-10" data-th="Email">
@@ -70,8 +71,10 @@
                     </div>
                   </td>
                 </tr>
+                @endforeach
               </tbody>
             </table>
+            {!! $pontos_turisticos->links() !!}
           </div>
         </section>
       </main>

@@ -27,12 +27,12 @@
                         </span>
                     </p>
                     <li class="options-item">
-                        <a href="/assets/src/html/admin/cadastrar-ponto-turistico.php" class="link--white">
+                        <a href="/Admin/PontoTuristico/Cadastrar" class="link--white">
                             <i class="fa fa-plus"></i>Cadastrar
                         </a>
                     </li>
                     <li class="options-item">
-                        <a href="/assets/src/html/admin/listagem-ponto-turistico.php" class="link--white">
+                        <a href="/Admin/PontoTuristico" class="link--white">
                             <i class="fa fa-list"></i>Listar
                         </a>
                     </li>
@@ -113,13 +113,13 @@
                 </div>
             </a>
         </li>
-        <li class="flex-grid">
-            <a class="flex-grid dashboard-item" href="/assets/src/html/admin/home.php">
-                <div class="flex-grid dashboard-box">
-                    <i class="fa fa-user"></i>
-                    <p class="dashboard-hidden item-name">Meus Dados</p>
-                </div>
-            </a>
-        </li>
+        <!--<li class="flex-grid">-->
+        <!--    <a class="flex-grid dashboard-item" href="/assets/src/html/admin/home.php">-->
+        <!--        <div class="flex-grid dashboard-box">-->
+        <!--            <i class="fa fa-user"></i>-->
+        <!--            <p class="dashboard-hidden item-name">Meus Dados</p>-->
+        <!--        </div>-->
+        <!--    </a>-->
+        <!--</li>-->
     </ul>
 </aside>

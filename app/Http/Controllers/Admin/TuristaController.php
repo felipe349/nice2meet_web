@@ -10,6 +10,10 @@ use App\Http\Controllers\Controller;
 class TuristaController extends Controller
 {
     public function getListarTurista(){
-        return view('admin.listarTurista');
+        $turistas = '';
+        
+        return view('admin.listarTurista')->with([
+            'turistas'  =>  $turistas
+        ]);
     }
 }

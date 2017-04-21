@@ -5,6 +5,21 @@ Route::get('/', function(){
     return view('index');
 });
 
+Route::group(['middleware'  =>  'cors'], function(){
+    Route::get('/teste', function(){
+        return \Response::json(\App\Models\Oferta::all());
+    });
+    
+    Route::post('/cadastroTeste', function(){
+        if (empty(\Request::all())) {
+            return \Response::json('tá vazia tua requisição. Não falei pra tu colcoar valor no post? D:');
+        } else {
+            return \Response::json(\Request::all());
+        }
+    });
+});
+
+
 //-------- PARCEIRO -------
 
 Route::get('/Parceiro/login', 'Parceiro\LoginController@getLogin');
@@ -42,19 +57,20 @@ Route::group(['prefix' => 'Parceiro', 'middleware' => 'auth:parceiro'], function
 Route::group(['prefix' => 'Admin', 'middleware' => 'auth:admin'], function(){
    
     Route::get('/', 'Admin\HomeController@index');
-    Route::get('/Login','Admin\LoginController@getLogin');
-    Route::get('/Dados', 'Admin\HomeController@getDados');
+    // Route::get('/dados-pessoais', 'Admin\HomeController@getDados');
     
     Route::group(['prefix' => 'Parceiro'], function(){
-        Route::get('/Cadastro', 'Admin\ParceiroController@getCadastrarParceiro'); 
-        Route::get('/ID','Admin\ParceiroController@getEditarParceiro'); // ARRUMAR URL DPS
         Route::get('/', 'Admin\ParceiroController@getListarParceiro');
+        Route::get('/Cadastrar', 'Admin\ParceiroController@getCadastrarParceiro');
+        Route::get('/{parceiro}','Admin\ParceiroController@getEditarParceiro'); // ARRUMAR URL DPS
+        
     });
     
     Route::group(['prefix' => 'PontoTuristico'], function(){
-        Route::get('/Cadastro', 'Admin\PontoTuristicoController@getCadastrarPonto');
-        Route::get('/ID', 'Admin\PontoTuristicoController@getEditarPonto');
         Route::get('/', 'Admin\PontoTuristicoController@getListarPonto');
+        Route::get('/Cadastrar', 'Admin\PontoTuristicoController@getCadastrarPonto');
+        Route::post('/Cadastrar', 'Admin\PontoTuristicoController@cadastrarPontoTuristico');
+        Route::get('/{ponto}', 'Admin\PontoTuristicoController@getEditarPonto');
     });
     
      Route::group(['prefix' => 'Turista'], function(){
