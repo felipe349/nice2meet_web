@@ -25,24 +25,28 @@
             
             @if(\Session::has('errors'))
               <span class="alert--danger">
-                {{ \Session::get('errors') }}
+                @foreach(\Session::get('errors')->all() as $error)
+                  {{ $error }}
+                @endforeach
               </span>
             @endif
             <form class="form__maquinas form flex-grid--wrap col-12 pd-10" data-type-form="default" action="/Admin/PontoTuristico/Cadastrar" method="POST">
               {{ csrf_field() }}
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Nome do ponto turístico</span>
-                <p class="font-small col-12 color-danger hidden" data-message="Nome do ponto turístico"></p> <input class="input col-12" type="text" name="nm_ponto_turistico" data-validate="empty" data-name="Nome do ponto turístico" required value="{{ old('nm_ponto_turistico', '') }}" /> </div>
+                <p class="font-small col-12 color-danger hidden" data-message="Nome do ponto turístico"></p> 
+                <input class="input col-12" type="text" name="nm_ponto_turistico" data-validate="empty"  data-name="Nome do ponto turístico" value="{{ old('nm_ponto_turistico') }}" /> 
+              </div>
               <div class="flex-grid--wrap col-12 is-md">
                 <span class="font-small bold mg-10--bottom">Descrição</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Descrição"></p>
-                <textarea class="input col-12" name="ds_ponto_turistico" rows="7" data-validate="empty" data-name="Descrição" required>{{ old('ds_ponto_turistico','')</textarea>
+                <textarea class="input col-12" name="ds_ponto_turistico" rows="7" data-validate="empty" data-name="Descrição" required>{{ old('ds_ponto_turistico','') }}</textarea>
               </div>
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Localização</span>
-                <input type="hidden" name="cd_latitude" id="cd_latitude" value="" />
-                <input type="hidden" name="cd_longitude" id="cd_longitude" value="" />
-                <input id="pac-input" class="input col-12" type="text" name="nm_endereco_ponto_turistico" required value="{{ old('nm_endereco_ponto_turistico', '') }}" />
+                <input type="hidden" name="cd_latitude" id="cd_latitude" value="{{ old('cd_latitude') }}" />
+                <input type="hidden" name="cd_longitude" id="cd_longitude" value="{{ old('cd_longitude') }}" />
+                <input id="pac-input" class="input col-12" type="text" name="nm_endereco_ponto_turistico" required value="{{ old('nm_endereco_ponto_turistico') }}" />
               </div>
               
               <div id="map" style="width: 650px; height: 400px"></div>

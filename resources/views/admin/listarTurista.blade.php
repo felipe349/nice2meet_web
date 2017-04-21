@@ -21,44 +21,37 @@
             <div class="flex-grid--wrap halign-center valign-top col-12 pd-10">
               <h2 class="font-20 light mg-10--bottom color-default col mg-20--right">Gerenciar Turistas</h2>
             </div>
+            
             <p class="bg-info col-12 color-white pd-10 font-smaller">
-              <strong>2</strong> registro(s) encontrado(s)
+              <strong>{{ $turistas->total() }}</strong> registro(s) encontrado(s)
             </p>
+            @if(!$turistas->isEmpty())
             <!-- TABLE LISTAGEM -->
-            <table class="table table-striped col-12 responsive-table--lg">
+              <table class="table table-striped col-12 responsive-table--lg">
               <thead class="thead">
                 <tr class="tr bg-white">
                   <th class="th light pd-10">Nome</th>
                   <th class="th light pd-10">Email</th>
-                  <th class="th light pd-10">Status</th>
-                  <th class="th light pd-10">Ações</th>
+                  <th class="th light pd-10">CPF</th>
+                  <th class="th light pd-10">Editar</th>
                 </tr>
               </thead>
               <tbody class="tbody">
+                @foreach($turistas as $turista)
                 <tr class="tr">
                   <td class="td pd-10" data-th="Nome">
                     <p class="col">
-                      Jake
+                      {{$turista->nm_turista}}
                     </p>
                   </td>
                   <td class="td pd-10" data-th="Email">
                     <p class="col">
-                      jake@adventuretime.com
+                      {{$turista->email}}
                     </p>
                   </td>
                   <td class="td pd-10" data-th="Localização">
                     <p class="col">
-                      Praça 19 de Janeiro - Boqueirão, Praia Grande - SP
-                    </p>
-                  </td>
-                  <td class="td pd-10" data-th="Status">
-                    <p class="col">
-                      <div class="flex-grid checkbox-switch--success mg-10--bottom mg-10--top">
-                        <div class="flex-grid valign-middle checkbox-switch__box col-0">
-                          <input id="active-candidatos" class="checkbox-switch__input" name="" type="checkbox" checked />
-                          <label for="active-candidatos" class="checkbox-switch__label"></label>
-                        </div>
-                      </div>
+                      {{$turista->cd_cpf}}
                     </p>
                   </td>
                   <td class="td pd-10" data-th="Ações">
@@ -69,8 +62,14 @@
                     </div>
                   </td>
                 </tr>
+                @endforeach
               </tbody>
             </table>
+            {!! $turistas->links() !!}
+            <!-- /Fim da table listagem -->
+            @else
+              <span class="alert--info">Não há nenhum turista cadastrado.</span>
+            @endif
           </div>
         </section>
       </main>
