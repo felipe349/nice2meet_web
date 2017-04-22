@@ -90,7 +90,7 @@
                         </a>
                     </li>
                     <li class="options-item">
-                        <a href="/assets/src/html/admin/listagem-parceiros.php" class="link--white">
+                        <a href="/Admin/Parceiro" class="link--white">
                             <i class="fa fa-list"></i>Listar
                         </a>
                     </li>
@@ -98,7 +98,7 @@
             </div>
         </li>
         <li class="flex-grid">
-            <a class="flex-grid dashboard-item">
+            <a class="flex-grid dashboard-item" href='/Admin/Turista'>
                 <div class="flex-grid dashboard-box">
                     <i class="fa fa-user"></i>
                     <p class="dashboard-hidden item-name">Turistas</p>
@@ -106,7 +106,7 @@
             </a>
         </li>
         <li class="flex-grid">
-            <a class="flex-grid dashboard-item" href="/assets/src/html/admin/listagem-turistas.php">
+            <a class="flex-grid dashboard-item" href="/Admin/Ofertas">
                 <div class="flex-grid dashboard-box">
                     <i class="fa fa-university"></i>
                     <p class="dashboard-hidden item-name">Ofertas</p>

@@ -10,6 +10,12 @@ use App\Http\Controllers\Controller;
 // Dependency injections
 use Auth;
 
+// Models
+use App\Models\Parceiro;
+
+// Requests
+use App\Http\Requests\ParceiroRequest;
+
 class HomeController extends Controller
 {
     /**
@@ -25,53 +31,6 @@ class HomeController extends Controller
             'parceiro'  =>  $parceiro
         ]);
     }
-    
-    public function getLogin(){
-        return view('parceiro.login'); // NAO SEI SE O LOGIN SE ENCAIXA AQUI   
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
-    {
-        //
-    }
 
     /**
      * Update the specified resource in storage.
@@ -80,19 +39,20 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function atualizarDados(ParceiroRequest $request)
     {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
-    {
-        //
+        $parceiro_atualizado = Parceiro::atualizaParceiro(Auth::guard('parceiro')->user(), $request->except(['_method', '_token', 'id_parceiro']));
+        
+        if (!$parceiro_atualizado) {
+            return redirect()->back()->withInput($request->all())->withMensagem([
+                'text'      =>  'Por favor, tente novamente.',
+                'class'     =>  'error'
+            ]);
+        }
+        
+        return redirect()->back()->withMensagem([
+            'class'     =>  'success',
+            'text'      =>  'Dados atualizados com sucesso.'
+        ]);
     }
 }

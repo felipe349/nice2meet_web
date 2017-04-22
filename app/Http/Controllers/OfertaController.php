@@ -6,34 +6,26 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+// Models
+use App\Models\Oferta;
+
 class OfertaController extends Controller
 {
     public function mudarStatusOferta(Request $request)
     {
-        $oferta = \App\Models\Oferta::find($request->input('id_oferta'));
+        $oferta = Oferta::find($request->input('id_oferta'));
         
         if (empty($oferta)) {
             return \Response::json(false);
         }
         
-        \App\Models\Oferta::where('id_parceiro', $oferta->id_parceiro)->update(['ic_status_oferta'  =>  0]);
-        
-        if (strtolower($request->ic_status_oferta) == 'true'){
-            $oferta->ic_status_oferta    =   1;
-        } else {
-            $oferta->ic_status_oferta    =   0;
-        }
-        
-        return \Response::json($oferta->save());
+        return \Response::json(Oferta::mudarStatusOferta($oferta, $request->ic_status_oferta));
     }
     
     public function deletarOferta(Request $request)
     {
-        $oferta         = \App\Models\Oferta::find($request->input('id_oferta'));
+        $oferta         = Oferta::find($request->input('id_oferta'));
         
-        // Precisa deletar todos os cupons de oferta relacionados com essa oferta
-        $ofertaPonto    = $oferta->ofertaPonto()->delete();
-        
-        return \Response::json($oferta->delete());
+        return \Response::json(Oferta::deleteOferta($oferta));
     }
 }

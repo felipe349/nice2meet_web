@@ -35,12 +35,12 @@
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Nome do ponto turístico</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Nome do ponto turístico"></p> 
-                <input class="input col-12" type="text" name="nm_ponto_turistico" data-validate="empty"  data-name="Nome do ponto turístico" value="{{ old('nm_ponto_turistico') }}" /> 
+                <input class="input col-12" type="text" name="nm_ponto_turistico" data-validate="empty"  data-name="Nome do ponto turístico" value="{{ old('nm_ponto_turistico') }}" maxlength="100" /> 
               </div>
               <div class="flex-grid--wrap col-12 is-md">
                 <span class="font-small bold mg-10--bottom">Descrição</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Descrição"></p>
-                <textarea class="input col-12" name="ds_ponto_turistico" rows="7" data-validate="empty" data-name="Descrição" required>{{ old('ds_ponto_turistico','') }}</textarea>
+                <textarea maxlength="150" class="input col-12" name="ds_ponto_turistico" rows="7" data-validate="empty" data-name="Descrição" required>{{ old('ds_ponto_turistico','') }}</textarea>
               </div>
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Localização</span>

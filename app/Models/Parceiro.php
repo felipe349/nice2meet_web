@@ -7,12 +7,13 @@ use Illuminate\Database\Eloquent\Model;
 
 class Parceiro extends Authenticatable
 {
-    public $timestamps = false;
     protected $table = 'tb_parceiro';
     protected $primaryKey = 'id_parceiro';
     protected $fillable = [
-        'nm_parceiro', 'email', 'dt_registro', 'cd_telefone', 'cd_latitude', 'cd_longitude'
+        'nm_parceiro', 'email', 'cd_telefone', 'cd_latitude', 'cd_longitude', 'nm_endereco'
     ];
+    
+    protected $dates = ['created_at', 'updated_at'];
     
     public function ofertas()
     {
@@ -24,8 +25,21 @@ class Parceiro extends Authenticatable
         return $this->hasMany('App\Models\Cupom', 'id_parceiro', 'id_parceiro');
     }
     
-    public static function getParceiro(){
+    public static function getParceiros($paginate = null){
+        if(!is_null($paginate)){
+            return self::paginate($paginate);
+        }
         
+        return self::all();
+    }
+    
+    public static function atualizaParceiro(Parceiro $parceiro, $dados)
+    {
+        if (array_key_exists('cd_telefone', $dados)) {
+            $dados['cd_telefone']   =   preg_replace("/[^0-9]/", "", $dados['cd_telefone']);
+        }
+        
+        return $parceiro->update($dados);
     }
     
 }

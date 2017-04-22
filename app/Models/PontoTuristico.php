@@ -25,8 +25,7 @@ class PontoTuristico extends Model
     }
     
     
-    
-    // Métodos
+    // Métodos DAO
     public static function getPontosTuristicos($ic_status = null, $paginate = null)
     {
         $pontos = self::orderBy('created_at', 'desc');
@@ -39,5 +38,18 @@ class PontoTuristico extends Model
         }
         
         return $pontos->get();
+    }
+    
+    public static function atualizaPontoTuristico(PontoTuristico $ponto, $dados)
+    {
+        $ponto->fill($dados);
+        $ponto->ic_status_ponto_turistico   =   !empty($dados['ic_status_ponto_turistico']);
+        
+        return $ponto->save();
+    }
+    
+    public static function deletePontoTuristico($id_ponto_turistico)
+    {
+        // Para que possa ser deletado, é necessário fazer com que o oferta_ponto e tb_quiz não se relacionem com este índice.
     }
 }

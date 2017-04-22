@@ -17,7 +17,14 @@
           <!-- /TOP -->
           
           <div class="flex-grid--wrap content__box--second nopadding col-12">
-            <form class="form__maquinas form flex-grid--wrap col-12 pd-10" data-type-form="default">
+            @if(\Session::has('mensagem'))
+              <span class="alert--{{ \Session::get('mensagem')['class'] }}">
+                {{ \Session::get('mensagem')['text'] }}
+              </span>
+            @endif
+            <form class="form__maquinas form flex-grid--wrap col-12 pd-10" data-type-form="default" method="POST" action="/Parceiro/atualizarDados">
+              {{ csrf_field() }}
+              {{ method_field('PUT') }}
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Nome Fantasia</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Nome Fantasia"></p>
@@ -26,7 +33,7 @@
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Email</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Email"></p>
-                <input class="input col-12" type="text" name="email" data-validate="empty" data-name="Email" value="{{ old('email', $parceiro->email) }}" disabled/>
+                <input class="input col-12" type="text" data-validate="empty" data-name="Email" value="{{ old('email', $parceiro->email) }}" disabled/>
               </div>
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Telefone</span>
@@ -35,7 +42,9 @@
               </div>
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Localização</span>
-                <input id="pac-input" class="input col-12" type="text" />
+                <input type="hidden" name="cd_latitude" id="cd_latitude" value="{{ old('cd_latitude', $parceiro->cd_latitude) }}" />
+                <input type="hidden" name="cd_longitude" id="cd_longitude" value="{{ old('cd_longitude', $parceiro->cd_longitude) }}" />
+                <input id="pac-input" class="input col-12" type="text" name="nm_endereco" value="{{ old('nm_endereco', $parceiro->nm_endereco) }}" maxlength="250" />
               </div>
               
               <div id="map" style="width: 650px; height: 400px"></div>

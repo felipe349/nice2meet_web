@@ -34,11 +34,33 @@ class PontoTuristicoController extends Controller
         ]);
     }
     
-    public function getEditarPonto(){
-        return view('admin.editarPonto');   
+    public function getEditarPonto(PontoTuristico $ponto){
+        
+        return view('admin.editarPonto')->with([
+            'ponto'     =>      $ponto
+        ]);
     }
     
-    public function getListarPonto(){
+    public function updatePontoTuristico(PontoTuristico $ponto, CadastroPontoTuristico $request)
+    {
+        $dados      =   $request->except(['_token', '_method']);
+        
+        if (!PontoTuristico::atualizaPontoTuristico($ponto, $dados)) {
+            return redirect()->back()->withInput($request->all())->withMensagem([
+                'class'     =>      'error',
+                'text'      =>      'Tente novamente.'
+            ]);
+        }
+        
+        return redirect()->back()->withMensagem([
+            'class'     =>      'success',
+            'text'      =>      'Ponto turístico atualizado com sucesso.'
+        ]);
+    }
+    
+    
+    public function getListarPonto()
+    {
         $pontos_turisticos  =   PontoTuristico::getPontosTuristicos(null, 10);
         
         return view('admin.listarPonto')->with([
