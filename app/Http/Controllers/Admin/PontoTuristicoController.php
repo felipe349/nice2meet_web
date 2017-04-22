@@ -15,11 +15,12 @@ use App\Models\PontoTuristico;
 
 class PontoTuristicoController extends Controller
 {
-    public function getCadastrarPonto(){
+    public function create()
+    {
         return view('admin.cadastrarPonto');
     }
     
-    public function cadastrarPontoTuristico(CadastroPontoTuristico $request)
+    public function store(CadastroPontoTuristico $request)
     {
         $ponto_turistico = PontoTuristico::create($request->except(['_token']));
         
@@ -34,14 +35,14 @@ class PontoTuristicoController extends Controller
         ]);
     }
     
-    public function getEditarPonto(PontoTuristico $ponto){
-        
+    public function edit(PontoTuristico $ponto)
+    {
         return view('admin.editarPonto')->with([
             'ponto'     =>      $ponto
         ]);
     }
     
-    public function updatePontoTuristico(PontoTuristico $ponto, CadastroPontoTuristico $request)
+    public function update(PontoTuristico $ponto, CadastroPontoTuristico $request)
     {
         $dados      =   $request->except(['_token', '_method']);
         
@@ -58,8 +59,7 @@ class PontoTuristicoController extends Controller
         ]);
     }
     
-    
-    public function getListarPonto()
+    public function index()
     {
         $pontos_turisticos  =   PontoTuristico::getPontosTuristicos(null, 10);
         

@@ -11,19 +11,22 @@ use App\Models\Parceiro;
 
 class ParceiroController extends Controller
 {
-    public function getCadastrarParceiro(){
+    public function create()
+    {
         return view('admin.cadastrarParceiro');
     }
     
-    public function getEditarParceiro(){
+    public function edit()
+    {
         return view('admin.editarParceiro');
     }
     
-    public function getListarParceiro(){
+    public function index()
+    {
         $parceiros = Parceiro::getParceiros(10);
         
         return view('admin.listarParceiro')->with([
-                'parceiros' => $parceiros
-            ]);
+            'parceiros' => $parceiros
+        ]);
     }
 }

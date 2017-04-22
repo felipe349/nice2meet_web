@@ -9,11 +9,12 @@ use App\Http\Controllers\Controller;
 
 class OfertaController extends Controller
 {
-    public function getCadastrarOferta(){
+    public function create()
+    {
         return view('parceiro.cadastrarOferta');
     }
     
-    public function cadastrarOferta(Request $request)
+    public function store(Request $request)
     {
         
         $oferta = (\App\Models\Oferta::create([
@@ -39,14 +40,14 @@ class OfertaController extends Controller
         ]);
     }
     
-    public function getEditarOferta(\App\Models\Oferta $oferta) {
-        
+    public function edit(\App\Models\Oferta $oferta) 
+    {
         return view('parceiro.editarOferta')->with([
             'oferta'    =>  $oferta
         ]);
     }
     
-    public function updateOferta(Request $request)
+    public function update(Request $request)
     {
         \App\Models\Oferta::where('id_parceiro', $request->input('id_parceiro'))->update(['ic_status_oferta'  =>  0]);
         
@@ -68,7 +69,8 @@ class OfertaController extends Controller
         
     }
     
-    public function getListarOferta(){
+    public function index()
+    {
         $ofertas = \App\Models\Oferta::where('id_parceiro', \Auth::guard("parceiro")->user()->id_parceiro)->get();
         
         

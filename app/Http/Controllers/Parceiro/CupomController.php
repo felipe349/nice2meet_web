@@ -12,7 +12,8 @@ use \Carbon\Carbon;
 
 class CupomController extends Controller
 {
-    public function getListarCupom(){
+    public function index()
+    {
         Carbon::setLocale('pt-BR');
         $cupons = \App\Models\Cupom::getCupomPorParceiro(\Auth::guard('parceiro')->user()->id_parceiro);
         
@@ -21,13 +22,13 @@ class CupomController extends Controller
         ]);
     }
     
-    public function getEditarOferta(){
-        
+    public function edit()
+    {
         return view('parceiro.editarOferta');
     }
     
-    public function getValidarCupom(){
-        
+    public function getValidarCupom()
+    {
         return view('parceiro.validarCupom');
     }
 }

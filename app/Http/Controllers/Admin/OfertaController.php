@@ -12,7 +12,7 @@ use App\Models\Oferta;
 
 class OfertaController extends Controller
 {
-    public function getListarOfertas()
+    public function index()
     {
         $ofertas    =   Oferta::getOfertas(true, 10);
         

@@ -11,7 +11,7 @@ use App\Models\Oferta;
 
 class OfertaController extends Controller
 {
-    public function mudarStatusOferta(Request $request)
+    public function update(Request $request)
     {
         $oferta = Oferta::find($request->input('id_oferta'));
         
@@ -22,7 +22,7 @@ class OfertaController extends Controller
         return \Response::json(Oferta::mudarStatusOferta($oferta, $request->ic_status_oferta));
     }
     
-    public function deletarOferta(Request $request)
+    public function destroy(Request $request)
     {
         $oferta         = Oferta::find($request->input('id_oferta'));
         

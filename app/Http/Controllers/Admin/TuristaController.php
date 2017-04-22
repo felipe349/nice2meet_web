@@ -11,7 +11,7 @@ use App\Models\Turista;
 
 class TuristaController extends Controller
 {
-    public function getListarTurista(){
+    public function index(){
         $turistas = Turista::getTuristas(10);
         
         return view('admin.listarTurista')->with([

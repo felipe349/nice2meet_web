@@ -39,7 +39,7 @@ class HomeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function atualizarDados(ParceiroRequest $request)
+    public function update(ParceiroRequest $request)
     {
         $parceiro_atualizado = Parceiro::atualizaParceiro(Auth::guard('parceiro')->user(), $request->except(['_method', '_token', 'id_parceiro']));
         
