@@ -26,8 +26,9 @@ CREATE TABLE `tb_administrador` (
   `id_administrador` int(11) NOT NULL AUTO_INCREMENT,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
+  `remember_token` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_administrador`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -36,6 +37,7 @@ CREATE TABLE `tb_administrador` (
 
 LOCK TABLES `tb_administrador` WRITE;
 /*!40000 ALTER TABLE `tb_administrador` DISABLE KEYS */;
+INSERT INTO `tb_administrador` VALUES (1,'admin@admin.com','$2y$10$gmRg0/AckS9KzCyP0hejnutkn0h8zLOfgvE9uuAMLh65BOvu9pUdy','NmqdER0rjZwkqaXkjR4qj1oMJqiYYpiwwhBL7ayOHX3qsTI12M9Pv3pG8gza');
 /*!40000 ALTER TABLE `tb_administrador` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -56,7 +58,7 @@ CREATE TABLE `tb_cupom` (
   PRIMARY KEY (`id_cupom`),
   KEY `fk_cupom_parceiro` (`id_parceiro`),
   CONSTRAINT `fk_cupom_parceiro` FOREIGN KEY (`id_parceiro`) REFERENCES `tb_parceiro` (`id_parceiro`)
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -65,7 +67,7 @@ CREATE TABLE `tb_cupom` (
 
 LOCK TABLES `tb_cupom` WRITE;
 /*!40000 ALTER TABLE `tb_cupom` DISABLE KEYS */;
-INSERT INTO `tb_cupom` VALUES (1,'2017-05-05','f4NezTnGSN',1,1,1),(2,'2017-05-05','IxoSiv4xga',1,1,1),(3,'2017-05-05','bDNY9zUXkn',1,1,1),(4,'2017-05-05','TfIAb0GegT',1,1,1),(5,'2017-05-05','urqhpIfs83',1,1,1),(6,'2017-05-05','ZdEXr4jnwX',1,1,1),(7,'2017-05-05','5aobRPqUTr',1,1,1),(8,'2017-05-05','e1Ksl1SrJ7',1,1,1),(9,'2017-05-05','tdE8VsK4A8',1,1,1),(10,'2017-05-05','UNM8lnW6qd',1,1,1),(11,'2017-05-05','KCWTkyEw9x',1,1,1);
+INSERT INTO `tb_cupom` VALUES (1,'2017-05-05','f4NezTnGSN',1,1,1),(2,'2017-05-05','IxoSiv4xga',1,1,1),(3,'2017-05-05','bDNY9zUXkn',1,1,1),(4,'2017-05-05','TfIAb0GegT',1,1,1),(5,'2017-05-05','urqhpIfs83',1,1,1),(6,'2017-05-05','ZdEXr4jnwX',1,1,1),(7,'2017-05-05','5aobRPqUTr',1,1,1),(8,'2017-05-05','e1Ksl1SrJ7',1,1,1),(9,'2017-05-05','tdE8VsK4A8',1,1,1),(10,'2017-05-05','UNM8lnW6qd',1,1,1),(11,'2017-05-05','KCWTkyEw9x',1,1,0);
 /*!40000 ALTER TABLE `tb_cupom` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -82,10 +84,12 @@ CREATE TABLE `tb_oferta` (
   `ic_status_oferta` tinyint(1) DEFAULT NULL,
   `id_parceiro` int(11) DEFAULT NULL,
   `nm_oferta` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT '0000-00-00 00:00:00',
   PRIMARY KEY (`id_oferta`),
   KEY `id_parceiro` (`id_parceiro`),
   CONSTRAINT `tb_oferta_ibfk_1` FOREIGN KEY (`id_parceiro`) REFERENCES `tb_parceiro` (`id_parceiro`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -94,7 +98,7 @@ CREATE TABLE `tb_oferta` (
 
 LOCK TABLES `tb_oferta` WRITE;
 /*!40000 ALTER TABLE `tb_oferta` DISABLE KEYS */;
-INSERT INTO `tb_oferta` VALUES (1,'Descrição da oferta',0,1,'Ofertão'),(3,'Cante linger e conquiste o prêmio da beats.',0,NULL,'Beats'),(5,'sos, to obcecado por sextas e beats',0,1,'Beats'),(6,'s e x ta',0,1,'b e a t s'),(7,'t r u c o ',0,1,'T e s t e'),(9,'hello weirdness',1,1,'lalalalal');
+INSERT INTO `tb_oferta` VALUES (1,'Descrição da oferta',0,1,'Ofertão','0000-00-00 00:00:00','0000-00-00 00:00:00'),(3,'Cante linger e conquiste o prêmio da beats.',0,NULL,'Beats','0000-00-00 00:00:00','0000-00-00 00:00:00'),(5,'sos, to obcecado por sextas e beats',0,1,'Beats','0000-00-00 00:00:00','0000-00-00 00:00:00'),(7,'t r u c o ',1,1,'T e s t e','0000-00-00 00:00:00','0000-00-00 00:00:00'),(8,'É um mc lanche muito feliz',0,1,'Mc Lanche Feliz','2017-04-26 21:58:26','0000-00-00 00:00:00');
 /*!40000 ALTER TABLE `tb_oferta` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -140,13 +144,15 @@ CREATE TABLE `tb_parceiro` (
   `nm_parceiro` varchar(255) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `dt_registro` date DEFAULT NULL,
   `cd_telefone` int(11) DEFAULT NULL,
   `cd_latitude` float(10,5) DEFAULT NULL,
   `cd_longitude` float(10,5) DEFAULT NULL,
   `remember_token` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` datetime DEFAULT '0000-00-00 00:00:00',
+  `nm_endereco` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_parceiro`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -155,7 +161,7 @@ CREATE TABLE `tb_parceiro` (
 
 LOCK TABLES `tb_parceiro` WRITE;
 /*!40000 ALTER TABLE `tb_parceiro` DISABLE KEYS */;
-INSERT INTO `tb_parceiro` VALUES (1,'Maria do bolo','maria@dobolo.com','$2y$10$mFoc5Z/Vco6yBG5bLRLId.PoEgJbIGKKnpyPTVB7PGuM1D6MZ09NK','2017-03-22',1335699747,-24.00508,46.41526,'JGBokngN2vajKeIXpIV7AqHqc4YNeqRhONsA6FKxAAtaBWV2dVNFz2GjljTM');
+INSERT INTO `tb_parceiro` VALUES (1,'Maria do bolo','maria@dobolo.com','$2y$10$mFoc5Z/Vco6yBG5bLRLId.PoEgJbIGKKnpyPTVB7PGuM1D6MZ09NK',1398879160,-23.96788,-46.32889,'IHWlUYuMWKxZmZ5cTZP6LNoRttyMBCZnRjsvAzF0NCyTCQZsxkkC85DhgsdA','2017-04-21 23:21:19','2017-04-26 21:57:56','Santos - SP, Brasil'),(2,'Malu','malu@malu.com',NULL,1334565432,-24.00554,-46.41247,NULL,'2017-04-23 16:53:40','2017-04-23 16:53:40','Espaço Malú - Praça 19 de Janeiro - Boqueirão, Praia Grande - SP, Brasil');
 /*!40000 ALTER TABLE `tb_parceiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,12 +173,17 @@ DROP TABLE IF EXISTS `tb_ponto_turistico`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `tb_ponto_turistico` (
-  `id_ponto_turistico` int(11) NOT NULL,
+  `id_ponto_turistico` int(11) NOT NULL AUTO_INCREMENT,
   `nm_ponto_turistico` varchar(255) DEFAULT NULL,
   `ds_ponto_turistico` varchar(255) DEFAULT NULL,
-  `ic_status_ponto_turistico` tinyint(1) DEFAULT NULL,
+  `ic_status_ponto_turistico` tinyint(1) DEFAULT '1',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `cd_latitude` decimal(10,4) DEFAULT '-13.5390',
+  `cd_longitude` decimal(10,4) DEFAULT NULL,
+  `nm_endereco_ponto_turistico` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id_ponto_turistico`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -181,7 +192,7 @@ CREATE TABLE `tb_ponto_turistico` (
 
 LOCK TABLES `tb_ponto_turistico` WRITE;
 /*!40000 ALTER TABLE `tb_ponto_turistico` DISABLE KEYS */;
-INSERT INTO `tb_ponto_turistico` VALUES (1,'Sesquicentenário de Praia Grande','É um lugar de terror',1);
+INSERT INTO `tb_ponto_turistico` VALUES (1,'Terminal 2','lugar que a coragem aparece <3',1,'2017-04-21 21:03:15','2017-04-26 21:44:04',-24.0050,-46.4123,'FATEC - Praça 19 de Janeiro - Boqueirão, Praia Grande - SP, Brasil');
 /*!40000 ALTER TABLE `tb_ponto_turistico` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -206,7 +217,7 @@ CREATE TABLE `tb_pontuacao` (
   CONSTRAINT `fk_pontuacao_quiz` FOREIGN KEY (`id_quiz`) REFERENCES `tb_quiz` (`id_quiz`),
   CONSTRAINT `tb_pontuacao_ibfk_1` FOREIGN KEY (`id_turista`) REFERENCES `tb_turista` (`id_turista`),
   CONSTRAINT `tb_pontuacao_ibfk_3` FOREIGN KEY (`id_cupom`) REFERENCES `tb_cupom` (`id_cupom`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=15 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -215,7 +226,7 @@ CREATE TABLE `tb_pontuacao` (
 
 LOCK TABLES `tb_pontuacao` WRITE;
 /*!40000 ALTER TABLE `tb_pontuacao` DISABLE KEYS */;
-INSERT INTO `tb_pontuacao` VALUES (1,'2017-04-18',10.00,1,1,1),(2,'2017-04-18',10.00,1,1,2),(3,'2017-04-18',10.00,1,1,3),(4,'2017-04-18',10.00,1,1,4),(5,'2017-04-18',10.00,1,1,5),(6,'2017-04-18',10.00,1,1,6),(7,'2017-04-18',10.00,1,1,7),(8,'2017-04-18',10.00,1,1,8),(9,'2017-04-18',10.00,1,1,9),(10,'2017-04-18',10.00,1,1,10),(11,'2017-04-18',10.00,1,1,11),(12,'2017-04-18',10.00,1,1,1);
+INSERT INTO `tb_pontuacao` VALUES (2,'2017-04-26',10.00,1,1,1),(3,'2017-04-26',10.00,1,1,2),(4,'2017-04-26',10.00,1,1,3),(5,'2017-04-26',10.00,1,1,4),(6,'2017-04-26',10.00,1,1,5),(8,'2017-04-26',10.00,1,1,6),(9,'2017-04-26',10.00,1,1,7),(10,'2017-04-26',10.00,1,1,8),(11,'2017-04-26',10.00,1,1,9),(12,'2017-04-26',10.00,1,1,10),(13,'2017-04-26',10.00,1,1,11);
 /*!40000 ALTER TABLE `tb_pontuacao` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -364,4 +375,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-04-19 14:31:37
+-- Dump completed on 2017-04-26 22:23:03
