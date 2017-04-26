@@ -5,17 +5,13 @@ Route::get('/', function(){
     return view('index');
 });
 
-Route::group(['middleware'  =>  'cors'], function(){
+Route::group(['middleware'  =>  'cors', 'prefix'    =>  'api'], function(){
     Route::get('/teste', function(){
         return \Response::json(\App\Models\Oferta::all());
     });
     
-    Route::post('/cadastroTeste', function(){
-        if (empty(\Request::all())) {
-            return \Response::json('tá vazia tua requisição. Não falei pra tu colcoar valor no post? D:');
-        } else {
-            return \Response::json(\Request::all());
-        }
+    Route::any('/cadastroTurista', function(){
+        return \Response::json(Request::all());
     });
     
     Route::get('/getOfertasPorLocalizacao/{lat}/{lng}', function($lat, $lng){
@@ -61,22 +57,25 @@ Route::group(['prefix' => 'Parceiro', 'middleware' => 'auth:parceiro'], function
     Route::group(['prefix' => 'Cupom'], function(){
         Route::get('/', 'Parceiro\CupomController@index');
         Route::get('/Validar', 'Parceiro\CupomController@getValidarCupom');
+        Route::put('/Validar', 'Parceiro\CupomController@validarCupom');
     });
 });
 
 // -------- ADMIN ------- 
 
-Route::group(['prefix' => 'Admin', 'middleware' => 'auth:admin'], function(){
+Route::group(['prefix' => 'Admin', 'middleware' => 'auth:admin'], function()
+{
     // Url: /Admin
-    
     Route::get('/', 'Admin\HomeController@index');
-    // Route::get('/dados-pessoais', 'Admin\HomeController@getDados');
     
     // Parceiros
     Route::group(['prefix' => 'Parceiro'], function(){
         Route::get('/', 'Admin\ParceiroController@index');
         Route::get('/Cadastrar', 'Admin\ParceiroController@create');
-        Route::get('/{parceiro}','Admin\ParceiroController@edit'); // ARRUMAR URL DPS
+        Route::post('/Cadastrar', 'Admin\ParceiroController@store');
+        
+        Route::get('/{parceiro}','Admin\ParceiroController@edit');
+        Route::put('/{parceiro}','Admin\ParceiroController@update');
         
     });
     

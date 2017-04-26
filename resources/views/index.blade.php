@@ -21,7 +21,7 @@
                   <i class="fa fa-user-circle"></i>
                 </div>
                 <div class="box-infos__content col">
-                  <h3 class="box-infos__title color-default light">Login </h3>
+                  <h3 class="box-infos__title color-default light"></h3>
                   <span class="box-infos__number strong font-20 bold">Administrador</span>
                   
                 </div>
@@ -33,7 +33,7 @@
                   <i class="fa fa-user-circle"></i>
                 </div>
                 <div class="box-infos__content col">
-                  <h3 class="box-infos__title color-default light">Login</h3>
+                  <h3 class="box-infos__title color-default light"></h3>
                   <span class="box-infos__number strong font-20 bold">Parceiro</span>
                   
                 </div>

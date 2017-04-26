@@ -85,7 +85,7 @@
                         </span>
                     </p>
                     <li class="options-item">
-                        <a href="/assets/src/html/admin/cadastrar-parceiro.php" class="link--white">
+                        <a href="/Admin/Parceiro/Cadastrar" class="link--white">
                             <i class="fa fa-plus"></i>Cadastrar
                         </a>
                     </li>

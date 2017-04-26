@@ -42,7 +42,7 @@
               <div class="flex-grid--wrap col-12 is-md">
                 <span class="font-small bold mg-10--bottom">Descrição</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Descrição"></p>
-                <textarea class="input col-12" maxlength="150" name="ds_ponto_turistico" required rows="7" data-validate="empty" data-name="Descrição">{{ old('ds_ponto_turistico', $ponto->ds_ponto_turistico) }}</textarea>
+                <textarea class="input col-12" maxlength="150" name="ds_ponto_turistico" maxlength="200" required rows="7" data-validate="empty" data-name="Descrição">{{ old('ds_ponto_turistico', $ponto->ds_ponto_turistico) }}</textarea>
               </div>
               <div class="flex-grid--wrap col-12 is-md">
                 <span class="font-small bold mg-10--bottom">Status</span>

@@ -30,8 +30,7 @@
                 <tr class="tr bg-white">
                   <th class="th light pd-10">Nome Fantasia</th>
                   <th class="th light pd-10">Email</th>
-                  <th class="th light pd-10">Latitude</th>
-                  <th class="th light pd-10">Longitude</th>
+                  <th class="th light pd-10">Localização</th>
                   <th class="th light pd-10">Ações</th>
                 </tr>
               </thead>
@@ -48,19 +47,14 @@
                       {{$parceiro->email}}
                     </p>
                   </td>
-                  <td class="td pd-10" data-th="Latitude">
+                  <td class="td pd-10" data-th="Localização">
                     <p class="col">
-                      {{$parceiro->cd_latitude}}
-                    </p>
-                  </td>
-                  <td class="td pd-10" data-th="Status">
-                    <p class="col">
-                      {{$parceiro->cd_longitude}}
+                      {{$parceiro->nm_endereco}}
                     </p>
                   </td>
                   <td class="td pd-10" data-th="Ações">
                     <div class="flex-grid col-0 valign-middle">
-                      <a href="#" class="btn--success btn-small btn-noborder btn-nomargin font-small col-0 relative">
+                      <a href="/Admin/Parceiro/{{ $parceiro->id_parceiro }}" class="btn--success btn-small btn-noborder btn-nomargin font-small col-0 relative">
                         <i class="fa fa-pencil-square-o"></i>
                       </a>
                     </div>

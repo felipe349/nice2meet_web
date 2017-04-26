@@ -26,12 +26,12 @@
             <!-- /LOGO SITE -->
             <div class="flex-grid--wrap form__box col-12">
               <span class="color-danger hidden col-12" data-message="E-mail"></span>
-              <input id="email" class="input--default input-nomargin col" type="text" name="email" data-validate="empty:email" data-name="E-mail" placeholder="E-mail ou Login" />
+              <input id="email" class="input--default input-nomargin col" type="text" maxlength="150" name="email" data-validate="empty:email" data-name="E-mail" placeholder="E-mail ou Login" />
             </div>
             <div class="flex-grid--wrap form__box col-12">
               <span class="color-danger hidden col-12" data-message="Senha"></span>
               <div class="flex-grid box-password col mg-10--bottom valign-top">
-                <input id="password" class="input--default input-nomargin box-password__input col" type="password" name="password" data-validate="empty" data-name="Senha" placeholder="Senha" />
+                <input id="password" class="input--default input-nomargin box-password__input col" maxlength="150" type="password" name="password" data-validate="empty" data-name="Senha" placeholder="Senha" />
                 <i class="fa fa-eye box-password__show color-default"></i>
               </div>
             </div>

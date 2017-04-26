@@ -46,7 +46,7 @@
                 <span class="font-small bold mg-10--bottom">Localização</span>
                 <input type="hidden" name="cd_latitude" id="cd_latitude" value="{{ old('cd_latitude') }}" />
                 <input type="hidden" name="cd_longitude" id="cd_longitude" value="{{ old('cd_longitude') }}" />
-                <input id="pac-input" class="input col-12" type="text" name="nm_endereco_ponto_turistico" required value="{{ old('nm_endereco_ponto_turistico') }}" />
+                <input id="pac-input" maxlength="100" class="input col-12" type="text" name="nm_endereco_ponto_turistico" required value="{{ old('nm_endereco_ponto_turistico') }}" />
               </div>
               
               <div id="map" style="width: 650px; height: 400px"></div>

@@ -30,12 +30,12 @@
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Título</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Referência"></p>
-                <input class="input col-12" maxlength="250" type="text" name="nm_oferta" data-validate="empty" data-name="Referência" value='{{ old("nm_oferta", $oferta->nm_oferta) }}' />
+                <input class="input col-12" maxlength="150" type="text" name="nm_oferta" data-validate="empty" data-name="Referência" value='{{ old("nm_oferta", $oferta->nm_oferta) }}' />
               </div>
               <div class="flex-grid--wrap col-12 is-md">
                 <span class="font-small bold mg-10--bottom">Descrição</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Descrição"></p>
-                <textarea class="input col-12" maxlength="250" name="ds_oferta" rows="7" data-validate="empty" data-name="Descrição">{{ old('ds_oferta', $oferta->ds_oferta) }}</textarea>
+                <textarea class="input col-12" maxlength="150" name="ds_oferta" rows="7" data-validate="empty" data-name="Descrição">{{ old('ds_oferta', $oferta->ds_oferta) }}</textarea>
               </div>
               <div class="flex-grid--col col-0 is-sm mg-10--bottom">
                 <span class="font-small bold mg-10--bottom col">Deseja definir como oferta vigente?</span>

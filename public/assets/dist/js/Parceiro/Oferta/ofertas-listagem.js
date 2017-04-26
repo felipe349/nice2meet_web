@@ -20,6 +20,7 @@ var ofertas = {
                 }
             });
         },
+        
         deleteOferta : function(param, response){
             if (param.length == 0) {
                 response(false);
@@ -70,6 +71,8 @@ var ofertas = {
                     }
                 });
             });
+            
+            
         }
     },
     init : function(){

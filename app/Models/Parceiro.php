@@ -25,7 +25,8 @@ class Parceiro extends Authenticatable
         return $this->hasMany('App\Models\Cupom', 'id_parceiro', 'id_parceiro');
     }
     
-    public static function getParceiros($paginate = null){
+    public static function getParceiros($paginate = null)
+    {
         if(!is_null($paginate)){
             return self::paginate($paginate);
         }
@@ -38,8 +39,14 @@ class Parceiro extends Authenticatable
         if (array_key_exists('cd_telefone', $dados)) {
             $dados['cd_telefone']   =   preg_replace("/[^0-9]/", "", $dados['cd_telefone']);
         }
-        
-        return $parceiro->update($dados);
+        $parceiro->fill($dados);
+        return $parceiro->save();
+        // return $parceiro->update($dados);
     }
     
+    public static function criarParceiro($dados)
+    {
+        $dados['cd_telefone']   =   preg_replace("/[^0-9]/", "", $dados['cd_telefone']);
+        return self::create($dados);
+    }
 }

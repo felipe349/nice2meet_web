@@ -33,7 +33,6 @@
                   <th class="th light pd-10">Nome</th>
                   <th class="th light pd-10">Descrição</th>
                   <th class="th light pd-10">Parceiro</th>
-                  <th class="th light pd-10">Editar</th>
                 </tr>
               </thead>
               <tbody class="tbody">
@@ -51,15 +50,8 @@
                   </td>
                   <td class="td pd-10" data-th="Parceiro">
                     <p class="col">
-                      {{ $oferta->parceiro->nm_parceiro }}
+                      <a href="/Admin/Parceiro/{{ $oferta->parceiro->id_parceiro }}" class="link--black">{{ $oferta->parceiro->nm_parceiro }}</a>
                     </p>
-                  </td>
-                  <td class="td pd-10" data-th="Ações">
-                    <div class="flex-grid col-0 valign-middle">
-                      <a href="#" class="btn--success btn-small btn-noborder btn-nomargin font-small col-0 relative">
-                        <i class="fa fa-pencil-square-o"></i>
-                      </a>
-                    </div>
                   </td>
                 </tr>
                 @endforeach

@@ -4,8 +4,8 @@
             <figure class="flex-grid valign-middle halign-center">
                 <image class="col-0" src="/assets/dist/images/parceiros/logo-parceiro.png" alt=""/>
                 <figcaption class="col dashboard-hidden pd-10">
-                    <p class="bold">MARIA </p>
-                    <span class="font-small">DO BOLO</span>
+                    <p class="bold">{{ \Auth::guard('parceiro')->user()->nm_parceiro }} </p>
+                    <!--<span class="font-small">DO BOLO</span>-->
                 </figcaption>
             </figure>
         </div>
@@ -27,7 +27,7 @@
                         </span>
                     </p>
                     <li class="options-item">
-                        <a href="/Parceiro/Oferta/" class="link--white">
+                        <a href="/Parceiro/Oferta" class="link--white">
                             <i class="fa fa-list"></i>Listar
                         </a>
                     </li>
@@ -69,7 +69,7 @@
             </div>
         </li>
         <li class="flex-grid">
-            <a class="flex-grid dashboard-item" href="/Parceiro/">
+            <a class="flex-grid dashboard-item" href="/Parceiro">
                 <div class="flex-grid dashboard-box">
                     <i class="fa fa-user"></i>
                     <p class="dashboard-hidden item-name">Meus Dados</p>
