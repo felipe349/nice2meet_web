@@ -5,16 +5,12 @@ Route::get('/', function(){
     return view('index');
 });
 
-Route::group(['middleware'  =>  'cors', 'prefix'    =>  'api'], function(){
-    Route::get('/teste', function(){
-        return \Response::json(\App\Models\Oferta::all());
-    });
+Route::group(['middleware'  =>  ['cors', 'api'], 'prefix'    =>  'api'], function(){
     
     Route::post('/cadastroTurista', 'Api\TuristaController@store');
     
-    Route::get('/getOfertasPorLocalizacao/{lat}/{lng}', function($lat, $lng){
-        return $lat;
-    });
+    Route::post('/getUser', 'Api\TuristaController@getTurista');
+    
 });
 
 

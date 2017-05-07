@@ -35,10 +35,10 @@
     */
 
     'guards' => [
-        // 'web' => [
-        //     'driver' => 'session',
-        //     'provider' => 'users',
-        // ],
+        'web' => [
+            'driver' => 'session',
+            'provider' => 'users',
+        ],
         
         'parceiro'  =>  [
             'driver'    =>  'session',
@@ -50,10 +50,10 @@
             'provider'  =>  'admins'
         ],
 
-        'api' => [
-            'driver' => 'token',
-            'provider' => 'turistas',
-        ],
+        // 'api' => [
+        //     'driver' => 'token',
+        //     'provider' => 'turistas',
+        // ],
     ],
 
     /*
