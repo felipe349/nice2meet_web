@@ -10,9 +10,7 @@ Route::group(['middleware'  =>  'cors', 'prefix'    =>  'api'], function(){
         return \Response::json(\App\Models\Oferta::all());
     });
     
-    Route::any('/cadastroTurista', function(){
-        return \Response::json(Request::all());
-    });
+    Route::post('/cadastroTurista', 'Api\TuristaController@store');
     
     Route::get('/getOfertasPorLocalizacao/{lat}/{lng}', function($lat, $lng){
         return $lat;

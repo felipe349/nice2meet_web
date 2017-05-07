@@ -36,12 +36,12 @@
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Nome Fantasia</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Nome Fantasia"></p>
-                <input class="input col-12" type="text" name="nm_parceiro" data-validate="empty" data-name="Nome Fantasia" value="{{ old('nm_parceiro', $parceiro->nm_parceiro) }}" maxlength="100" />
+                <input class="input col-12" type="text" name="nm_parceiro" data-validate="empty" data-name="Nome Fantasia" value="{{ old('nm_parceiro', $parceiro->nm_parceiro) }}"/>
               </div>
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Email</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Email"></p>
-                <input class="input col-12" type="text" data-validate="empty" data-name="Email" disabled value="{{ $parceiro->email }}" maxlength="150" />
+                <input class="input col-12" type="text" data-validate="empty" data-name="Email" disabled value="{{ $parceiro->email }}" />
               </div>
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Telefone</span>
@@ -52,7 +52,7 @@
                 <span class="font-small bold mg-10--bottom">Localização</span>
                 <input type="hidden" name="cd_latitude" id="cd_latitude" value="{{ old('cd_latitude', $parceiro->cd_latitude) }}" />
                 <input type="hidden" name="cd_longitude" id="cd_longitude" value="{{ old('cd_longitude', $parceiro->cd_longitude) }}" />
-                <input required id="pac-input" maxlength="100" class="input col-12" type="text" name="nm_endereco" maxlength="250" required value="{{ old('nm_endereco', $parceiro->nm_endereco) }}" />
+                <input required id="pac-input" class="input col-12" type="text" name="nm_endereco" maxlength="250" required value="{{ old('nm_endereco', $parceiro->nm_endereco) }}" />
               </div>
               
               <div id="map" style="width: 650px; height: 400px"></div>
@@ -72,11 +72,5 @@
 
 @section('js-section')
   <script src="/assets/dist/js/maps.min.js"></script>
-  <script src="/assets/dist/js/Plugins/jmasked-input.min.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCr9xSF0eirrxmlGimDWAR9JB-BjLVC5js&libraries=places&callback=initAutocomplete" async defer></script>
-  <script>
-    $(document).ready(function(){
-      $("[data-name='Telefone']").mask('(99)9999-9999',{placeholder: ''});
-    });
-  </script>
 @endsection

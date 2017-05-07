@@ -2,9 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-class Turista extends Model
+class Turista extends Authenticatable
 {
     public $timestamps = false;
     protected $table = 'tb_turista';
@@ -30,5 +30,17 @@ class Turista extends Model
         }
         
         return self::all();
+    }
+    
+    // Responsável por criar um novo objeto do tipo turista
+    public static function createTurista($dados)
+    {
+        return self::create([
+            'nm_turista'    =>  $dados['nm_turista'],
+            'email'         =>  $dados['email'],
+            'password'      =>  bcrypt($dados['password']),
+            'cd_cpf'        =>  preg_replace("/[^0-9]/", "", $dados['cd_cpf']),
+        ]);
+        
     }
 }

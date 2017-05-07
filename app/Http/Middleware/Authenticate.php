@@ -29,7 +29,7 @@ class Authenticate
                         return redirect()->guest('Admin/login');
                         break;
                     default :
-                        redirect()->guest('/');
+                        return redirect()->guest('/');
                 }
             }
         }
