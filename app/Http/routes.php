@@ -6,12 +6,14 @@ Route::get('/', function(){
 });
 
 Route::group(['middleware'  =>  ['cors', 'api'], 'prefix'    =>  'api'], function(){
-    
     Route::post('/cadastroTurista', 'Api\TuristaController@store');
+    Route::post('/login', 'Api\TuristaController@postLogin');
     
-    Route::post('/getUser', 'Api\TuristaController@getTurista');
-    
+    Route::group(['middleware' => 'jwt-auth'], function () {
+    	Route::post('get_user_details', 'Api\TuristaController@get_user_details');
+    });
 });
+
 
 
 //-------- LOGIN -------

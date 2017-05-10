@@ -27,8 +27,14 @@ class TuristaController extends Controller
         return \Response::json($turista);
     }
     
-    public function getTurista(Request $request)
+    public function postLogin(Request $request)
     {
         return response()->json(['turista' => JWTAuth::attempt($request->only(['email', 'password']))]);
+    }
+    
+    public function get_user_details(Request $request)
+    {
+    	$user = JWTAuth::toUser($request->input('token_usuario'));
+        return response()->json(['result' => $user]);
     }
 }
