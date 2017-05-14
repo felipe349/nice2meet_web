@@ -6,12 +6,14 @@ Route::get('/', function(){
 });
 
 Route::group(['middleware'  =>  ['cors', 'api'], 'prefix'    =>  'api'], function(){
-    Route::post('/cadastroTurista', 'Api\TuristaController@store');
-    Route::post('/login', 'Api\TuristaController@postLogin');
+    // Route::post('/cadastroTurista', 'Api\TuristaController@store');
+    // Route::post('/login', 'Api\TuristaController@postLogin');
     
-    Route::group(['middleware' => 'jwt-auth'], function () {
-    	Route::post('get_user_details', 'Api\TuristaController@get_user_details');
-    });
+    // Route::group(['middleware' => 'jwt-auth'], function () {
+    // 	Route::post('get_user_details', 'Api\TuristaController@get_user_details');
+    // });
+    
+    Route::post('auth/login', 'Api\TuristaController@authenticate');
 });
 
 
@@ -83,6 +85,15 @@ Route::group(['prefix' => 'Admin', 'middleware' => 'auth:admin'], function()
         Route::get('/{ponto}', 'Admin\PontoTuristicoController@edit');
         Route::put('/{ponto}', 'Admin\PontoTuristicoController@update');
     });
+    
+    // Quizz
+    Route::group(['prefix' => 'Quiz'], function(){
+        Route::get('/', 'Admin\QuizController@index');
+        Route::get('/Cadastrar', 'Admin\QuizController@create');
+        Route::post('/Cadastrar', 'Admin\QuizController@store');
+        Route::get('/{quiz}', 'Admin\QuizController@edit');
+        //Route::put('/{ponto}', 'Admin\PontoTuristicoController@update');
+    });  
     
     // Turistas
     Route::group(['prefix' => 'Turista'], function(){

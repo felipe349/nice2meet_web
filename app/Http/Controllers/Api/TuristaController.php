@@ -18,23 +18,58 @@ use JWTAuth;
 
 class TuristaController extends Controller
 {
-    /**
-     * @method POST
-     */
-    public function store(TuristaRequest $request)
-    {
-        $turista = Turista::createTurista($request->all());
-        return \Response::json($turista);
-    }
+    // /**
+    //  * @method POST
+    //  */
+    // public function store(TuristaRequest $request)
+    // {
+    //     $turista = Turista::createTurista($request->all());
+    //     return \Response::json($turista);
+    // }
     
-    public function postLogin(Request $request)
-    {
-        return response()->json(['turista' => JWTAuth::attempt($request->only(['email', 'password']))]);
-    }
+    // public function postLogin(Request $request)
+    // {
+    //     return response()->json(['turista' => JWTAuth::attempt($request->only(['email', 'password']))]);
+    // }
     
-    public function get_user_details(Request $request)
-    {
-    	$user = JWTAuth::toUser($request->input('token_usuario'));
-        return response()->json(['result' => $user]);
+    // public function get_user_details(Request $request)
+    // {
+    // 	$user = JWTAuth::toUser($request->input('token_usuario'));
+    //     return response()->json(['result' => $user]);
+    // }
+    
+    public function authenticate(Request $request) {
+        $credentials = $request->only('email', 'password');
+        
+        $turista = Turista::where('email', $credentials['email'])->first();
+        
+        if(!$turista) {
+            return response()->json([
+              'error' => 'Invalid credentials'
+            ], 401);
+        }
+        
+        if (!\Hash::check($credentials['password'], $turista->password)){
+            return response()->json([
+                'error' =>  'Invalid credentials'
+            ], 401);
+        }
+        
+        // Generate Token
+        $token = JWTAuth::fromUser($turista);
+        
+        // Get expiration time
+        $objectToken = JWTAuth::setToken($token);
+        
+        $teste = $objectToken->getToken();
+        
+        
+        $expiration = JWTAuth::decode($objectToken->getToken())->get('exp');
+        
+        return response()->json([
+            'access_token' => $token,
+            'token_type' => 'bearer',
+            'expires_in' => JWTAuth::decode()->get('exp')
+        ]);
     }
 }

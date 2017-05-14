@@ -25,6 +25,19 @@ class PontoTuristico extends Model
     }
     
     
+    /**
+     * Como usar o relashionship laravel
+     * // Pegamos um valor
+     * $ponto = self::first();
+     * 
+     * // Para acessar um quiz, por exemplo, basta fazer
+     * echo $ponto->quiz;
+     * 
+     * Caso seja um grupo de collection, você precisa acessar cada item da collection pra poder fazer esse role
+     * // Considerando que venham resultados
+     * $pontos = self::orderBy('created_at', 'desc');
+     * echo $pontos->first()->quiz;
+     */
     // Métodos DAO
     public static function getPontosTuristicos($ic_status = null, $paginate = null)
     {

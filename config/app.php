@@ -160,7 +160,7 @@ return [
         // CORS ==> https://github.com/barryvdh/laravel-cors
         Barryvdh\Cors\ServiceProvider::class,
         
-        // JWT ==> https://jwt.io
+        // JWT ==> 
         Tymon\JWTAuth\Providers\JWTAuthServiceProvider::class,
     ],
 
@@ -209,7 +209,8 @@ return [
         'View' => Illuminate\Support\Facades\View::class,
         
         
-        'JWTAuth' => Tymon\JWTAuth\Facades\JWTAuth::class,
+        'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth',
+        'JWTFactory' => Tymon\JWTAuthFacades\JWTFactory::class
     ],
 
 ];

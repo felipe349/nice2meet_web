@@ -56,12 +56,12 @@
                         </span>
                     </p>
                     <li class="options-item">
-                        <a href="" class="link--white">
+                        <a href="/Admin/Quiz/Cadastro" class="link--white">
                             <i class="fa fa-plus"></i>Cadastrar
                         </a>
                     </li>
                     <li class="options-item">
-                        <a href="/assets/src/html/admin/grupo-questao.php" class="link--white">
+                        <a href="/Admin/Quiz/" class="link--white">
                             <i class="fa fa-list"></i>Listar
                         </a>
                     </li>
