@@ -48,34 +48,29 @@
               </div>
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Quantidade de Alternativas</span>
-                <select onchange="alert(this.options[this.selectedIndex].text)" class="input col-12" type="text" name="qt_questao" data-validate="empty"  data-name="Pergunta">
+                <select class="input col-12" type="text" name="qt_questao" data-validate="empty"  data-name="Pergunta">
                   <option value="2">2</option>
                   <option value="3">3</option>
                   <option value="4">4</option>
                   <option value="5">5</option>
                 </select> 
-                
-                <script>
-                  // alert("PASSO");
-                  // $( "select" )
-                  //   .change(function () {
-                  //     var str = "";
-                  //     $( "select option:value" ).each(function() {
-                  //       str += $( this ).text() + " ";
-                  //     });
-                  //     $( "div" ).text( str );
-                  //   })
-                  //   .change();
-                    
-                </script>
               </div>
-              <div class="flex-grid--wrap col-12">
+              <div class="flex-grid--wrap col-12 checkbox-switch--success">
                 <span class="font-small bold mg-10--bottom col-12">Respostas</span>
-                <input class="input col-12" type="text" name="ds_resposta1" placeholder="Alternativa A" data-validate="empty"  data-name="Resposta" maxlength="100" />
-                <input class="input col-12" type="text" name="ds_resposta2" placeholder="Alternativa B" data-validate="empty"  data-name="Resposta" maxlength="100" />
-                <input class="input col-12" type="text" name="ds_resposta3" placeholder="Alternativa C" data-validate="empty"  data-name="Resposta" maxlength="100" />
-                <input class="input col-12" type="text" name="ds_resposta4" placeholder="Alternativa D" data-validate="empty"  data-name="Resposta" maxlength="100" />
-                <input class="input col-12" type="text" name="ds_resposta5" placeholder="Alternativa E" data-validate="empty"  data-name="Resposta" maxlength="100" />
+                
+                <input class="input col-9" type="text" name="ds_resposta_questao" placeholder="Alternativa A" data-validate="empty"  data-name="Resposta" maxlength="100" />
+                &nbspCORRETA <input type="radio" name="ic_resposta_correta" value="A" class="radio" style="margin-top:8px;margin-left:10px"/>
+                
+                <input class="input col-9" type="text" name="ds_resposta_questao2" placeholder="Alternativa B" data-validate="empty"  data-name="Resposta" maxlength="100" />
+                &nbspCORRETA <input type="radio" name="ic_resposta_correta" value="B" class="radio" style="margin-top:8px;margin-left:10px"/>
+                
+                <input class="input col-9" type="text" name="ds_resposta_questao3" placeholder="Alternativa C" data-validate="empty"  data-name="Resposta" maxlength="100" />
+                &nbspCORRETA <input type="radio" name="ic_resposta_correta" value="C" class="radio" style="margin-top:8px;margin-left:10px"/>
+                <input class="input col-9" type="text" name="ds_resposta_questao4" placeholder="Alternativa D" data-validate="empty"  data-name="Resposta" maxlength="100" />
+                &nbspCORRETA <input type="radio" name="ic_resposta_correta" value="D" class="radio" style="margin-top:8px;margin-left:10px"/>
+                
+                <input class="input col-9" type="text" name="ds_resposta_questao5" placeholder="Alternativa E" data-validate="empty"  data-name="Resposta" maxlength="100" />
+                &nbspCORRETA <input type="radio" name="ic_resposta_correta" value="E" class="radio" style="margin-top:8px;margin-left:10px"/>
               </div>
               
               <div class="flex-grid col-12">
