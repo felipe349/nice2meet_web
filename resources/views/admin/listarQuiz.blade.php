@@ -13,7 +13,7 @@
             
 
             <!-- TITLE PAGE -->
-            <h1 class="col light font-30 main-title is-sm">Parceiros</h1>
+            <h1 class="col light font-30 main-title is-sm">Quiz</h1>
           </div>
           <!-- /TOP -->
           
@@ -71,7 +71,7 @@
               {!! $quiz->links() !!}
               <!-- /Fim Table Listagem -->
             @else
-              <span class="alert--info">Não há nenhum ponto turístico cadastrado.</span>
+              <span class="alert--info">Não há nenhum quiz cadastrado.</span>
             @endif
           </div>
         </section>

@@ -56,7 +56,7 @@
                         </span>
                     </p>
                     <li class="options-item">
-                        <a href="/Admin/Quiz/Cadastro" class="link--white">
+                        <a href="/Admin/Quiz/Cadastrar" class="link--white">
                             <i class="fa fa-plus"></i>Cadastrar
                         </a>
                     </li>

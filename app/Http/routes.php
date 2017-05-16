@@ -1,10 +1,8 @@
 <?php
-
 // Provisório
 Route::get('/', function(){
     return view('index');
 });
-
 Route::group(['middleware'  =>  ['cors', 'api'], 'prefix'    =>  'api'], function(){
     // Route::post('/cadastroTurista', 'Api\TuristaController@store');
     // Route::post('/login', 'Api\TuristaController@postLogin');
@@ -15,23 +13,17 @@ Route::group(['middleware'  =>  ['cors', 'api'], 'prefix'    =>  'api'], functio
     
     Route::post('auth/login', 'Api\TuristaController@authenticate');
 });
-
-
-
 //-------- LOGIN -------
-
 Route::group(['prefix'  =>  '/Parceiro'], function(){
     Route::get('/login', 'Parceiro\LoginController@getLogin');
     Route::post('/login', 'Parceiro\LoginController@makeLogin');
     Route::get('/logout', 'Parceiro\LoginController@logout');
 });
-
 Route::group(['prefix'  =>  '/Admin'], function(){
     Route::get('/login', 'Admin\LoginController@getLogin');
     Route::post('/login', 'Admin\LoginController@makeLogin');
     Route::get('/logout', 'Admin\LoginController@logout');
 });
-
 // ----------------- Parceiro
 Route::group(['prefix' => 'Parceiro', 'middleware' => 'auth:parceiro'], function()
 {
@@ -58,9 +50,7 @@ Route::group(['prefix' => 'Parceiro', 'middleware' => 'auth:parceiro'], function
         Route::put('/Validar', 'Parceiro\CupomController@validarCupom');
     });
 });
-
 // -------- ADMIN ------- 
-
 Route::group(['prefix' => 'Admin', 'middleware' => 'auth:admin'], function()
 {
     // Url: /Admin
@@ -86,7 +76,7 @@ Route::group(['prefix' => 'Admin', 'middleware' => 'auth:admin'], function()
         Route::put('/{ponto}', 'Admin\PontoTuristicoController@update');
     });
     
-    // Quizz
+    // Quiz
     Route::group(['prefix' => 'Quiz'], function(){
         Route::get('/', 'Admin\QuizController@index');
         Route::get('/Cadastrar', 'Admin\QuizController@create');
@@ -109,7 +99,6 @@ Route::group(['prefix' => 'Admin', 'middleware' => 'auth:admin'], function()
     });
     
 });
-
 // ------- API INTERNA -----------
 Route::group(['prefix'  =>  'apiInterna'], function(){
     // Ofertas

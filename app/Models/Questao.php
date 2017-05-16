@@ -13,10 +13,10 @@ class Questao extends Model
         'id_questao', 'nm_questao'
     ];
     
-    public function quiz()
+    /*public function quiz()
     {
         return $this->belongsTo('App\Models\Quiz', 'id_quiz', 'id_quiz');
-    }
+    }*/
     
     public function respostaQuestao()
     {
