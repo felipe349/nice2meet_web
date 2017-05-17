@@ -30,6 +30,7 @@
                 @endforeach
               </span>
             @endif
+            
             <form class="form__maquinas form flex-grid--wrap col-12 pd-10" data-type-form="default" action="/Admin/Quiz/Cadastrar" method="POST">
               {{ csrf_field() }}
               <div class="flex-grid--wrap col-12">
@@ -44,26 +45,15 @@
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Pergunta</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Pergunta"></p> 
-                <input class="input col-12" type="text" name="nm_questao" placeholder="Em que ano a Torre Eiffel foi inaugurada?" data-validate="empty"  data-name="Pergunta" maxlength="100" /> 
+                <input class="input col-12" type="text" name="nm_questao" placeholder="Por exemplo: Em que ano a Torre Eiffel foi inaugurada?" data-validate="empty"  data-name="Pergunta" maxlength="150" value="{{ $quiz->questaoQuiz->questao->nm_questao }}" /> 
               </div>
               
               <div class="flex-grid--wrap col-12 checkbox-switch--success">
                 <span class="font-small bold mg-10--bottom col-12">Respostas</span>
-                
-                <input class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa A" data-validate="empty"  data-name="Resposta" maxlength="100" />
-                &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="1" class="radio" style="margin-top:8px;margin-left:10px"/>
-                
-                <input class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa B" data-validate="empty"  data-name="Resposta" maxlength="100" />
-                &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="2" class="radio" style="margin-top:8px;margin-left:10px"/>
-                
-                <input class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa C" data-validate="empty"  data-name="Resposta" maxlength="100" />
-                &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="3" class="radio" style="margin-top:8px;margin-left:10px"/>
-                
-                <input class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa D" data-validate="empty"  data-name="Resposta" maxlength="100" />
-                &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="4" class="radio" style="margin-top:8px;margin-left:10px"/>
-                
-                <input class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa E" data-validate="empty"  data-name="Resposta" maxlength="100" />
-                &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="5" class="radio" style="margin-top:8px;margin-left:10px"/>
+                @for($i = 0; $i < count($respostas); $i++)
+                  <input required class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa A" data-validate="empty"  data-name="Resposta" maxlength="100" value="{{ $respostas[$i]->ds_resposta_questao }}" />
+                  &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="{{ $i+1 }}" @if($respostas[$i]->ic_resposta_correta) checked @endif class="radio" style="margin-top:8px;margin-left:10px"/>
+                @endfor
               </div>
               
               <div class="flex-grid col-12">

@@ -17,4 +17,15 @@ class RespostaQuestao extends Model
     {
         return $this->belongsTo('App\Models\Questao', 'id_questao', 'id_questao');
     }
+    
+    public static function adicionarRespostaQuestao($dados, $id_questao)
+    {
+        for($i = 0; $i < count($dados['ds_resposta_questao']); $i++){
+            self::create([
+                'ds_resposta_questao' => $dados['ds_resposta_questao'][$i],
+                'ic_resposta_correta' => ($dados['ic_resposta_correta'][0] == ($i+1)),
+                'id_questao'          => $id_questao
+            ]);
+        }
+    }
 }

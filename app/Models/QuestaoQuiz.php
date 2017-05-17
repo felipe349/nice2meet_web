@@ -13,4 +13,9 @@ class QuestaoQuiz extends Model
         'id_questao_quiz','id_quiz', 'id_questao'
     ];
     
+    
+    public function questao()
+    {
+        return $this->hasOne('App\Models\Questao', 'id_questao', 'id_questao');
+    }
 }

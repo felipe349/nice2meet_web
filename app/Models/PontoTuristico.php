@@ -24,24 +24,10 @@ class PontoTuristico extends Model
         return $this->hasMany('App\Models\OfertaPonto', 'id_oferta_ponto', 'id_oferta_ponto');
     }
     
-    
-    /**
-     * Como usar o relashionship laravel
-     * // Pegamos um valor
-     * $ponto = self::first();
-     * 
-     * // Para acessar um quiz, por exemplo, basta fazer
-     * echo $ponto->quiz;
-     * 
-     * Caso seja um grupo de collection, você precisa acessar cada item da collection pra poder fazer esse role
-     * // Considerando que venham resultados
-     * $pontos = self::orderBy('created_at', 'desc');
-     * echo $pontos->first()->quiz;
-     */
-    // Métodos DAO
     public static function getPontosTuristicos($ic_status = null, $paginate = null)
     {
         $pontos = self::orderBy('created_at', 'desc');
+        
         if (!is_null($ic_status)) {
             $pontos = $pontos->where('ic_status_ponto_turistico', $ic_ativo);
         }
@@ -59,10 +45,5 @@ class PontoTuristico extends Model
         $ponto->ic_status_ponto_turistico   =   !empty($dados['ic_status_ponto_turistico']);
         
         return $ponto->save();
-    }
-    
-    public static function deletePontoTuristico($id_ponto_turistico)
-    {
-        // Para que possa ser deletado, é necessário fazer com que o oferta_ponto e tb_quiz não se relacionem com este índice.
     }
 }

@@ -23,5 +23,8 @@ class Quiz extends Model
         return $this->belongsTo('App\Models\PontoTuristico', 'id_ponto_turistico', 'id_ponto_turistico');
     }
     
-    
+    public function questaoQuiz()
+    {
+        return $this->belongsTo('App\Models\QuestaoQuiz', 'id_quiz', 'id_quiz');
+    }
 }
