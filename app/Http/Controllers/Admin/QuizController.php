@@ -54,4 +54,31 @@ class QuizController extends Controller
             'quiz'          =>  $quiz,
         ]);
     }
+    
+    public function update(CadastroQuiz $request, Quiz $quiz)
+    {
+        if ($quiz->id_ponto_turistico != $request->input('id_ponto_turistico')) {
+            $quiz->id_ponto_turistico = $request->input('id_ponto_turistico');
+            $quiz->save();
+        }
+        
+        if ($quiz->questaoQuiz->questao->nm_questao == $request->input('nm_questao')) {
+            $quiz->questaoQuiz->questao->nm_questao = $request->input('nm_questao');
+            $quiz->questaoQuiz->questao->save();
+        }
+        
+        for($i = 0; $i < count($request->input('ds_resposta_questao')); $i++) {
+            $quiz->questaoQuiz->questao->respostasQuestao[$i]->ds_resposta_questao   =   $request->input('ds_resposta_questao')[$i];
+            if (in_array(($i+1), $request->input('ic_resposta_correta'))) {
+                $quiz->questaoQuiz->questao->respostasQuestao[$i]->ic_resposta_correta = $request->input('ic_resposta_correta')[0];
+            }
+            
+            $quiz->questaoQuiz->questao->respostasQuestao[$i]->save();
+        }
+        
+        return redirect()->back()->withMensagem([
+            'text'      =>  'Quiz atualizado com sucesso.',
+            'class'     =>  'success'
+        ]);
+    }
 }

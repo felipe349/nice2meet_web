@@ -82,6 +82,7 @@ Route::group(['prefix' => 'Admin', 'middleware' => 'auth:admin'], function()
         Route::get('/Cadastrar', 'Admin\QuizController@create');
         Route::post('/Cadastrar', 'Admin\QuizController@store');
         Route::get('/{quiz}', 'Admin\QuizController@edit');
+        Route::put('/{quiz}', 'Admin\QuizController@update');
         //Route::put('/{ponto}', 'Admin\PontoTuristicoController@update');
     });  
     

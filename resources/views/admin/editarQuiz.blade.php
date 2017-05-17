@@ -31,7 +31,8 @@
               </span>
             @endif
             
-            <form class="form__maquinas form flex-grid--wrap col-12 pd-10" data-type-form="default" action="/Admin/Quiz/Cadastrar" method="POST">
+            <form class="form__maquinas form flex-grid--wrap col-12 pd-10" data-type-form="default" action="/Admin/Quiz/{{ $quiz->id_quiz }}" method="POST">
+              {{ method_field('PUT') }}
               {{ csrf_field() }}
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Nome do ponto turístico</span>
