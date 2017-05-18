@@ -68,10 +68,9 @@ class QuizController extends Controller
         }
         
         for($i = 0; $i < count($request->input('ds_resposta_questao')); $i++) {
-            $quiz->questaoQuiz->questao->respostasQuestao[$i]->ds_resposta_questao   =   $request->input('ds_resposta_questao')[$i];
-            if (in_array(($i+1), $request->input('ic_resposta_correta'))) {
-                $quiz->questaoQuiz->questao->respostasQuestao[$i]->ic_resposta_correta = $request->input('ic_resposta_correta')[0];
-            }
+            $quiz->questaoQuiz->questao->respostasQuestao[$i]->ds_resposta_questao      =   $request->input('ds_resposta_questao')[$i];
+            
+            $quiz->questaoQuiz->questao->respostasQuestao[$i]->ic_resposta_correta  = in_array(($i+1), $request->input('ic_resposta_correta'));
             
             $quiz->questaoQuiz->questao->respostasQuestao[$i]->save();
         }
