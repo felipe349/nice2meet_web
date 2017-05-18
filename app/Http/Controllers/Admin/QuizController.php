@@ -80,4 +80,11 @@ class QuizController extends Controller
             'class'     =>  'success'
         ]);
     }
+    
+    public function destroy(Quiz $quiz)
+    {
+        // Deletar a pontuação
+        // $quiz->pontuacao()->delete();
+        
+    }
 }

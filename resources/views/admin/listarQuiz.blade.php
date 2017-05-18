@@ -31,7 +31,6 @@
                 <thead class="thead">
                   <tr class="tr bg-white">
                     <th class="th light pd-10">ID do Quiz</th>
-                    <th class="th light pd-10">Quantidade de perguntas</th>
                     <th class="th light pd-10">Ponto Turístico do Quiz</th>
                     <th class="th light pd-10">Ações</th>
                   </tr>
@@ -44,11 +43,6 @@
                         {{ $q->id_quiz }}
                       </p>
                     </td>
-                    <td class="td pd-10" data-th="Descrição">
-                      <p class="col">
-                        {{ $q->qt_questao }}
-                      </p>
-                    </td>
                     <td class="td pd-10" data-th="Localização">
                       <p class="col">
                         {{ $q->pontoTuristico->nm_ponto_turistico }}
@@ -59,9 +53,9 @@
                         <a href="/Admin/Quiz/{{ $q->id_quiz }}" class="btn--success btn-small btn-noborder btn-nomargin font-small col-0 relative">
                           <i class="fa fa-pencil-square-o"></i>
                         </a>
-                        <button data-name="deletar-oferta" class="btn--danger btn-small btn-noborder btn-nomargin font-small col-0 mg-10--left relative">
-                        <i class="fa fa-trash-o"></i>
-                      </button>
+                        <a href="/Admin/Quiz/deletarQuiz/{{ $q->id_quiz }}" data-name="deletar-oferta" class="btn--danger btn-small btn-noborder btn-nomargin font-small col-0 mg-10--left relative">
+                          <i class="fa fa-trash-o"></i>
+                        </a>
                       </div>
                     </td>
                   </tr>
