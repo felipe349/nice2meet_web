@@ -16,6 +16,33 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 --
+-- Table structure for table `enderecos`
+--
+
+DROP TABLE IF EXISTS `enderecos`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `enderecos` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nome` varchar(60) NOT NULL,
+  `endereco` varchar(80) NOT NULL,
+  `lat` float(10,6) NOT NULL,
+  `lng` float(10,6) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `enderecos`
+--
+
+LOCK TABLES `enderecos` WRITE;
+/*!40000 ALTER TABLE `enderecos` DISABLE KEYS */;
+INSERT INTO `enderecos` VALUES (1,'Shopping Iguatemi Porto Alegre','Av. João Wallig, 1800 - Passo da Areia, Porto Alegre - RS',-30.027668,-51.163269),(2,'Bourbon Shopping','Av. Assis Brasil, 164 - São João, Porto Alegre - RS',-30.007914,-51.184273),(3,'Praia De Belas Shopping','Av. Praia de Belas, 1181 - Praia de Belas, Porto Alegre - RS',-30.049526,-51.228752),(4,'Barra Shopping Sul','Av. Diário de Notícias, 300, Porto Alegre - RS',-30.084494,-51.245296),(5,'Shopping TOTAL','Av. Cristóvão Colombo, 545 - Floresta, Porto Alegre - RS',-30.025511,-51.212345);
+/*!40000 ALTER TABLE `enderecos` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
 -- Table structure for table `tb_administrador`
 --
 
@@ -161,7 +188,7 @@ CREATE TABLE `tb_parceiro` (
 
 LOCK TABLES `tb_parceiro` WRITE;
 /*!40000 ALTER TABLE `tb_parceiro` DISABLE KEYS */;
-INSERT INTO `tb_parceiro` VALUES (1,'Maria do bolo','maria@dobolo.com','$2y$10$mFoc5Z/Vco6yBG5bLRLId.PoEgJbIGKKnpyPTVB7PGuM1D6MZ09NK',1398879160,47.16249,19.50330,'oodTroK73fcqRmmuZYHnRXeIHReCg0AOoYMxrYghwtn4PRumh5U9OnL16LzX','2017-04-21 23:21:19','2017-05-07 00:50:29','Hungria'),(2,'Malu','malu@malu.com',NULL,1334565432,-24.00554,-46.41247,NULL,'2017-04-23 16:53:40','2017-04-23 16:53:40','Espaço Malú - Praça 19 de Janeiro - Boqueirão, Praia Grande - SP, Brasil');
+INSERT INTO `tb_parceiro` VALUES (1,'Maria do bolo Joaquina da silva','maria@dobolo.com','$2y$10$mFoc5Z/Vco6yBG5bLRLId.PoEgJbIGKKnpyPTVB7PGuM1D6MZ09NK',1398879160,47.16249,19.50330,'oodTroK73fcqRmmuZYHnRXeIHReCg0AOoYMxrYghwtn4PRumh5U9OnL16LzX','2017-04-21 23:21:19','2017-05-25 11:23:23','Hungria'),(2,'Malu','malu@malu.com',NULL,1334565432,-24.00554,-46.41247,NULL,'2017-04-23 16:53:40','2017-04-23 16:53:40','Espaço Malú - Praça 19 de Janeiro - Boqueirão, Praia Grande - SP, Brasil');
 /*!40000 ALTER TABLE `tb_parceiro` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -306,7 +333,7 @@ CREATE TABLE `tb_quiz` (
 
 LOCK TABLES `tb_quiz` WRITE;
 /*!40000 ALTER TABLE `tb_quiz` DISABLE KEYS */;
-INSERT INTO `tb_quiz` VALUES (1,1,1),(45,5,3),(46,5,3),(47,5,3),(48,5,3),(49,5,3);
+INSERT INTO `tb_quiz` VALUES (1,1,1),(49,5,3);
 /*!40000 ALTER TABLE `tb_quiz` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -350,7 +377,7 @@ CREATE TABLE `tb_turista` (
   `nm_turista` varchar(255) NOT NULL,
   `email` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `dt_registro` date DEFAULT NULL,
+  `dt_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dt_nascimento` date DEFAULT NULL,
   `cd_cpf` int(11) DEFAULT NULL,
   `token_turista` varchar(255) DEFAULT NULL,
@@ -364,7 +391,7 @@ CREATE TABLE `tb_turista` (
 
 LOCK TABLES `tb_turista` WRITE;
 /*!40000 ALTER TABLE `tb_turista` DISABLE KEYS */;
-INSERT INTO `tb_turista` VALUES (1,'Arthur','arthur@node.com','$2y$10$SDbGdc2Erm7btC85e81/kuO7cTHzbVsXfEEdt4LhHHED4IDKqYFuK','2017-03-23','1996-02-24',2147483647,NULL),(3,'Matheus Galdino','matheus.galdino@hotmail.com',NULL,NULL,'1997-06-06',2147483647,NULL),(4,'Matheus','matheus.galdino2@gmail.com',NULL,NULL,'1997-06-06',1231231231,NULL),(5,'lkmkml','asdkmsa@asdas.com',NULL,NULL,'1997-06-06',2147483647,NULL),(6,'sdsadsa','adasdadas@asdasdaa.com',NULL,NULL,NULL,0,NULL),(7,'Felipe','claiohm@gmail.com',NULL,NULL,NULL,3913919,NULL),(8,'Arthur','blancoplay@gmail.com',NULL,NULL,NULL,12312321,NULL),(9,'Feasasa','teste@sidhgio.com',NULL,NULL,NULL,319414,NULL);
+INSERT INTO `tb_turista` VALUES (1,'Arthur','arthur@node.com','$2y$10$SDbGdc2Erm7btC85e81/kuO7cTHzbVsXfEEdt4LhHHED4IDKqYFuK','2017-05-31 00:42:20','1997-06-06',2147483647,NULL),(3,'Matheus Galdino','matheus.galdino@hotmail.com',NULL,'2017-05-31 00:42:20','1997-06-06',2147483647,NULL),(4,'Matheus','matheus.galdino2@gmail.com',NULL,'2017-05-31 00:42:20','1997-06-06',1231231231,NULL),(5,'lkmkml','asdkmsa@asdas.com',NULL,'2017-05-31 00:42:20','1997-06-06',2147483647,NULL),(6,'sdsadsa','adasdadas@asdasdaa.com',NULL,'2017-05-31 00:42:20','1997-06-06',0,NULL),(7,'Felipe','claiohm@gmail.com',NULL,'2017-05-31 00:42:20','1997-06-06',3913919,NULL),(8,'Arthur','blancoplay@gmail.com',NULL,'2017-05-31 00:42:20','1997-06-06',12312321,NULL),(9,'João cleber machadinho','teste@sidhgio.com',NULL,'2017-05-31 00:42:20','1999-06-06',319414,NULL);
 /*!40000 ALTER TABLE `tb_turista` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -377,4 +404,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-05-18  0:07:01
+-- Dump completed on 2017-05-31  1:22:17

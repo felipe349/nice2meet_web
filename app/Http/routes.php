@@ -88,15 +88,16 @@ Route::group(['prefix' => 'Admin', 'middleware' => 'auth:admin'], function()
     
     // Turistas
     Route::group(['prefix' => 'Turista'], function(){
-        Route::get('/','Admin\TuristaController@index'); 
+        Route::get('/','Admin\TuristaController@index');
+        
+        Route::get('/{turista}', 'Admin\TuristaController@edit');
+        Route::put('/{turista}', 'Admin\TuristaController@update');
     });
     
     // Ofertas
     Route::group(['prefix'  =>  'Ofertas'], function(){
         Route::get('/', 'Admin\OfertaController@index');
         
-        // Um admin pode cadastrar ofertas?
-        // Route::get('/Cadastrar', 'Admin\OfertaController@getCadastrarParceiro');
     });
     
 });
