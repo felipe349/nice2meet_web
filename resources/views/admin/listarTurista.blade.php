@@ -56,7 +56,7 @@
                   </td>
                   <td class="td pd-10" data-th="Ações">
                     <div class="flex-grid col-0 valign-middle">
-                      <a href="#" class="btn--success btn-small btn-noborder btn-nomargin font-small col-0 relative">
+                      <a href="/Admin/Turista/{{ $turista->id_turista }}" class="btn--success btn-small btn-noborder btn-nomargin font-small col-0 relative">
                         <i class="fa fa-pencil-square-o"></i>
                       </a>
                     </div>
