@@ -48,8 +48,6 @@ class QuizController extends Controller
     
     public function edit(Quiz $quiz) 
     {
-        dd($quiz->questaoQuiz);
-        
         return view('admin.editarQuiz')->with([
             'ponto'         =>  PontoTuristico::getPontosTuristicos(),
             'respostas'     =>  $quiz->questaoQuiz->questao->respostasQuestao,
