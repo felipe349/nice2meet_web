@@ -17,6 +17,12 @@
           </div>
           <!-- /TOP -->
           
+          @if(\Session::has('mensagem'))
+              <span class="alert--{{ \Session::get('mensagem')['class'] }}">
+                {{ \Session::get('mensagem')['text'] }}
+              </span>
+            @endif
+          
           <div class="flex-grid--wrap content__box--first nopadding col-12">
             <div class="flex-grid--wrap halign-center valign-top col-12 pd-10">
               <h2 class="font-20 light mg-10--bottom color-default col mg-20--right">Gerenciar Quiz</h2>

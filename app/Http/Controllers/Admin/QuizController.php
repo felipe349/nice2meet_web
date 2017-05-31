@@ -55,8 +55,45 @@ class QuizController extends Controller
         ]);
     }
     
-    public function update(Request $request)
+    public function update(CadastroQuiz $request, Quiz $quiz)
     {
         dd($request->all());
+        
+        $quiz->questaoQuiz->Questao->nm_questao->update(['nm_questao' => $request->only('nm_questao')]);
+        
+        // $this->questaoQuiz->Questao->RespostaQuestao
+        
+        // RespostaQuestao::adicionarRespostaQuestao($request->only(['ds_resposta_questao', 'ic_resposta_correta']), $questao);
+    }
+    
+    public function destroy(Quiz $quiz)
+    {
+        // Deleto as opçoes
+        $quiz->questaoQuiz->questao->respostasQuestao()->delete();
+        
+        $id_quiz = $quiz->id_quiz;
+        $id_questao = $quiz->questaoQuiz->id_questao;
+        
+        // Deleto o relacionamento entre questao e quiz
+        $quiz->questaoQuiz()->delete();
+        
+        // Deleto a questao
+        $questao = Questao::find($id_questao);
+        if ($questao) {
+            $questao->delete();
+        }
+        
+        // Deleto o Quiz
+        if (!$quiz->delete()) {
+            return redirect()->back()->withMensagem([
+                'class'  =>  'danger',
+                'text' =>  'Selecione um quiz válido.',
+            ]);
+        }
+        
+        return redirect()->back()->withMensagem([
+            'text'  =>  'Quiz deletado com sucesso.',
+            'class' =>  'success',
+        ]);
     }
 }
