@@ -23,7 +23,7 @@
                 <div class="box-infos__content col">
                   <h3 class="box-infos__title color-default light"></h3>
                   <span class="box-infos__number strong font-20 bold">Administrador</span>
-                  
+                  <a href="/Admin" class="link--black">Acesse aqui!</a>
                 </div>
               </div>
               <!-- /BOX INFO -->
@@ -35,7 +35,7 @@
                 <div class="box-infos__content col">
                   <h3 class="box-infos__title color-default light"></h3>
                   <span class="box-infos__number strong font-20 bold">Parceiro</span>
-                  
+                  <a href="/Parceiro" class="link--black">Acesse aqui!</a>
                 </div>
               </div>
               <!-- /BOX INFO -->
