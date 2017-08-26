@@ -1,13 +1,15 @@
 <?php
 
-return [
-
 $url = parse_url(getenv("mysql://b8624ae10621a7:b29613e6@us-cdbr-iron-east-05.cleardb.net/heroku_bffefc331a99e8a?reconnect=true"));
 
 $host = $url["host"];
 $username = $url["user"];
 $password = $url["pass"];
 $database = substr($url["path"], 1);
+
+return [
+
+
 
     /*
     |--------------------------------------------------------------------------
