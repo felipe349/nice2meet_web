@@ -18,7 +18,7 @@ class LoginController extends Controller
     
     public function makeLogin(\App\Http\Requests\LoginRequest $request)
     {
-        if (Auth::guard('parceiro')->attempt(['nm_email_parceiro' => $request->input('email')])) {
+        if (Auth::guard('parceiro')->attempt(['nm_email_parceiro' => $request->input('email'), 'nm_senha_parceiro' => $request->input('password')])) {
             // Authentication passed...
             return redirect()->intended('Parceiro/');
             
