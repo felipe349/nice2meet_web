@@ -2,6 +2,13 @@
 
 return [
 
+$url = parse_url(getenv("mysql://b8624ae10621a7:b29613e6@us-cdbr-iron-east-05.cleardb.net/heroku_bffefc331a99e8a?reconnect=true"));
+
+$host = $url["host"];
+$username = $url["user"];
+$password = $url["pass"];
+$database = substr($url["path"], 1);
+
     /*
     |--------------------------------------------------------------------------
     | PDO Fetch Style
@@ -65,6 +72,17 @@ return [
             'strict' => false,
             'engine' => null,
         ],
+        
+        'mysqlai' => array(
+            'driver'    => 'mysql',
+            'host'      => $host,
+            'database'  => $database,
+            'username'  => $username,
+            'password'  => $password,
+            'charset'   => 'utf8',
+            'collation' => 'utf8_unicode_ci',
+            'prefix'    => '',
+        ),
 
         'pgsql' => [
             'driver' => 'pgsql',
