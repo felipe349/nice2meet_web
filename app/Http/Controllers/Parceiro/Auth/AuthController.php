@@ -65,8 +65,8 @@ class AuthController extends Controller
     {
         return User::create([
             'name' => $data['name'],
-            'nm_email_parceiro' => $data['email'],
-            'nm_senha_parceiro' => bcrypt($data['password']),
+            'email' => $data['email'],
+            'password' => bcrypt($data['password']),
         ]);
     }
 }
