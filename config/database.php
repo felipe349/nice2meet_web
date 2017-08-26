@@ -73,7 +73,7 @@ $database = substr($url["path"], 1);
             'engine' => null,
         ],
         
-        'mysqlai' => array(
+        'mysqlai' => [
             'driver'    => 'mysql',
             'host'      => $host,
             'database'  => $database,
@@ -82,7 +82,7 @@ $database = substr($url["path"], 1);
             'charset'   => 'utf8',
             'collation' => 'utf8_unicode_ci',
             'prefix'    => '',
-        ),
+        ],
 
         'pgsql' => [
             'driver' => 'pgsql',
