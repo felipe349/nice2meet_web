@@ -10,7 +10,7 @@ class Parceiro extends Authenticatable
     protected $table = 'tb_parceiro';
     protected $primaryKey = 'id_parceiro';
     protected $fillable = [
-        'nm_parceiro', 'email', 'cd_telefone', 'cd_latitude', 'cd_longitude', 'nm_endereco'
+        'nm_parceiro', 'nm_email_parceiro', 'cd_telefone', 'cd_latitude', 'cd_longitude', 'nm_endereco'
     ];
     
     protected $dates = ['created_at', 'updated_at'];
