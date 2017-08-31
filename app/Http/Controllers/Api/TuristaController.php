@@ -43,9 +43,9 @@ class TuristaController extends Controller
         
         $turista = Turista::where('nm_email_turista', $credentials['email'])->first();
         
-        if(!$turista) {
+        if(!$turista->email) {
             return response()->json([
-              'error' => 'Invalid credentials'
+              'error' => $turista
             ], 401);
         }
         
