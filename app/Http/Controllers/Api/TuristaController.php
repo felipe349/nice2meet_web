@@ -43,7 +43,7 @@ class TuristaController extends Controller
         
         $turista = Turista::where('nm_email_turista', $credentials['email'])->first();
         
-        if(!$turista->email) {
+        if(!$turista) {
             return response()->json([
               'error' => $turista
             ], 401);
