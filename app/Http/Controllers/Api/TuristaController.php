@@ -41,7 +41,7 @@ class TuristaController extends Controller
     public function authenticate(Request $request) {
         $credentials = $request->only('email', 'password');
         
-        $turista = Turista::where('email', $credentials['email'])->first();
+        $turista = Turista::where('nm_email_turista', $credentials['email'])->first();
         
         if(!$turista) {
             return response()->json([
