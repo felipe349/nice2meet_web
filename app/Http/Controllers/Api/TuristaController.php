@@ -56,12 +56,9 @@ class TuristaController extends Controller
         }
         
         // Generate Token
-        if (!$token = JWTAuth::fromUser($turista->nm_email_turista)){
-            return response()->json([
-                'error' =>  'Invalid credentials'
-            ], 401);
-        }
+        $token = JWTAuth::fromUser($turista->nm_email_turista);
         
+        echo $token;
         
         // Get expiration time
         $objectToken = JWTAuth::setToken($token);
