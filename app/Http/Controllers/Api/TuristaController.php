@@ -71,8 +71,6 @@ class TuristaController extends Controller
         echo 'oi';
         return response()->json([
             'sucess' => 'Parabéns',
-            'access_token' => $token,
-            'token_type' => 'bearer'
         ]);
     }
 }
