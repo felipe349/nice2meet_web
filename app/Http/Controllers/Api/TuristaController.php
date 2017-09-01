@@ -51,10 +51,11 @@ class TuristaController extends Controller
         
         if (!\Hash::check($credentials['password'], $turista->password)){
             return response()->json([
-                'error' =>  $turista
+                'error' =>  'Invalid credentials'
             ], 401);
         }
         
+        echo $turista;
         // Generate Token
         $token = JWTAuth::fromUser($turista);
         
