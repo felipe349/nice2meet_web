@@ -70,6 +70,7 @@ class TuristaController extends Controller
         $expiration = JWTAuth::decode($objectToken->getToken())->get('exp');
         echo 'oi';
         return response()->json([
+            'sucess' => 'Parabéns',
             'access_token' => $token,
             'token_type' => 'bearer'
         ]);
