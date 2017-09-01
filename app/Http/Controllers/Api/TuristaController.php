@@ -71,8 +71,7 @@ class TuristaController extends Controller
         echo 'oi';
         return response()->json([
             'access_token' => $token,
-            'token_type' => 'bearer',
-            'expires_in' => JWTAuth::decode()->get('exp')
+            'token_type' => 'bearer'
         ]);
     }
 }
