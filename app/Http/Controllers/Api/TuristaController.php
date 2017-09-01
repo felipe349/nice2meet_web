@@ -57,7 +57,7 @@ class TuristaController extends Controller
         
         echo $turista;
         // Generate Token
-        $token = JWTAuth::fromUser($turista);
+        $token = JWTAuth::fromUser($credentials['email']);
         
         // Get expiration time
         $objectToken = JWTAuth::setToken($token);
