@@ -59,16 +59,16 @@ class TuristaController extends Controller
         echo 'oi';
         $token = JWTAuth::fromUser($turista);
         
-        echo $token;
+        
         
         // Get expiration time
         $objectToken = JWTAuth::setToken($token);
         
         $teste = $objectToken->getToken();
         
-        
+        echo $token;
         $expiration = JWTAuth::decode($objectToken->getToken())->get('exp');
-        
+        echo 'oi';
         return response()->json([
             'access_token' => $token,
             'token_type' => 'bearer',
