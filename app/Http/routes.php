@@ -1,7 +1,7 @@
 <?php
 // Provisório
+header('Access-Control-Allow-Origin: *');
 
-header( 'Access-Control-Allow-Headers: Authorization, Content-Type' );
 
 Route::get('/', function(){
     return view('index');
