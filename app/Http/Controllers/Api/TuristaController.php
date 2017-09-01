@@ -55,22 +55,25 @@ class TuristaController extends Controller
             ], 401);
         }
         
-        // Generate Token
-        echo 'oi';
-        $token = JWTAuth::fromUser($turista);
-        
-        
-        
-        // Get expiration time
-        $objectToken = JWTAuth::setToken($token);
-        
-        $teste = $objectToken->getToken();
-        
-        echo $token;
-        $expiration = JWTAuth::decode($objectToken->getToken())->get('exp');
-        echo 'oi';
         return response()->json([
-            'sucess' => 'Parabéns',
-        ]);
+            'sucess' => 'Oie'    
+        ])
+        
+        // // Generate Token
+        // $token = JWTAuth::fromUser($turista);
+
+        // // Get expiration time
+        // $objectToken = JWTAuth::setToken($token);
+        
+        // $teste = $objectToken->getToken();
+        
+        
+        // $expiration = JWTAuth::decode($objectToken->getToken())->get('exp');
+        
+        // return response()->json([
+        //     'access_token' => $token,
+        //     'token_type' => 'bearer',
+        //     'expires_in' => JWTAuth::decode()->get('exp')
+        // ]);
     }
 }
