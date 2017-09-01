@@ -51,7 +51,7 @@ class TuristaController extends Controller
         
         if (!\Hash::check($credentials['password'], $turista->password)){
             return response()->json([
-                'error' =>  'Invalid credentials'
+                'error' =>  $turista
             ], 401);
         }
         
