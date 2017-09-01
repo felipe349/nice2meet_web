@@ -57,7 +57,7 @@ class TuristaController extends Controller
         
         // Generate Token
         echo 'oi';
-        $token = JWTAuth::fromUser($turista->nm_email_turista);
+        $token = JWTAuth::fromUser($turista);
         
         echo $token;
         
