@@ -27,8 +27,7 @@
     },
     "autoload-dev": {
         "classmap": [
-            "tests/TestCase.php",
-            "app/Http/Controllers/Api/TuristaController.php"
+            "tests/TestCase.php"
         ]
     },
     "scripts": {

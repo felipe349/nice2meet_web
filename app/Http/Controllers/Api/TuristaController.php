@@ -57,7 +57,7 @@ class TuristaController extends Controller
         
         return response()->json([
             'sucess' => 'Oie'    
-        ])
+        ]);
         
         // // Generate Token
         // $token = JWTAuth::fromUser($turista);
