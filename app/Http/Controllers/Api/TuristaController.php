@@ -16,6 +16,8 @@ use App\Models\Turista;
 // Dependency injections
 use JWTAuth;
 
+use Hash;
+
 class TuristaController extends Controller
 {
     // /**
@@ -42,14 +44,29 @@ class TuristaController extends Controller
         $credentials = $request->only('email', 'password');
         
         $turista = Turista::where('nm_email_turista', $credentials['email'])->first();
-        //echo $credentials['email'];
 
+        if($turista){
+            
+            if(Hash::check( $request['password'] , $turista['password'] )){
+                    return response()->json([
+                        'success' => 'Login efetuado com sucesso'
+                    ]);
+            } else {
+                return response()->json([
+                    'error' => 'Senha incorreta'
+                ]);  
+            }
+            
+        } else {
+            return response()->json([
+                'error' => 'Login não encontrado'
+            ]);
+        }
         
 
         
-        return response()->json([
-            'success' => $turista
-        ]);
+
+        
         
         // // Generate Token
         // $token = JWTAuth::fromUser($turista);
