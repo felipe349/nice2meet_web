@@ -42,21 +42,13 @@ class TuristaController extends Controller
         $credentials = $request->only('email', 'password');
         
         $turista = Turista::where('nm_email_turista', $credentials['email'])->first();
+        //echo $credentials['email'];
+
         
-        if(!$turista) {
-            return response()->json([
-              'error' => $turista
-            ], 401);
-        }
-        
-        if (!\Hash::check($credentials['password'], $turista->password)){
-            return response()->json([
-                'error' =>  'Invalid credentials'
-            ], 401);
-        }
+
         
         return response()->json([
-            'sucess' => 'Oie'    
+            'success' => $turista
         ]);
         
         // // Generate Token
