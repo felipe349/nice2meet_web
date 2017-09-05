@@ -12,7 +12,7 @@
         <ul class="flex-grid col-0 menu-user">
             <li class="menu__item active user-item open-sub">
                 <figure class="item__inside flex-grid">
-                    <img class="user-image" src="/assets/dist/images/users/default.png" />
+                    <img class="user-image" src="/assets/dist/images/users/default.ico" />
                     <figcaption class="user-legend">{{ \Auth::guard('parceiro')->user()->nm_parceiro }}</figcaption>
                 </figure>
                 

@@ -2,7 +2,7 @@
     <ul class="flex-grid--wrap dashboard">
         <div class="col-12 dashboard-company pd-10">
             <figure class="flex-grid valign-middle halign-center">
-                <image class="col-0" src="/assets/dist/images/parceiros/logo-parceiro.png" alt=""/>
+                <image class="col-0" src="/assets/dist/images/parceiros/partner.ico" alt=""/>
                 <figcaption class="col dashboard-hidden pd-10">
                     <p class="bold">{{ \Auth::guard('parceiro')->user()->nm_parceiro }} </p>
                     <!--<span class="font-small">DO BOLO</span>-->

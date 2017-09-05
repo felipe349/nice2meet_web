@@ -28,7 +28,7 @@
               
             </div>
             <p class="bg-info col-12 color-white pd-10 font-smaller">
-              <strong>5</strong> registro(s) encontrado(s)
+              <strong>{{count($ofertas)}}</strong> registro(s) encontrado(s)
             </p>
             <!-- TABLE LISTAGEM -->
             <table class="table table-striped col-12 responsive-table--lg">
