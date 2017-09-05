@@ -9,7 +9,8 @@
         <li class="menu__item open-aside" data-active="true">
             <i class="fa fa-th item__inside flex-grid"></i>
         </li>
-        <ul class="flex-grid col-0 menu-user">
+
+        <ul class="flex-grid col-0 menu-user" >
             <li class="menu__item active user-item open-sub">
                 <figure class="item__inside flex-grid">
                     <img class="user-image" src="/assets/dist/images/users/default.ico" />
