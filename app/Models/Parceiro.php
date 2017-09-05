@@ -13,8 +13,6 @@ class Parceiro extends Authenticatable
         'nm_parceiro', 'nm_email_parceiro', 'password', 'cd_telefone', 'cd_latitude', 'cd_longitude', 'nm_endereco'
     ];
     
-    protected $dates = ['created_at', 'updated_at'];
-    
     public function ofertas()
     {
         return $this->hasMany('App\Models\Oferta', 'id_parceiro', 'id_parceiro');
@@ -39,6 +37,7 @@ class Parceiro extends Authenticatable
         if (array_key_exists('cd_telefone', $dados)) {
             $dados['cd_telefone']   =   preg_replace("/[^0-9]/", "", $dados['cd_telefone']);
         }
+        $parceiro->timestamps = false;
         $parceiro->fill($dados);
         return $parceiro->save();
         // return $parceiro->update($dados);

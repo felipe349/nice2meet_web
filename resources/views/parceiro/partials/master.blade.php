@@ -19,8 +19,9 @@
         <link rel="apple-touch-startup-image" href='/assets/dist/images/icon.png'>
         <link rel="apple-touch-icon" href='/assets/dist/images/icon.png'>
         <link rel="shortcut icon" href='/assets/dist/images/favicon.png' type="image/x-icon" />
-        <!-- /METAS -->
+        <!-- /METAS 
         <script type="text/javascript" src="https://www.googleapis.com/auth/analytics.readonly"></script>
+        -->
         <!-- FONT AWESOME -->
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <!-- MAIN -->
