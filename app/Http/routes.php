@@ -51,7 +51,7 @@ Route::group(['prefix' => 'Parceiro', 'middleware' => 'auth:parceiro'], function
     });
 });
 // -------- ADMIN ------- 
-Route::group(['prefix' => 'Admin', 'middleware' => 'auth:admin'], function()
+Route::group(['prefix' => 'Admin'], function()
 {
     // Url: /Admin
     Route::get('/', 'Admin\HomeController@index');
