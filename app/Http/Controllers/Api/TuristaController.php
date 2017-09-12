@@ -23,11 +23,11 @@ class TuristaController extends Controller
     // /**
     //  * @method POST
     //  */
-    // public function store(TuristaRequest $request)
-    // {
-    //     $turista = Turista::createTurista($request->all());
-    //     return \Response::json($turista);
-    // }
+     public function store(Request $request)
+     {
+         $turista = Turista::createTurista($request->all());
+         //return \Response::json($turista);
+     }
     
     // public function postLogin(Request $request)
     // {
@@ -62,12 +62,6 @@ class TuristaController extends Controller
                 'error' => 'Login não encontrado'
             ]);
         }
-        
-
-        
-
-        
-        
         // // Generate Token
         // $token = JWTAuth::fromUser($turista);
 

@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Model;
 
 class Turista extends Authenticatable
 {
@@ -10,11 +11,11 @@ class Turista extends Authenticatable
     protected $table = 'tb_turista';
     protected $primaryKey = 'id_turista';
     protected $fillable = [
-        'nm_turista', 'nm_email_turista', 'nm_senha_turista',  'dt_registro', 'dt_nascimento', 'cd_cpf', 'token_turista'
+        'nm_turista', 'nm_email_turista', 'nm_senha_turista',  'dt_registro', 'dt_nascimento', 'token_turista'
     ];
-    
+    /
     // Defina suas datas aqui para ver a magia acontecer
-    protected $dates = ['dt_registro', 'dt_nascimento'];
+    //protected $dates = ['dt_registro', 'dt_nascimento'];
     
     public function pontuacao()
     {
@@ -38,8 +39,8 @@ class Turista extends Authenticatable
         return self::create([
             'nm_turista'    =>  $dados['nm_turista'],
             'email'         =>  $dados['email'],
+            'dt_nascimento' =>  $dados['dt_nascimento'],
             'password'      =>  bcrypt($dados['password']),
-            'cd_cpf'        =>  preg_replace("/[^0-9]/", "", $dados['cd_cpf']),
         ]);
         
     }

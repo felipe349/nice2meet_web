@@ -12,6 +12,7 @@ Route::group(['prefix'    =>  'api'], function(){
     // });
     
     Route::post('auth/login', 'Api\TuristaController@authenticate');
+    Route::post('cadastroTurista', 'Api\TuristaController@store');
 });
 //-------- LOGIN -------
 Route::group(['prefix'  =>  '/Parceiro'], function(){
