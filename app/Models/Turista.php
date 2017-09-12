@@ -11,7 +11,7 @@ class Turista extends Authenticatable
     protected $table = 'tb_turista';
     protected $primaryKey = 'id_turista';
     protected $fillable = [
-        'nm_turista', 'nm_email_turista', 'nm_senha_turista',  'dt_registro', 'dt_nascimento', 'token_turista'
+        'nm_turista', 'nm_email_turista', 'password',  'dt_registro', 'dt_nascimento', 'token_turista'
     ];
     // Defina suas datas aqui para ver a magia acontecer
     //protected $dates = ['dt_registro', 'dt_nascimento'];
@@ -36,10 +36,10 @@ class Turista extends Authenticatable
     public static function createTurista($dados)
     {
         return self::create([
-            'nm_turista'    =>  $dados['nm_turista'],
-            'email'         =>  $dados['email'],
-            'dt_nascimento' =>  $dados['dt_nascimento'],
-            'password'      =>  bcrypt($dados['password']),
+            'nm_turista'       =>  $dados['nm_turista'],
+            'nm_email_turista' =>  $dados['email'],
+            'dt_nascimento'    =>  $dados['dt_nascimento'],
+            'password'         =>  bcrypt($dados['password']),
         ]);
         
     }
