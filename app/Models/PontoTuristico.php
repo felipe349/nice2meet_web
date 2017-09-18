@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class PontoTuristico extends Model
 {
-    // public $timestamps = false;
+    public $timestamps = false;
     protected $table = 'tb_ponto_turistico';
     protected $primaryKey = 'id_ponto_turistico';
     protected $fillable = [

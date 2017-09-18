@@ -20,13 +20,12 @@ class PontoTuristicoController extends Controller
         return view('admin.cadastrarPonto');
     }
     
-    public function store(CadastroPontoTuristico $request)
+    public function store(Request $request)
     {
-        $ponto_turistico = PontoTuristico::create($request->except(['_token']));
+        $ponto_turistico = PontoTuristico::create($request->all());
         
         if (!$ponto_turistico) {
             return redirect()->back()->withInput()->withErrors(['Por favor, tente novamente']);
-            
         }
         
         return redirect()->back()->withMensagem([
