@@ -50,9 +50,9 @@ class Turista extends Authenticatable
             return false;
         }
         
-        if (array_key_exists('dt_nascimento', $dados)) {
+/*        if (array_key_exists('dt_nascimento', $dados)) {
             $dados['dt_nascimento'] =   \DateTime::createFromFormat('d/m/Y', $dados['dt_nascimento'])->format('Y-m-d');
-        }
+        }*/
         
         return $turista->update($dados);
     }

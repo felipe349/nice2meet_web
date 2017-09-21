@@ -4,7 +4,8 @@
             <figure class="flex-grid valign-middle halign-center">
                 <image class="col-0" src="/assets/dist/images/admin/admin-logo.png" alt=""/>
                 <figcaption class="col dashboard-hidden pd-10">
-                    <p class="bold">ADMIN</p>
+                    <p class="bold">ADMIN</p><BR>
+                    <a href="/Admin/logout" class="bold" STYLE="color:orange"> SAIR</a>
                     <!--<span class="font-small">DO BOLO</span>-->
                 </figcaption>
             </figure>
