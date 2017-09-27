@@ -44,7 +44,7 @@
                   </td>
                   <td class="td pd-10" data-th="Email">
                     <p class="col">
-                      {{$parceiro->email}}
+                      {{$parceiro->nm_email_parceiro}}
                     </p>
                   </td>
                   <td class="td pd-10" data-th="Localização">

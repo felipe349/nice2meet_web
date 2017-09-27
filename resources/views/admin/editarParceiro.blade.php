@@ -41,7 +41,7 @@
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Email</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Email"></p>
-                <input class="input col-12" type="text" data-validate="empty" data-name="Email" disabled value="{{ $parceiro->email }}" />
+                <input class="input col-12" type="text" data-validate="empty" data-name="Email" disabled value="{{ $parceiro->nm_email_parceiro }}" />
               </div>
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Telefone</span>
