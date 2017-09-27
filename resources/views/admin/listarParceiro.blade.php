@@ -63,7 +63,20 @@
               @endforeach
               </tbody>
             </table>
-            {!! $parceiros->links() !!}
+            <style type="text/css">
+              .wrapper {
+                display: -webkit-flex;
+                display: flex;
+                -webkit-align-items: center;
+                align-items: center;
+                -webkit-justify-content: center;
+                justify-content: center;
+              }
+              .pagination-box li{
+                display:inline-block;
+              }
+            </style>
+                <div class="wrapper pagination-box">{!! $parceiros->links() !!}</div>
             <!-- /Fim da table listagem -->
             @else
               <span class="alert--info">Não há nenhum parceiro cadastrado.</span>

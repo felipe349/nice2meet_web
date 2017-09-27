@@ -13,7 +13,7 @@ class Oferta extends Model
         'id_oferta', 'nm_oferta', 'ds_oferta', 'ic_status_oferta', 'id_parceiro'
     ];
     
-    protected $dates = ['created_at', 'updated_at'];
+    //protected $dates = ['created_at', 'updated_at'];
     
     public function parceiro()
     {
@@ -46,7 +46,7 @@ class Oferta extends Model
     
     public static function getOfertas($ic_status = null, $paginate = null)
     {
-        $ofertas        =   self::orderBy('created_at');
+        $ofertas        =   self::orderBy('id_oferta');
         
         if (!is_null($ic_status)) {
             $ofertas    =   $ofertas->where('ic_status_oferta', $ic_status);
