@@ -75,6 +75,7 @@ Route::group(['prefix' => 'Admin'], function()
         Route::post('/Cadastrar', 'Admin\PontoTuristicoController@store');
         Route::get('/{ponto}', 'Admin\PontoTuristicoController@edit');
         Route::put('/{ponto}', 'Admin\PontoTuristicoController@update');
+        Route::get('/deletarPonto/{ponto}', 'Admin\PontoTuristicoController@destroy');
     });
     
     // Quiz

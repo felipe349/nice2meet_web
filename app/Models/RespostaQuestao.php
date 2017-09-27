@@ -10,7 +10,7 @@ class RespostaQuestao extends Model
     protected $table = 'tb_resposta_questao';
     protected $primaryKey = 'id_resposta_questao';
     protected $fillable = [
-        'id_resposta_questao', 'ds_resposta_questao', 'ic_resposta_questao', 'id_questao'
+        'id_resposta_questao', 'ds_resposta_questao', 'ic_resposta_correta', 'id_questao'
     ];
     
     public function questao()

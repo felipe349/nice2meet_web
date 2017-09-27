@@ -12,6 +12,8 @@ use App\Http\Requests\CadastroPontoTuristico;
 
 // Models
 use App\Models\PontoTuristico;
+use App\Models\Quiz;
+use App\Models\QuestaoQuiz;
 
 class PontoTuristicoController extends Controller
 {
@@ -39,6 +41,26 @@ class PontoTuristicoController extends Controller
         return view('admin.editarPonto')->with([
             'ponto'     =>      $ponto
         ]);
+    }
+    
+    public function destroy(PontoTuristico $ponto){
+        
+        $id = $ponto->id_ponto_turistico;
+        $quiz = Quiz::where('id_ponto_turistico', $id)->get();
+        
+        foreach ($quiz as $q){
+            QuestaoQuiz::where('id_quiz', $q->id_quiz)->delete();
+        }
+        
+        $quiz = Quiz::where('id_ponto_turistico', $id)->delete();
+        
+        $ponto->delete();
+        
+        return redirect()->back()->withMensagem([
+            'text'  =>  'Quiz deletado com sucesso.',
+            'class' =>  'success',
+        ]);
+        
     }
     
     public function update(PontoTuristico $ponto, CadastroPontoTuristico $request)

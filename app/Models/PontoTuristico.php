@@ -26,7 +26,7 @@ class PontoTuristico extends Model
     
     public static function getPontosTuristicos($ic_status = null, $paginate = null)
     {
-        $pontos = self::orderBy('created_at', 'desc');
+        $pontos = self::orderBy('id_ponto_turistico', 'desc');
         
         if (!is_null($ic_status)) {
             $pontos = $pontos->where('ic_status_ponto_turistico', $ic_ativo);

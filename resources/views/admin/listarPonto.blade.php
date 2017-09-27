@@ -70,9 +70,9 @@
                         <a href="/Admin/PontoTuristico/{{ $ponto->id_ponto_turistico }}" class="btn--success btn-small btn-noborder btn-nomargin font-small col-0 relative">
                           <i class="fa fa-pencil-square-o"></i>
                         </a>
-                        <button data-name="deletar-oferta" class="btn--danger btn-small btn-noborder btn-nomargin font-small col-0 mg-10--left relative">
+                        <a href="/Admin/PontoTuristico/deletarPonto/{{ $ponto->id_ponto_turistico }}" data-name="deletar-oferta" class="btn--danger btn-small btn-noborder btn-nomargin font-small col-0 mg-10--left relative">
                         <i class="fa fa-trash-o"></i>
-                      </button>
+                      </a>
                       </div>
                     </td>
                   </tr>

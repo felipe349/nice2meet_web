@@ -32,7 +32,6 @@
                 <tr class="tr bg-white">
                   <th class="th light pd-10">Nome</th>
                   <th class="th light pd-10">Email</th>
-                  <th class="th light pd-10">CPF</th>
                   <th class="th light pd-10">Editar</th>
                 </tr>
               </thead>
@@ -46,12 +45,7 @@
                   </td>
                   <td class="td pd-10" data-th="Email">
                     <p class="col">
-                      {{$turista->email}}
-                    </p>
-                  </td>
-                  <td class="td pd-10" data-th="Localização">
-                    <p class="col">
-                      {{$turista->cd_cpf}}
+                      {{$turista->nm_email_turista}}
                     </p>
                   </td>
                   <td class="td pd-10" data-th="Ações">

@@ -32,7 +32,7 @@ class QuizController extends Controller
     
     }
     
-    public function store(CadastroQuiz $request)
+    public function store(Request $request)
     {
         $quiz           =   Quiz::create(['id_ponto_turistico' => $request->input('id_ponto_turistico'), 'qt_questao' => 5])->id_quiz;
         $questao        =   Questao::create($request->only('nm_questao'))->id_questao;
@@ -68,7 +68,7 @@ class QuizController extends Controller
     
     public function destroy(Quiz $quiz)
     {
-        // Deleto as opçoes
+/*        // Deleto as opçoes
         $quiz->questaoQuiz->questao->respostasQuestao()->delete();
         
         $id_quiz = $quiz->id_quiz;
@@ -94,6 +94,7 @@ class QuizController extends Controller
         return redirect()->back()->withMensagem([
             'text'  =>  'Quiz deletado com sucesso.',
             'class' =>  'success',
-        ]);
+        ]);*/
+        return $quiz;
     }
 }
