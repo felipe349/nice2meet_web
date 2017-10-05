@@ -1,0 +1,197 @@
+.container-logins-index{
+    padding:0px;
+}
+.container-login{
+    position: relative;
+    margin:0px;
+    align-items:center;
+    text-align:center;
+}
+.login-adm {
+    width: 300px;
+    overflow: hidden;
+    background: rgb(243,112,33);
+    border-radius: 6px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 50px rgba(0,0,0,.1);
+    min-height: auto;
+}
+.login-adm .titulo-login {
+    width: 298px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    background:  rgb(213,88,12);
+    border: solid 1px rgb(213,88,12);
+    margin-bottom: 30px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    font-family: Arial;
+}
+
+.login-adm form {
+    width: 240px;
+    height: auto;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-adm form input[type=text], .login-adm form input[type=password] {
+    width: 200px;
+    font-size: 12px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border: none;
+    color: #fff;
+    background: #141414;
+    outline: none;
+    margin: 0;
+    -moz-box-shadow:    inset 0 0 10px rgba(0,0,0,0.5);
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px rgba(0,0,0,0.1);
+   
+  text-align: center;
+}
+.login-adm ::-webkit-input-placeholder { /* Chrome */
+  color: #ccc;
+  
+}
+.login-adm :-ms-input-placeholder { /* IE 10+ */
+  color: red;
+}
+.login-adm ::-moz-placeholder { /* Firefox 19+ */
+  color: red;
+  opacity: 1;
+}
+.login-adm :-moz-placeholder { /* Firefox 4 - 18 */
+  color: white;
+  opacity: 1;
+}
+.login-adm form input[type=text] {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+    background: rgb(213,88,12);
+}
+
+.login-adm form input[type=password] {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    background: rgb(213,88,12);
+}
+
+.login-adm form .enviar {
+    width: 240px;
+    margin-top:10%;
+    margin-bottom:10%;
+    display: block;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-radius: 6px;
+    border: none;
+    border-top:  1px solid rgb(213,88,12);
+    border-bottom: 1px solid rgb(213,88,12);
+    background: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(213,88,12);
+    font-family: Arial;
+}
+
+.login-parceiro {
+    width: 300px;
+    min-height: auto;
+    overflow: hidden;
+    background: rgb(2, 105, 188);
+    border-radius: 6px;
+    margin: 50px auto;
+    box-shadow: 0px 0px 50px rgba(0,0,0,.8);
+}
+.login-parceiro .titulo-login {
+    width: 298px;
+    padding-top: 13px;
+    padding-bottom: 13px;
+    font-size: 14px;
+    text-align: center;
+    color: #fff;
+    font-weight: bold;
+    background:  #024F8F;
+    border: solid 1px rgb(2, 105, 188);
+    margin-bottom: 30px;
+    border-top-right-radius: 6px;
+    border-top-left-radius: 6px;
+    font-family: Arial;
+}
+
+.login-parceiro form {
+    width: 240px;
+    height: auto;
+    overflow: hidden;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login-parceiro form input[type=text], .login-parceiro form input[type=password] {
+    width: 200px;
+    font-size: 12px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border: none;
+    color: #fff;
+    background: #024F8F;
+    outline: none;
+    margin: 0;
+    -moz-box-shadow:    inset 0 0 10px rgba(0,0,0,0.5);
+   -webkit-box-shadow: inset 0 0 10px #000000;
+   box-shadow:         inset 0 0 10px rgba(0,0,0,0.1);
+  text-align: center;
+}
+.login-parceiro ::-webkit-input-placeholder { /* Chrome */
+  color: #ccc;
+  
+}
+.login-parceiro :-ms-input-placeholder { /* IE 10+ */
+  color: red;
+}
+.login-parceiro ::-moz-placeholder { /* Firefox 19+ */
+  color: red;
+  opacity: 1;
+}
+.login-parceiro :-moz-placeholder { /* Firefox 4 - 18 */
+  color: white;
+  opacity: 1;
+}
+.login-parceiro form input[type=text] {
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.login-parceiro form input[type=password] {
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.login-parceiro form .enviar {
+    width: 240px;
+    margin-top:10%;
+    margin-bottom:10%;
+    display: block;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    border-radius: 6px;
+    border: none;
+    border-top:  1px solid #024F8F;
+    border-bottom: 1px solid #024F8F;
+    background: #fff;
+    text-align: center;
+    text-decoration: none;
+    font-size: 12px;
+    font-weight: bold;
+    color: #024F8F;
+    font-family: Arial;
+}

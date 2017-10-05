@@ -24,6 +24,8 @@
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <!-- MAIN -->
         <link rel="stylesheet" href="/assets/dist/css/main.min.css" type="text/css" />
+        <link rel="stylesheet" href="/assets/dist/css/style.css" type="text/css" />
+
         <!-- FANCYBOX -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" type="text/css" />
         

@@ -2840,7 +2840,7 @@ textarea {
 }
 
 .main__content {
-    padding: 20px
+    padding: 15px;
 }
 
 .main .content__box,.main [class*="content__box--"] {
