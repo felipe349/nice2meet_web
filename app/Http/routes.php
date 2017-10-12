@@ -13,7 +13,6 @@ Route::group(['prefix'    =>  'api'], function(){
     
     Route::post('auth/login', 'Api\TuristaController@authenticate');
     Route::post('cadastroTurista', 'Api\TuristaController@store');
-    
     Route::post('pontoTuristico', 'Api\PontoTuristicoController@getPontosTuristicos');
 });
 //-------- LOGIN -------

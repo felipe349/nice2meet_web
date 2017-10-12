@@ -11,24 +11,14 @@
               <!-- BOX INFO -->
               <div class="container-login container-login-adm col-6 ">
                 <section class="login-adm">
-                	<div class="titulo-login">Login administrador.</div>
-                	<form action="#" method="post" enctype="application/x-www-form-urlencoded">
-                    	<input type="text" required title="Username required" placeholder="Username" data-icon="U">
-                        <input type="password" required title="Password required" placeholder="Password" data-icon="x">
-                        <a href="#" class="enviar">Submit</a>
-                    </form>
+                	<a href="Admin/login" class="titulo-login">Administrador.</div>
                 </section>
               </div>
               <!-- /BOX INFO -->
               <!-- BOX INFO -->
               <div class="container-login container-login-parceiro col-6">
                 <section class="login-parceiro">
-                	<div class="titulo-login">Login parceiro.</div>
-                	<form action="#" method="post" enctype="application/x-www-form-urlencoded">
-                    	<input type="text" required title="Username required" placeholder="Username" data-icon="U">
-                        <input type="password" required title="Password required" placeholder="Password" data-icon="x">
-                        <a href="#" class="enviar">Submit</a>
-                    </form>
+                	<a href="Parceiro/login" class="titulo-login">Parceiro.</div>
                 </section>
               </div>
               <!-- /BOX INFO -->
