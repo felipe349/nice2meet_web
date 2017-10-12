@@ -14,6 +14,8 @@ class HomeController extends Controller
 {
     public function index()
     {
+        $admin = Auth::guard('admin')->user();
+        
         return view('admin.home')->with([
             'parceiros'             =>  \App\Models\Parceiro::count(),
             'turistas'              =>  \App\Models\Turista::count(),
