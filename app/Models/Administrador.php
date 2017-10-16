@@ -9,7 +9,7 @@ class Administrador extends Authenticatable
 {
     public $timestamps = false;
     protected $table = 'tb_administrador';
-    protected $primaryKey = 'id_administrador';
+    protected $primaryKey = 'id_admin';
     
     protected $fillable = [
         'nm_email_admin', 'password'
