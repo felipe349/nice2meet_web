@@ -3,6 +3,7 @@
 Route::get('/', function(){
     return view('index');
 });
+//------------ API ---------------
 Route::group(['prefix'    =>  'api'], function(){
     // Route::post('/cadastroTurista', 'Api\TuristaController@store');
     // Route::post('/login', 'Api\TuristaController@postLogin');
@@ -14,6 +15,7 @@ Route::group(['prefix'    =>  'api'], function(){
     Route::post('auth/login', 'Api\TuristaController@authenticate');
     Route::post('cadastroTurista', 'Api\TuristaController@store');
     Route::post('pontoTuristico', 'Api\PontoTuristicoController@getPontosTuristicos');
+    Route::post('quiz', 'Api\QuizController@getQuiz');
 });
 //-------- LOGIN -------
 Route::group(['prefix'  =>  '/Parceiro'], function(){
