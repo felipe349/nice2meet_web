@@ -4,8 +4,8 @@
             <figure class="flex-grid valign-middle halign-center">
                 <image class="col-0" src="/assets/dist/images/parceiros/partner.ico" alt=""/>
                 <figcaption class="col dashboard-hidden pd-10">
-                    <p class="bold">{{ \Auth::guard('parceiro')->user()->nm_parceiro }} </p>
-                    <!--<span class="font-small">DO BOLO</span>-->
+                    <p class="bold">{{ \Auth::guard('parceiro')->user()->nm_parceiro }} </p><BR>
+                    <a href="/Parceiro/logout" class="bold" STYLE="color:orange"> SAIR</a>
                 </figcaption>
             </figure>
         </div>
