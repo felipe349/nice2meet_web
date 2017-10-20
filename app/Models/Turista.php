@@ -13,6 +13,7 @@ class Turista extends Authenticatable
     protected $fillable = [
         'nm_turista', 'nm_email_turista', 'password',  'dt_registro', 'dt_nascimento', 'token_turista'
     ];
+    protected $hidden = ['password'];
     // Defina suas datas aqui para ver a magia acontecer
     //protected $dates = ['dt_registro', 'dt_nascimento'];
     
