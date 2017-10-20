@@ -31,7 +31,7 @@ class QuizController extends Controller
             $i++;
         }
         
-        $alternativas[7] = 
+        //$alternativas[7] = 
         return $alternativas;
         
         
