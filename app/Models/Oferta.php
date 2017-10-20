@@ -10,7 +10,7 @@ class Oferta extends Model
     protected $table = 'tb_oferta';
     protected $primaryKey = 'id_oferta';
     protected $fillable = [
-        'id_oferta', 'nm_oferta', 'ds_oferta', 'ic_status_oferta', 'id_parceiro'
+        'id_oferta', 'nm_oferta', 'ds_oferta', 'ic_status_oferta', 'id_ponto_turistico', 'id_parceiro'
     ];
     
     //protected $dates = ['created_at', 'updated_at'];

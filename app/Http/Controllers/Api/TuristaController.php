@@ -49,7 +49,8 @@ class TuristaController extends Controller
             
             if(Hash::check( $request['password'] , $turista['password'] )){
                     return response()->json([
-                        'logado' => 1
+                        'logado' => 1,
+                        'turista' => $turista
                     ]);
             } else {
                 return response()->json([
