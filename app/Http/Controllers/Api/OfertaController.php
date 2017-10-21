@@ -45,7 +45,7 @@ class OfertaController extends Controller
             ['cd_latitude', '>', $lat2],
             ['cd_longitude', '<', $long],
             ['cd_longitude', '>', $long2]
-        ])->get();
+        ])->first();
         $oferta = Oferta::where('id_parceiro', $parceiro['id_parceiro'])->get();
         return $oferta;
 
