@@ -16,6 +16,7 @@ Route::group(['prefix'    =>  'api'], function(){
     Route::post('cadastroTurista', 'Api\TuristaController@store');
     Route::post('pontoTuristico', 'Api\PontoTuristicoController@getPontosTuristicos');
     Route::post('quiz', 'Api\QuizController@getQuiz');
+    Route::post('oferta', 'Api\OfertaController@getOferta');
     Route::post('cupom', 'Api\Cupom@getCupom');
 });
 //-------- LOGIN -------

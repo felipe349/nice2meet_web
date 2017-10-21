@@ -12,10 +12,10 @@ use App\Models\PontoTuristico;
 class PontoTuristicoController extends Controller
 {
     public function getPontosTuristicos(Request $request){
-        $lat = $request['lat'] + 1;
-        $long = $request['long'] + 1;
-        $lat2 = $request['lat'] - 1;
-        $long2 = $request['long'] - 1;        
+        $lat = $request['lat'] + 0.1;
+        $long = $request['long'] + 0.1;
+        $lat2 = $request['lat'] - 0.1;
+        $long2 = $request['long'] - 0.1;        
         $ponto = PontoTuristico::where([
                 ['cd_latitude', '<' , $lat],
                 ['cd_latitude', '>', $lat2],
