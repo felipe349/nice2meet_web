@@ -17,7 +17,9 @@ Route::group(['prefix'    =>  'api'], function(){
     Route::post('pontoTuristico', 'Api\PontoTuristicoController@getPontosTuristicos');
     Route::post('quiz', 'Api\QuizController@getQuiz');
     Route::post('oferta', 'Api\OfertaController@getOferta');
-    Route::post('cupom', 'Api\CupomController@getCupom');
+    Route::post('cupom', 'Api\CupomController@generateCupom');
+    Route::post('getCupom', 'Api\CupomController@getCupom');
+    
 });
 //-------- LOGIN -------
 Route::group(['prefix'  =>  '/Parceiro'], function(){
