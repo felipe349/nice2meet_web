@@ -33,7 +33,9 @@ class CupomController extends Controller
     
     public function getCupom(Request $request){
         $cupom = array();
+        $oferta = array();
         $i = 0;
+        $z = 0;
         $idTurista = $request['id_turista'];
         $idOfertaTurista = OfertaTurista::where('id_turista', $idTurista)->get();
         foreach($idOfertaTurista as $idOT){
@@ -53,16 +55,23 @@ class CupomController extends Controller
                 ['id_oferta_turista', $idOT['id_oferta_turista']],
                 ['dt_final_cupom', '>', Carbon::now()]
             ])->first();
+            //Verifica se elemento está null
             if($cupom[$i]){
                 $i++;
+                $oferta[$z] = Oferta::where([
+                    ['id_oferta', $idOT['id_oferta']]
+                ])->first();
+                $z++;
             } 
         }
+
+        //se o ultimo for null substitui
         if($cupom[$i-1]){
-            $cupom[$i-1] = Carbon::now();
-        } else {
             $cupom[$i] = Carbon::now();
+        } else {
+            $cupom[$i-1] = Carbon::now();
         }
         
-        return $cupom;
+        return array($cupom, $oferta);
     }
 }
