@@ -25,7 +25,7 @@ class ParceiroRequest extends Request
     {
         return [
             'nm_parceiro'       =>  'required',
-            'email'             =>  'sometimes|required|email|unique:tb_parceiro,email',
+            'nm_email_parceiro'             =>  'sometimes|required|email|unique:tb_parceiro,email',
             'cd_telefone'       =>  'required',
             'cd_latitude'       =>  'required',
             'cd_longitude'      =>  'required',
