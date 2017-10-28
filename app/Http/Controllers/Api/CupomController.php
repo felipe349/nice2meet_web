@@ -49,7 +49,10 @@ class CupomController extends Controller
             ])->get();
         }
         foreach($idOfertaTurista as $idOT){
-            $cupom[$i] = Cupom::where('id_oferta_turista', $idOT['id_oferta_turista'])->first();
+            $cupom[$i] = Cupom::where([
+                ['id_oferta_turista', $idOT['id_oferta_turista']],
+                ['dt_final_cupom', '>', Carbon::now()]
+            ])->first();
             $i++;
         }
         $cupom[$i] = Carbon::now();
