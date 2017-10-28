@@ -53,9 +53,16 @@ class CupomController extends Controller
                 ['id_oferta_turista', $idOT['id_oferta_turista']],
                 ['dt_final_cupom', '>', Carbon::now()]
             ])->first();
-            $i++;
+            if($cupom[$i]){
+                $i++;
+            } 
         }
-        $cupom[$i] = Carbon::now();
+        if($cupom[$i-1]){
+            $cupom[$i-1] = Carbon::now();
+        } else {
+            $cupom[$i] = Carbon::now();
+        }
+        
         return $cupom;
     }
 }
