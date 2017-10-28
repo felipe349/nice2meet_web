@@ -52,6 +52,7 @@ class CupomController extends Controller
             $cupom[$i] = Cupom::where('id_oferta_turista', $idOT['id_oferta_turista'])->first();
             $i++;
         }
+        $cupom[$i] = Carbon::now();
         return $cupom;
     }
 }
