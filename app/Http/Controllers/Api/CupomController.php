@@ -34,22 +34,28 @@ class CupomController extends Controller
     public function getCupom(Request $request){
         $cupom = array();
         $oferta = array();
+        $idOferta = array();
+        $idOfertaTurista = array();
         $i = 0;
         $z = 0;
         $idTurista = $request['id_turista'];
         $idOfertaTurista = OfertaTurista::where('id_turista', $idTurista)->get();
         foreach($idOfertaTurista as $idOT){
-            $idOferta = Oferta::where([
+            $idOferta[$i] = Oferta::where([
                 ['id_oferta', $idOT['id_oferta']],
                 ['ic_status_oferta', 1]
-            ])->get();
+            ])->first();
+            $i++;
         }
+        $i = 0;
         foreach($idOferta as $o){
-            $idOfertaTurista = OfertaTurista::where([
+            $idOfertaTurista[$i] = OfertaTurista::where([
                 ['id_oferta', $o['id_oferta']],
                 ['id_turista', $idTurista]
-            ])->get();
+            ])->first();
+            $i++;
         }
+        $i = 0;
         foreach($idOfertaTurista as $idOT){
             $cupom[$i] = Cupom::where([
                 ['id_oferta_turista', $idOT['id_oferta_turista']],
