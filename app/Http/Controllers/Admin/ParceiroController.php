@@ -20,7 +20,7 @@ class ParceiroController extends Controller
         return view('admin.cadastrarParceiro');
     }
     
-    public function store(ParceiroRequest $request)
+    public function store(Request $request)
     {
         if (!Parceiro::criarParceiro($request->except(['_method', '_token']))) {
             return redirect()->back()->withInput($request->all())->withMensagem([

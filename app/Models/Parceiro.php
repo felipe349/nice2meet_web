@@ -7,10 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Parceiro extends Authenticatable
 {
+    public $timestamps = false;
     protected $table = 'tb_parceiro';
     protected $primaryKey = 'id_parceiro';
     protected $fillable = [
-        'id_parceiro', 'nm_parceiro', 'nm_email_parceiro', 'password', 'cd_telefone', 'cd_latitude', 'cd_longitude', 'nm_endereco'
+        'id_parceiro', 'nm_parceiro', 'email', 'password', 'cd_telefone', 'cd_latitude', 'cd_longitude', 'nm_endereco'
     ];
     
     public function ofertas()
@@ -46,6 +47,7 @@ class Parceiro extends Authenticatable
     public static function criarParceiro($dados)
     {
         $dados['cd_telefone']   =   preg_replace("/[^0-9]/", "", $dados['cd_telefone']);
+        $dados['password'] = bcrypt(str_random(8));
         return self::create($dados);
     }
 }
