@@ -15,6 +15,7 @@ use App\Models\Oferta;
 class OfertaController extends Controller
 {
     public function getOferta(Request $request){
+         $i = 0;
          $latitude = $request['lat'];
          $longitude = $request['long'];
         // $r_earth = 6678;
@@ -45,12 +46,15 @@ class OfertaController extends Controller
             ['cd_latitude', '>', $lat2],
             ['cd_longitude', '<', $long],
             ['cd_longitude', '>', $long2]
-        ])->first();
-        $parceiro = $parceiro['id_parceiro'];
-        $oferta = Oferta::where([
-            ['id_parceiro', $parceiro],
-            ['ic_status_oferta', 1]
         ])->get();
+        foreach($parceiro as $p){
+            $p = $p['id_parceiro'];
+            $oferta[$i] = Oferta::where([
+                ['id_parceiro', $p],
+                ['ic_status_oferta', 1]
+            ])->get();
+            $i++;
+        }
         return $oferta;
 
     }
