@@ -31,9 +31,9 @@ class OfertaController extends Controller
             ]);
         }
         
-        if (!empty($request->input('ic_status_oferta'))) {
-            \App\Models\Oferta::where('ic_status_oferta', 1)->where('id_oferta', '!=', $oferta->id_oferta)->update(['ic_status_oferta' => 0]);
-        }
+        // if (!empty($request->input('ic_status_oferta'))) {
+        //     \App\Models\Oferta::where('ic_status_oferta', 1)->where('id_oferta', '!=', $oferta->id_oferta)->update(['ic_status_oferta' => 0]);
+        // }
         return redirect()->back()->withMensagem([
             'text'      =>  'Oferta cadastrada com sucesso.',
             'class'     =>  'success'
