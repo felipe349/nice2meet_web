@@ -93,7 +93,7 @@ class CupomController extends Controller
                 ['id_turista', $idTurista]
             ])->count();
             if($idOfertaTurista > 0){
-                return false;
+                return 1;
             }
             $idOfertaTurista = OfertaTurista::create($request->except(['flag']))->id_oferta_turista;
             return $idOfertaTurista;
