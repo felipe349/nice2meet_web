@@ -94,6 +94,8 @@ class TuristaController extends Controller
             $turista->dt_nascimento = $dtNasc;
         }
         
+        $turista->save();
+        
         return 1;
     }
 }
