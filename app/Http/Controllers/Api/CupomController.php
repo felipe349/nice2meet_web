@@ -18,17 +18,19 @@ class CupomController extends Controller
     public function generateCupom(Request $request){
         $idTurista = $request['id_turista'];
         $idOferta  = $request['id_oferta'];
-        $idOfertaTurista = OfertaTurista::create($request->all())->id_oferta_turista;
-        Cupom::insert([
-            'id_oferta_turista' => $idOfertaTurista,
-            'dt_inicial_cupom' => Carbon::now(),
-            'dt_final_cupom' => Carbon::now()->addDays(1),
-            'cd_cupom' => str_random(6),
-            'ic_validado' => 0,
-            'ic_status' => 1
-        ]);
-        $cupom = Cupom::where('id_oferta_turista', $idOfertaTurista)->first();
-        return $cupom;
+        $idOfertaTurista = OfertaTurista::create($request->except(['flag']))->id_oferta_turista;
+        if($request['cupom'] = 1){
+            Cupom::insert([
+                'id_oferta_turista' => $idOfertaTurista,
+                'dt_inicial_cupom' => Carbon::now(),
+                'dt_final_cupom' => Carbon::now()->addDays(1),
+                'cd_cupom' => str_random(6),
+                'ic_validado' => 0,
+                'ic_status' => 1
+            ]);
+            $cupom = Cupom::where('id_oferta_turista', $idOfertaTurista)->first();
+            return $cupom;
+        }
     }
     
     public function getCupom(Request $request){
@@ -79,5 +81,33 @@ class CupomController extends Controller
         }
         
         return array($cupom, $oferta);
+    }
+    
+    public function handleCupom(Request $request){
+        $flag = $request['flag'];
+        $idTurista = $request['id_turista'];
+        $idOferta = $request['id_oferta'];
+        if($flag == 0){
+            $idOfertaTurista = OfertaTurista::where([
+                ['id_oferta', $idOferta],
+                ['id_turista', $idTurista]
+            ])->count();
+            if($idOfertaTurista > 0){
+                return false;
+            }
+            $idOfertaTurista = OfertaTurista::create($request->except(['flag']))->id_oferta_turista;
+            return $idOfertaTurista;
+        } elseif ($flag != 0){
+            Cupom::insert([
+                'id_oferta_turista' => $flag,
+                'dt_inicial_cupom' => Carbon::now(),
+                'dt_final_cupom' => Carbon::now()->addDays(1),
+                'cd_cupom' => str_random(6),
+                'ic_validado' => 0,
+                'ic_status' => 1
+            ]);
+            $cupom = Cupom::where('id_oferta_turista', $idOfertaTurista)->first();
+            return $cupom;
+        }
     }
 }
