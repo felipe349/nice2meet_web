@@ -80,4 +80,20 @@ class TuristaController extends Controller
         //     'expires_in' => JWTAuth::decode()->get('exp')
         // ]);
     }
+    
+    public function edit(Request $request){
+        $nome = $request['nome'];
+        $dtNasc = $request['nascimento'];
+        
+        $turista = Turista::find($request['id_turista']);
+        
+        if($nome != ""){
+            $turista->nm_turista = $nome;
+        }
+        if($dtNasc != ""){
+            $turista->dt_nascimento = $dtNasc;
+        }
+        
+        return 1;
+    }
 }
