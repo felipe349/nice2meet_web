@@ -106,7 +106,7 @@ class CupomController extends Controller
                 'ic_validado' => 0,
                 'ic_status' => 1
             ]);
-            $cupom = Cupom::where('id_oferta_turista', $idOfertaTurista)->first();
+            $cupom = Cupom::where('id_oferta_turista', $request['flag'])->first();
             return $cupom;
         }
     }
