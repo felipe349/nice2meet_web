@@ -40,8 +40,7 @@
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Email</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Email"></p>
-                <input class="input col-12" maxlength="150" type="email" name="email" data-validate="empty" data-name="Email" required maxlength='100' value="{{ old('email', '') }}" required pattern="/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/"
-    required/>
+                <input class="input col-12" maxlength="150" type="email" name="email" data-validate="empty" data-name="Email" required maxlength='100' value="{{ old('email', '') }}"/>
               </div>
               <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Telefone</span>
