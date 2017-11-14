@@ -60,7 +60,8 @@ class CupomController extends Controller
         foreach($idOfertaTurista as $idOT){
             $cupom[$i] = Cupom::where([
                 ['id_oferta_turista', $idOT['id_oferta_turista']],
-                ['dt_final_cupom', '>', Carbon::now()]
+                ['dt_final_cupom', '>', Carbon::now()],
+                ['ic_status', 1]
             ])->first();
             //Verifica se elemento está null
             if($cupom[$i]){
