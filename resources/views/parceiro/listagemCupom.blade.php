@@ -31,43 +31,36 @@
               <!--</form>-->
             </div>
             <p class="bg-info col-12 color-white pd-10 font-smaller">
-              <strong>{{ $cupons->count() }}</strong> registro(s) encontrado(s)
+              <strong>{{ count($cupons) }}</strong> registro(s) encontrado(s)
             </p>
-            @if (!$cupons->isEmpty())
+            @if (!empty($cupons))
               <!-- TABLE LISTAGEM -->
               <table class="table table-striped col-12 responsive-table--lg">
                 <thead class="thead">
                   <tr class="tr bg-white">
-                    <th class="th light pd-10">Cupom</th>
-                    <th class="th light pd-10">Turista</th>
-                    <th class="th light pd-10">Email Turista</th>
-                    <th class="th light pd-10">Data de criação</th>
-                    
+                    <th class="th light pd-10">Código</th>
+                    <th class="th light pd-10">Validado</th>
+                    <th class="th light pd-10">Status</th>
                   </tr>
                 </thead>
                 <tbody class="tbody">
                   @foreach($cupons as $cupom)
-                    <tr class="tr">
-                    <td class="td pd-10" data-th="Cupom">
-                      <p class="col">
-                         {{ $cupom->cd_cupom }}
-                      </p>
-                    </td>
-                    <td class="td pd-10" data-th="Turista">
-                      <p class="col">
-                        {{ $cupom->pontuacao->turista->nm_turista }}
-                      </p>
-                    </td>
-                    <td class="td pd-10" data-th="Email Turista">
-                      <p class="col">
-                        <a class='link--black' style='color: black' href="mailto:{{ $cupom->pontuacao->turista->email }}">{{ $cupom->pontuacao->turista->email }}</a>
-                      </p>
-                    </td>
-                    <td class="td pd-10" data-th="Data">
-                      <p class="col">
-                        {{ $cupom->dt_maximo_cupom }}
-                      </p>
-                    </td>
+                  <tr class="tr">
+                      <td class="td pd-10" data-th="Cupom">
+                        <p class="col">
+                           {{ $cupom['cd_cupom']}}
+                        </p>
+                      </td>
+                      <td class="td pd-10" data-th="Data">
+                        <p class="col">
+                          {{ $cupom['ic_validado'] }}
+                        </p>
+                      </td>
+                      <td class="td pd-10" data-th="Data">
+                        <p class="col">
+                          {{ $cupom['ic_status'] }}
+                        </p>
+                      </td>
                   </tr>
                   @endforeach
                 </tbody>
@@ -76,7 +69,6 @@
             @else
               <span class="alert--info">Você ainda não validou nenhum cupom.</span>
             @endif
-            
             <div class="flex-grid halign-center mg-10--top mg-20--bottom">
               <!-- PAGINATION -->
             </div>

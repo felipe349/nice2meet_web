@@ -60,7 +60,6 @@ class ParceiroController extends Controller
     public function index()
     {
         $parceiros = Parceiro::getParceiros(10);
-        
         return view('admin.listarParceiro')->with([
             'parceiros' => $parceiros
         ]);

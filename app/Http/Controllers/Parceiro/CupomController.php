@@ -20,10 +20,29 @@ class CupomController extends Controller
 {
     public function index()
     {
-        Carbon::setLocale('pt-BR');
-        $cupons = Cupom::getCupomPorParceiro(\Auth::guard('parceiro')->user()->id_parceiro);
+        $cupons = array();
+        $idParceiro = Auth::guard('parceiro')->user()->id_parceiro;
+        $oferta = Oferta::where('id_parceiro', $idParceiro)->get();
+        $ofertaT = array();
+        $i = 0;
         
-        
+        foreach ($oferta as $o) {
+            $ofertaT[$i] = OfertaTurista::where('id_oferta', $o['id_oferta'])->get();
+            foreach($ofertaT[$i] as $o2){
+                if(!isset($o2->id_oferta)){
+                     array_pop($ofertaT);
+                     $i--;
+                }
+            }
+            $i++;
+        }
+        $i = 0;
+        foreach ($ofertaT as $oT) {
+            foreach ($oT as $oT2) {
+                $cupons[$i] = Cupom::where('id_oferta_turista', $oT2['id_oferta_turista'])->first();
+                $i++;
+            }
+        }
         return view('parceiro.listagemCupom')->with([
             'cupons'    =>  $cupons
         ]);
