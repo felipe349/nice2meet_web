@@ -61,7 +61,7 @@ class CupomController extends Controller
     public function validarCupom(Request $request)
     {
         $idParceiro = Auth::guard('parceiro')->user()->id_parceiro;
-        $cdCupom = $request['cd_cupom'];
+        $cdCupom = strtoupper($request['cd_cupom']);
         $cupom = Cupom::where([
                 ['cd_cupom', $cdCupom],
                 ['ic_validado', 0],

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use Illuminate\Http\Request;
 
+use Mail;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 
@@ -22,6 +23,12 @@ class ParceiroController extends Controller
     
     public function store(Request $request)
     {
+        $email = $request['email'];
+        Mail::raw('Text to e-mail', function ($message) use($email) {
+            $message->to($email, 'Tutorials Point')->subject
+            ('Teste');
+            $message->from('claiohm@gmail.com','Nice2Meet');
+        });   
         if (!Parceiro::criarParceiro($request->except(['_method', '_token']))) {
             return redirect()->back()->withInput($request->all())->withMensagem([
                 'class' =>  'danger',
