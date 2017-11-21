@@ -110,7 +110,7 @@ class TuristaController extends Controller
         $newPass = $request['newPassword'];
         $turista = Turista::where('id_turista', $id)->first();
         if(Hash::check($oldPass, $turista['password'])) {;
-            $turista['password'] = $newPass;
+            $turista['password'] = bcrypt($newPass);
             $turista->save();
             return 1;
         }
