@@ -103,4 +103,17 @@ class TuristaController extends Controller
         $id = $request['id_turista'];
         Turista::where('id_turista', $id)->update(['ic_tutorial' => 1]);
     }
+    
+    public function changePassword(Request $request){
+        $id = $request['id_turista'];
+        $oldPass = $request['password'];
+        $newPass = $request['newPassword'];
+        $turista = Turista::where('id_turista', $id)->first();
+        if(Hash::check($oldPass, $turista['password'])) {;
+            $turista['password'] = $newPass;
+            $turista->save();
+            return 1;
+        }
+        return 0;
+    }
 }
