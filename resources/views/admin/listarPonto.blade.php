@@ -33,7 +33,6 @@
                     <th class="th light pd-10">Nome do ponto turístico</th>
                     <th class="th light pd-10">Descrição</th>
                     <th class="th light pd-10">Localização</th>
-                    <th class="th light pd-10">Status</th>
                     <th class="th light pd-10">Ações</th>
                   </tr>
                 </thead>
@@ -55,16 +54,7 @@
                         {{ $ponto->nm_endereco_ponto_turistico }}
                       </p>
                     </td>
-                    <td class="td pd-10" data-th="Status">
-                      <p class="col">
-                        <div class="flex-grid checkbox-switch--success mg-10--bottom mg-10--top">
-                          <div class="flex-grid valign-middle checkbox-switch__box col-0">
-                            <input id="active-candidatos" class="checkbox-switch__input" name="ic_status_ponto_turistico" type="checkbox" @if ($ponto->ic_status_ponto_turistico) checked @endif />
-                            <label for="active-candidatos" class="checkbox-switch__label"></label>
-                          </div>
-                        </div>
-                      </p>
-                    </td>
+
                     <td class="td pd-10" data-th="Ações">
                       <div class="flex-grid col-0 valign-middle">
                         <a href="/Admin/PontoTuristico/{{ $ponto->id_ponto_turistico }}" class="btn--success btn-small btn-noborder btn-nomargin font-small col-0 relative">
