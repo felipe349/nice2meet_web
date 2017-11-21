@@ -35,7 +35,7 @@ class Oferta extends Model
     public static function mudarStatusOferta(Oferta $oferta, $ic_status_oferta)
     {
         if (strtolower($ic_status_oferta) == 'true'){
-            self::where('id_parceiro', $oferta->id_parceiro)->update(['ic_status_oferta'  =>  0]);
+            //self::where('id_parceiro', $oferta->id_parceiro)->update(['ic_status_oferta'  =>  0]);
             $oferta->ic_status_oferta    =   1;
         } else {
             $oferta->ic_status_oferta    =   0;
