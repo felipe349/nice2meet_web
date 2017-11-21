@@ -86,8 +86,8 @@ class CupomController extends Controller
     public function handleCupom(Request $request){
         $flag = $request['flag'];
         $idTurista = $request['id_turista'];
-        $idOferta = $request['id_oferta'];
         if($flag == 0){
+            $idOferta = $request['id_oferta'];
             $idOfertaTurista = OfertaTurista::where([
                 ['id_oferta', $idOferta],
                 ['id_turista', $idTurista]
@@ -97,7 +97,19 @@ class CupomController extends Controller
             }
             $idOfertaTurista = OfertaTurista::create($request->except(['flag']))->id_oferta_turista;
             return $idOfertaTurista;
-        } elseif ($flag != 0){
+        } elseif($flag == 1){
+            $i = 0;
+            $idOferta = $request['id_oferta'];
+            foreach($idOferta as $o){
+                if($idOfertaTurista = OfertaTurista::where([['id_oferta', $idOferta],['id_turista', $idTurista]])->exists()){
+                    $idOferta[$i] = 1;
+                } else {
+                    $idOferta[$i] = 0;
+                }
+                $i++;
+            }
+            return $idOfertaTurista;
+        } elseif ($flag > 2){
             Cupom::insert([
                 'id_oferta_turista' => $flag,
                 'dt_final_cupom' => Carbon::now()->addDays(1),
