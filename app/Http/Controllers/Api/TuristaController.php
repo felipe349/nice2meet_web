@@ -98,4 +98,9 @@ class TuristaController extends Controller
         
         return 1;
     }
+    
+    public function tutorial(Request $request){
+        $id = $request['id_turista'];
+        Turista::where('id_turista', $id)->update(['ic_tutorial' => 1]);
+    }
 }

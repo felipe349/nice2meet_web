@@ -15,6 +15,7 @@ Route::group(['prefix'    =>  'api'], function(){
     Route::post('auth/login', 'Api\TuristaController@authenticate');
     Route::post('cadastroTurista', 'Api\TuristaController@store');
     Route::post('editarTurista', 'Api\TuristaController@edit');
+    Route::post('setTutorial', 'Api\TuristaController@tutorial');
     Route::post('pontoTuristico', 'Api\PontoTuristicoController@getPontosTuristicos');
     Route::post('quiz', 'Api\QuizController@getQuiz');
     Route::post('oferta', 'Api\OfertaController@getOferta');
