@@ -18,7 +18,7 @@ class QuizController extends Controller
         $alternativas = [];
         $i = 1;
         $idPonto = $request['id_ponto_turistico'];
-        $quiz = Quiz::where('id_ponto_turistico', $idPonto)->first();
+        $quiz = Quiz::where('id_ponto_turistico', $idPonto)->inRandomOrder()->first();
         $questaoQuiz = QuestaoQuiz::where('id_quiz', $quiz['id_quiz'])->first();
         $questao = Questao::where('id_questao', $questaoQuiz['id_questao'])->first();
         $alternativas[0] = $questao['nm_questao'];
@@ -30,11 +30,6 @@ class QuizController extends Controller
             }
             $i++;
         }
-        
-        //$alternativas[7] = 
         return $alternativas;
-        
-        
-        
     }
 }

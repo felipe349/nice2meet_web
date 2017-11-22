@@ -50,20 +50,20 @@
               <div class="flex-grid--wrap col-12 checkbox-switch--success">
                 <span class="font-small bold mg-10--bottom col-12">Respostas</span>
                 
-                <input class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa A" data-validate="empty"  data-name="Resposta" maxlength="100" />
-                &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="1" class="radio" style="margin-top:8px;margin-left:10px"/>
+                <input class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa A" data-validate="empty"  data-name="Resposta" maxlength="100" required />
+                &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="1" class="radio" style="margin-top:8px;margin-left:10px" required/>
                 
-                <input class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa B" data-validate="empty"  data-name="Resposta" maxlength="100" />
-                &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="2" class="radio" style="margin-top:8px;margin-left:10px"/>
+                <input class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa B" data-validate="empty"  data-name="Resposta" maxlength="100" required />
+                &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="2" class="radio" style="margin-top:8px;margin-left:10px" required/>
                 
-                <input class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa C" data-validate="empty"  data-name="Resposta" maxlength="100" />
-                &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="3" class="radio" style="margin-top:8px;margin-left:10px"/>
+                <input class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa C" data-validate="empty"  data-name="Resposta" maxlength="100" required/>
+                &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="3" class="radio" style="margin-top:8px;margin-left:10px" required/>
                 
-                <input class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa D" data-validate="empty"  data-name="Resposta" maxlength="100" />
-                &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="4" class="radio" style="margin-top:8px;margin-left:10px"/>
+                <input class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa D" data-validate="empty"  data-name="Resposta" maxlength="100" required/>
+                &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="4" class="radio" style="margin-top:8px;margin-left:10px" required/>
                 
-                <input class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa E" data-validate="empty"  data-name="Resposta" maxlength="100" />
-                &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="5" class="radio" style="margin-top:8px;margin-left:10px"/>
+                <input class="input col-9" type="text" name="ds_resposta_questao[]" placeholder="Alternativa E" data-validate="empty"  data-name="Resposta" maxlength="100" required/>
+                &nbspCORRETA <input type="radio" name="ic_resposta_correta[]" value="5" class="radio" style="margin-top:8px;margin-left:10px" required/>
               </div>
               
               <div class="flex-grid col-12">
