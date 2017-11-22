@@ -13,6 +13,9 @@ use Auth;
 class LoginController extends Controller
 {
     public function getLogin(){
+        if(Auth::guard('admin')->user()){
+            return redirect('Admin');
+        }
         return view('admin.login');
     }
     

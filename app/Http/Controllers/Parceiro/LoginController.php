@@ -13,6 +13,9 @@ class LoginController extends Controller
 {
     public function getLogin()
     {
+        if(Auth::guard('parceiro')->user()){
+            return redirect('Parceiro');
+        }
         return view('parceiro.login');
     }
     
