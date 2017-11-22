@@ -24,7 +24,7 @@ class ParceiroController extends Controller
     public function store(Request $request)
     {
         $email = $request['email'];
-        Mail::raw('Text to e-mail', function ($message) use($email) {
+        Mail::raw('Text to e-mail', function ($message) use ($email) {
             $message->to($email, 'Tutorials Point')->subject
             ('Teste');
             $message->from('claiohm@gmail.com','Nice2Meet');

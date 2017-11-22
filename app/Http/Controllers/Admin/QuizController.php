@@ -55,15 +55,30 @@ class QuizController extends Controller
         ]);
     }
     
-    public function update(CadastroQuiz $request, Quiz $quiz)
+    public function update(Request $request, Quiz $quiz)
     {
-        dd($request->all());
+        $i = 0;
+        $questao = QuestaoQuiz::where('id_quiz', $quiz->id_quiz)->first();
+        $questao = Questao::where('id_questao', $questao->id_questao)->first();
+        $questao->nm_questao = $request->nm_questao;
+        $questao->save();
         
-        $quiz->questaoQuiz->Questao->nm_questao->update(['nm_questao' => $request->only('nm_questao')]);
+        $resposta = RespostaQuestao::where('id_questao', $questao->id_questao)->get();
+        foreach($resposta as $r){
+            $r->ds_resposta_questao = $request->ds_resposta_questao[$i];
+            if($request->ic_resposta_correta[0]-1 == $i){
+                $r->ic_resposta_correta = 1;
+            } else {
+                $r->ic_resposta_correta = 0;
+            }
+            $r->save();
+            $i++;
+        }
         
-        // $this->questaoQuiz->Questao->RespostaQuestao
-        
-        // RespostaQuestao::adicionarRespostaQuestao($request->only(['ds_resposta_questao', 'ic_resposta_correta']), $questao);
+        return redirect()->back()->withMensagem([
+                'text'      =>  'Salvo com sucesso',
+                'class'     =>  'success'
+            ]);
     }
     
     public function destroy(Quiz $quiz)

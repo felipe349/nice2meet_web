@@ -12,7 +12,7 @@
             @include('admin.includes.breadcrumb')
             
            <!-- TITLE PAGE -->
-            <h1 class="col light font-30 main-title is-sm">Cadastrar Quiz</h1>
+            <h1 class="col light font-30 main-title is-sm">Editar Quiz</h1>
             <p class="col-12 main-message">Os dados com (*) são obrigatórios.</p>
           </div>
           <!-- /TOP -->
@@ -35,15 +35,6 @@
               {{ method_field('PUT') }}
               {{ csrf_field() }}
               <div class="flex-grid--wrap col-12">
-                <span class="font-small bold mg-10--bottom">Nome do ponto turístico</span>
-                <p class="font-small col-12 color-danger hidden" data-message="Nome do ponto turístico"></p> 
-                <select name="id_ponto_turistico" class="input col-12">
-                  @foreach($ponto as $p)
-                    <option value="{{ $p->id_ponto_turistico }}">{{ $p->nm_ponto_turistico }}</option>
-                  @endforeach
-                </select> 
-              </div>
-              <div class="flex-grid--wrap col-12">
                 <span class="font-small bold mg-10--bottom">Pergunta</span>
                 <p class="font-small col-12 color-danger hidden" data-message="Pergunta"></p> 
                 <input class="input col-12" type="text" name="nm_questao" placeholder="Por exemplo: Em que ano a Torre Eiffel foi inaugurada?" data-validate="empty"  data-name="Pergunta" maxlength="150" value="{{ $quiz->questaoQuiz->questao->nm_questao }}" /> 
@@ -60,7 +51,7 @@
               <div class="flex-grid col-12">
                 <button type="submit" class="col-0 btn--second btn-nomargin is-sm mg-10--top">
                   <i class="fa fa-upload fa-left"></i>
-                  Cadastrar
+                  Salvar
                 </button>
               </div>
             </form>
