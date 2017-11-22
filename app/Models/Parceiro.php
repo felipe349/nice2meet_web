@@ -47,7 +47,6 @@ class Parceiro extends Authenticatable
     public static function criarParceiro($dados)
     {
         $dados['cd_telefone']   =   preg_replace("/[^0-9]/", "", $dados['cd_telefone']);
-        $dados['password'] = bcrypt(strtoupper(str_random(8)));
         return self::create($dados);
     }
 }

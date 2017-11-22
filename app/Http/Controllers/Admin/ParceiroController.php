@@ -24,9 +24,13 @@ class ParceiroController extends Controller
     public function store(Request $request)
     {
         $email = $request['email'];
-        Mail::raw('Text to e-mail', function ($message) use ($email) {
+        $request['password'] = strtoupper(str_random(8));
+        $password = $request['password'];
+        bcrypt($request['password']);
+        
+        Mail::raw('Text to e-mail', function ($message) use ($email, $password) {
             $message->to($email, 'Tutorials Point')->subject
-            ('Teste');
+            ('Sua nova senha é : ' $password );
             $message->from('claiohm@gmail.com','Nice2Meet');
         });   
         if (!Parceiro::criarParceiro($request->except(['_method', '_token']))) {
