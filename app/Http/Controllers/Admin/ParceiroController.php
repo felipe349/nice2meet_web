@@ -30,7 +30,7 @@ class ParceiroController extends Controller
         
         Mail::raw('Text to e-mail', function ($message) use ($email, $password) {
             $message->to($email, 'Tutorials Point')->subject
-            ('Sua nova senha é : ' $password );
+            ('Sua nova senha é : ' . $password );
             $message->from('claiohm@gmail.com','Nice2Meet');
         });   
         if (!Parceiro::criarParceiro($request->except(['_method', '_token']))) {
