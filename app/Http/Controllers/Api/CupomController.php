@@ -101,14 +101,15 @@ class CupomController extends Controller
             $i = 0;
             $idOferta = $request['id_oferta'];
             foreach($idOferta as $o){
-                if($idOfertaTurista = OfertaTurista::where([['id_oferta', $idOferta],['id_turista', $idTurista]])->exists()){
+                $idOfertaTurista = OfertaTurista::where([['id_oferta', $o],['id_turista', $idTurista]])->exists();
+                if($idOfertaTurista){
                     $idOferta[$i] = 1;
                 } else {
                     $idOferta[$i] = 0;
                 }
                 $i++;
             }
-            return $idOfertaTurista;
+            return $idOferta;
         } elseif ($flag > 2){
             Cupom::insert([
                 'id_oferta_turista' => $flag,
