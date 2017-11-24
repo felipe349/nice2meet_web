@@ -40,7 +40,6 @@ class Turista extends Authenticatable
             'nm_turista'       =>  $dados['nm_turista'],
             'nm_email_turista' =>  $dados['email'],
             'dt_nascimento'    =>  $dados['dt_nascimento'],
-            'img'              =>  $dados['img'],
             'password'         =>  bcrypt($dados['password']),
         ]);
         
