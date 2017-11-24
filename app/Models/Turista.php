@@ -11,7 +11,7 @@ class Turista extends Authenticatable
     protected $table = 'tb_turista';
     protected $primaryKey = 'id_turista';
     protected $fillable = [
-        'nm_turista', 'nm_email_turista', 'password',  'dt_registro', 'dt_nascimento', 'ic_tutorial'
+        'nm_turista', 'nm_email_turista', 'password',  'dt_registro', 'dt_nascimento', 'img', 'ic_tutorial'
     ];
     protected $hidden = ['password'];
     // Defina suas datas aqui para ver a magia acontecer
