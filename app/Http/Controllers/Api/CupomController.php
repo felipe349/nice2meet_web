@@ -88,13 +88,7 @@ class CupomController extends Controller
         $idTurista = $request['id_turista'];
         if($flag == 0){
             $idOferta = $request['id_oferta'];
-            $idOfertaTurista = OfertaTurista::where([
-                ['id_oferta', $idOferta],
-                ['id_turista', $idTurista]
-            ])->count();
-            if($idOfertaTurista > 0){
-                return 1;
-            }
+
             $idOfertaTurista = OfertaTurista::create($request->except(['flag']))->id_oferta_turista;
             return $idOfertaTurista;
         } elseif($flag == 1){
