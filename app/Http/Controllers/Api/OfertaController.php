@@ -9,6 +9,7 @@ use App\Http\Controllers\Controller;
 
 use App\Models\Parceiro;
 use App\Models\PontoTuristico;
+use App\Models\OfertaTurista;
 use App\Models\Oferta;
 
 
@@ -16,6 +17,7 @@ class OfertaController extends Controller
 {
     public function getOferta(Request $request){
          $i = 0;
+         $idTurista = $request['id_turista'];
          $latitude = $request['lat'];
          $longitude = $request['long'];
         // $r_earth = 6678;
@@ -53,9 +55,19 @@ class OfertaController extends Controller
                 ['id_parceiro', $p],
                 ['ic_status_oferta', 1]
             ])->get();
+            $z = 0;
+            foreach($oferta[$i] as $o){
+                $idOfertaTurista = OfertaTurista::where([['id_oferta', $o['id_oferta']],['id_turista', $idTurista]])->exists();
+                if($idOfertaTurista){
+                    $o['flag'] = 1;
+                } else {
+                    $o['flag'] = 0;
+                }
+                $z++;
+            }
+            //return $idOferta;
             $i++;
         }
         return $oferta;
-
     }
 }
