@@ -84,6 +84,7 @@ class TuristaController extends Controller
     public function edit(Request $request){
         $nome = $request['nome'];
         $dtNasc = $request['nascimento'];
+        $img = $request['img'];
         
         $turista = Turista::find($request['id_turista']);
         
@@ -92,6 +93,9 @@ class TuristaController extends Controller
         }
         if($dtNasc != ""){
             $turista->dt_nascimento = $dtNasc;
+        }
+        if($img != ""){
+            $turista->img = $img;
         }
         
         $turista->save();
