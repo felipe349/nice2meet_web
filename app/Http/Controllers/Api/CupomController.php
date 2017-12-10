@@ -12,6 +12,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Oferta;
 use App\Models\OfertaTurista;
 use App\Models\Cupom;
+use App\Models\Parceiro;
 
 class CupomController extends Controller
 {
@@ -19,11 +20,11 @@ class CupomController extends Controller
         $idTurista = $request['id_turista'];
         $idOferta  = $request['id_oferta'];
         $idOfertaTurista = OfertaTurista::create($request->except(['flag']))->id_oferta_turista;
-        if($request['cupom'] = 1){
+        if($request['cupom'] == 1){
             Cupom::insert([
                 'id_oferta_turista' => $idOfertaTurista,
                 'dt_final_cupom' => Carbon::now()->addDays(1),
-                'cd_cupom' => str_random(6),
+                'cd_cupom' => strtoupper(str_random(6)),
                 'ic_validado' => 0,
                 'ic_status' => 1
             ]);
@@ -31,10 +32,11 @@ class CupomController extends Controller
             return $cupom;
         }
     }
-    
+
     public function getCupom(Request $request){
         $cupom = array();
         $oferta = array();
+        $parceiro = array();
         $idOferta = array();
         $idOfertaTurista = array();
         $i = 0;
@@ -69,8 +71,11 @@ class CupomController extends Controller
                 $oferta[$z] = Oferta::where([
                     ['id_oferta', $idOT['id_oferta']]
                 ])->first();
+                $turista[$z] = Parceiro::where([
+                    ['id_parceiro', $oferta[$z]->id_parceiro]
+                ])->first(['nm_parceiro', 'nm_endereco']);
                 $z++;
-            } 
+            }
         }
 
         //se o ultimo for null substitui
@@ -79,10 +84,10 @@ class CupomController extends Controller
         } else {
             $cupom[$i-1] = Carbon::now();
         }
-        
-        return array($cupom, $oferta);
+
+        return array($cupom, $oferta, $turista);
     }
-    
+
     public function handleCupom(Request $request){
         $flag = $request['flag'];
         $idTurista = $request['id_turista'];
@@ -108,7 +113,7 @@ class CupomController extends Controller
             Cupom::insert([
                 'id_oferta_turista' => $flag,
                 'dt_final_cupom' => Carbon::now()->addDays(1),
-                'cd_cupom' => str_random(6),
+                'cd_cupom' => strtoupper(str_random(6)),
                 'ic_validado' => 0,
                 'ic_status' => 1
             ]);
