@@ -7,7 +7,7 @@
         <section class="main__content home flex-grid--wrap col calign-top container-logins-index">
           <div class="col-12">
             <!-- BOX WITH 2 -->
-            <div>Bem vindo a  ferramenta Nice2meet de gerenciamento geral para os administradores e parceiros.</div>
+            
             <div  class="flex-grid--wrap">
               <!-- BOX INFO -->
               <div class="container-login col-6 col-is-sm-12 mg-20--top">
